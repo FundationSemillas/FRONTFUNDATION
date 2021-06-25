@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AlbumService } from './../../services/album.service';
 import { environment } from "../../../environments/environment";
-const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-galeria',
@@ -11,6 +10,7 @@ const  directorioImagenes: any = environment.baseUrl+'/storage/';
 })
 export class GaleriaComponent implements OnInit {
   selectedAlbum: any;
+  directorioImagenes: any
 
   // years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
 
@@ -19,6 +19,7 @@ export class GaleriaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.directorioImagenes = environment.baseUrl+'/storage/';
     this.getAlbums();
   }
 
