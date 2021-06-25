@@ -1,0 +1,102 @@
+
+
+.invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  .imagen{
+width: 100px;
+height: 66px;
+  }
+
+  .centro{
+text-align: center;
+align-items: center;
+  }
+
+  @import '~primeicons/primeicons.css';
+  @import '~primeng/resources/themes/rhea/theme.css';
+  @import '~primeng/resources/primeng.min.css';
+  
+  :host ::ng-deep .ui-table-albumnes {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  
+  /* Responsive */
+  @media screen and (max-width: 64em) {
+    :host ::ng-deep .ui-table {
+        &.ui-table-customers {
+            .ui-table-thead > tr > th,
+            .ui-table-tfoot > tr > td {
+                display: none !important;
+            }
+  
+            .ui-table-tbody > tr > td {
+                text-align: center;
+                display: block;
+                border:  none !important;
+                width: 100% !important;
+                float: left;
+                clear: left;
+                border: 0 none;
+  
+                .ui-column-title {
+                    padding: .4em;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+  }
+  }
+  
+  .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .full-width {
+      width: 100%;
+    }
+
+
+  :host ::ng-deep .p-dialog .p-dialog-header {
+    border: 1px solid #c8c8c8;
+    background-color: #f4f4f4;
+      color: #333333;
+      padding: 1em;
+      font-weight: 700;
+      border-bottom: 0 none;
+}
+
+
+:host ::ng-deep .p-dialog .p-dialog-footer {
+  border: 1px solid #c8c8c8;
+  background-color: #f4f4f4;
+  color: #333333;
+  padding: 0.571em 1em;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  border-top: 0 none;
+}
+
+:host ::ng-deep  .p-dialog .p-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #c8c8c8;
+  padding: 0.571em 1em;
+  border: 0;
+}
+
+:host ::ng-deep body .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #c8c8c8;
+  padding: 0.571em 1em;
+}

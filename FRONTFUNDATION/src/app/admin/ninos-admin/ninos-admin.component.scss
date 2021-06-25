@@ -1,0 +1,42 @@
+.form-control:focus {
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: none;
+    outline: 0 !important;
+}
+mat-option{
+    z-index: 1 !important;
+    position: auto !important;
+}
+form{
+    z-index: 2 !important;
+}
+
+mat-form-field {
+    position: relative;
+    width: 300px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  @media screen and (max-width: 992px) {
+    mat-form-field {
+        position: relative;
+        width: 180px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    mat-form-field {
+        position: relative;
+        width: 350px;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    mat-form-field {
+        position: relative;
+        width: 250px;
+    }
+  }

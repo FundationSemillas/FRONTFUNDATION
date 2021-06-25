@@ -1,0 +1,49 @@
+<section class="page-section bg"
+    style="padding:5rem; background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);">
+    <div class="container">
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">GALERÍA</h2>
+                <hr class="divider light my-4" />
+                <!-- <p class="text-white-50 mb-10">Revisa nuestro blog</p> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <h2 class="title text-center"><strong></strong></h2> -->
+
+
+<!-- <p> Selected food: {{selectedValue}} </p> -->
+<div style="background: linear-gradient(45deg,  hsla(0, 0%, 100%, 1) 20%, rgba(128, 241, 193, 0.548) 100%);">
+    <div class="container">
+        <!-- <div class="titulo">Seleccione el año de los eventos</div>
+        <mat-form-field appearance="fill">
+            <mat-label>Años</mat-label>
+            <mat-select (selectionChange)="filtrarEventoYear($event.value)">
+                <mat-option *ngFor="let y of years" [value]="y">
+                    {{y}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <div class="row">
+            <div class="col-md-4" *ngFor="let item of albums; index as i">
+                <p-card class="title text-center box card" header="{{item.title}}" subheader="{{item.description}}"
+                    styleClass="p-card-shadow" (click)="getId(item)">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" [src]="directorioImagenes+item.image">
+                        
+                        <!-- <img [src]="directorioImagenes+alb.image" alt="Error al cargar imagen"> -->
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        {{item.date  | date: 'yyyy'}}
+                        <!-- <button class="btn btn-info btn-just-icon btn-round btn-link" (click)="getId(item)">
+                  Ver Galería
+                    </button> -->
+                    </ng-template>
+                </p-card><br>
+            </div>
+        </div>
+    </div>
+</div>

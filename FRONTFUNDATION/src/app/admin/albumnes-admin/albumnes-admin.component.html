@@ -1,0 +1,162 @@
+<p-confirmDialog [style]="{ width: '50vw' }" appendToBody="true"></p-confirmDialog>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title" style="text-align: center;">Administrador de Álbumes</h3>
+        <button type="button" class="btn btn-outline-primary col-md-4 offset-md-4" (click)="modalCrear()">Agregar nuevo
+            Álbum</button>
+        <br><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <!-- <th scope="col">Imagen</th> -->
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alb of albums; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{alb.title}}</td>
+                    <!-- <td>{{directorioImagenes}}</td> -->
+
+                    <!-- <td><img [src]="directorioImagenes+alb.image" alt="Error al cargar imagen"></td> -->
+                    <td>{{alb.description}}</td>
+                    <td>{{alb.date | date: 'yyyy'}}</td>
+                    <td>
+                        <button  type="button" class="btn btn-outline-primary" (click)="getAlbum(alb.id)" pTooltip="Modificar" tooltipPosition="top">
+                            <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
+                          </button>
+                          <button type="button"   class="btn btn-outline-danger" (click)="deleteAlbum(alb.id)" pTooltip="Eliminar" tooltipPosition="top">
+                            <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
+                          </button>
+                          <button type="button"  class="btn btn-outline-success" (click)="agregarImagenes(alb)" pTooltip="Agregar Imágenes" tooltipPosition="top">
+                            <mat-icon style="color:rgb(5, 117, 70)">file_copy</mat-icon>
+                          </button>
+                      
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Paginador -->
+        <nav aria-label="..." class="row justify-content-md-center">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Modal Editar -->
+<p-dialog header="Modificar Álbum" [(visible)]="displayResponsiveModificar" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
+    *ngIf="albumseleccionado">
+    <form [formGroup]="modifAlbum" (ngSubmit)="modificarAlbum()">
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" [(ngModel)]="albumseleccionado.title" formControlName="title" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifAlbum.controls.title.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifAlbum.controls.title.errors" class="text-danger">
+                <div *ngIf="modifAlbum.controls.title.errors.required">Título es requerido</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" [(ngModel)]="albumseleccionado.description" formControlName="description"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifAlbum.controls.description.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifAlbum.controls.description.errors" class="text-danger">
+                <div *ngIf="modifAlbum.controls.description.errors.required">La Descripción es requerida
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="event">Evento</label>
+            <select formControlName="event" class="form-control" [(ngModel)]="albumseleccionado.events_id">
+                <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Año</label>
+            <input type="date" formControlName="date" class="form-control" [(ngModel)]="albumseleccionado.date"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifAlbum.controls.date.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifAlbum.controls.date.errors" class="text-danger">
+                <div *ngIf="modifAlbum.controls.date.errors.required">El año es requerido</div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="centro">
+            <button class="btn btn-primary" (click)="modificarAlbum()">Modificar</button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- Modal Crear Álbum -->
+<p-dialog header="Header" [(visible)]="displayResponsiveCrear" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true">
+    <form [formGroup]="registerAlbum" (ngSubmit)="crearAlbum()">
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" formControlName="title" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerAlbum.controls.title.errors }" />
+            <div *ngIf="submitted &amp;&amp; registerAlbum.controls.title.errors" class="text-danger">
+                <div *ngIf="registerAlbum.controls.title.errors.required">Título es requerido</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" formControlName="description" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerAlbum.controls.description.errors }" />
+            <div *ngIf="submitted &amp;&amp; registerAlbum.controls.description.errors" class="text-danger">
+                <div *ngIf="registerAlbum.controls.description.errors.required">La Descripción es requerida
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Imagen</label>
+            <input type="file" class="form-control" name="image" id="image" (change)="foto($event)">
+        </div>
+
+        <div class="form-group">
+            <label for="event">Evento</label>
+            <select formControlName="event" class="form-control">
+                <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Año</label>
+            <input type="date" formControlName="date" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerAlbum.controls.date.errors }" />
+            <div *ngIf="submitted &amp;&amp; registerAlbum.controls.date.errors" class="text-danger">
+                <div *ngIf="registerAlbum.controls.date.errors.required">El año es requerido</div>
+            </div>
+        </div>
+        <div class="centro">
+            <button class="btn btn-primary">Crear</button>
+        </div>
+    </form>
+</p-dialog>

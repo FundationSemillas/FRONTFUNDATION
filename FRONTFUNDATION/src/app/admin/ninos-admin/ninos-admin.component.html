@@ -1,0 +1,291 @@
+html 
+<br>
+  
+  <div class="card" style="padding-top: 5%;">
+    <div class="card-body">
+      <h3 class="card-title" style="text-align: center;">Tabla Administrativa</h3>
+      <button type="button" class="btn btn-outline-primary col-md-4 offset-md-4" (click)="modalCrear()">Agregar nuevo Niño</button>
+      <br><br>
+      <table class="table">
+  
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of children;  index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.surname}}</td>
+            <td>
+              <button type="button" (click)="getChild(person.id)" class="btn btn-outline-primary">
+                <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button (click)="getIdEliminar(person.id)" type="button" class="btn btn-outline-danger" >
+                <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+  
+      <nav aria-label="..." class="row justify-content-md-center">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!--<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>-->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Desea descartar este campo?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+          <button type="button" (click)="acceptD()" class="btn btn-danger" data-dismiss="modal">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  
+ 
+
+  <!-- Modal Modificar-->
+
+  <p-dialog header="Modificar Niño" [(visible)]="displayResponsiveModificar" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
+    *ngIf="childseleccionado">
+    <form [formGroup]="modifChild" (ngSubmit)="modificarChild()">
+        <div class="form-row">
+            <div class="form-group col-md-6 col-lg-6">
+            <label for="name">Nombres</label>
+            <input type="text" [(ngModel)]="childseleccionado.name" formControlName="name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.name.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifChild.controls.name.errors" class="text-danger">
+                <div *ngIf="modifChild.controls.name.errors.required">Título es requerido</div>
+            </div>
+            </div>
+            <div class="form-group col-md-6 col-lg-6">
+              <label for="surname">Apellidos</label>
+              <input type="text" [(ngModel)]="childseleccionado.surname" formControlName="surname" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.surname.errors }" />
+              <div *ngIf="submitted &amp;&amp; modifChild.controls.surname.errors" class="text-danger">
+                  <div *ngIf="modifChild.controls.surname.errors.required">Título es requerido</div>
+              </div>
+              </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 col-lg-6">
+          <label for="dateBirth">Fecha de Nacimiento</label>
+          <input type="text" [(ngModel)]="childseleccionado.dateBirth" formControlName="dateBirth" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.dateBirth.errors }" />
+          <div *ngIf="submitted &amp;&amp; modifChild.controls.dateBirth.errors" class="text-danger">
+              <div *ngIf="modifChild.controls.dateBirth.errors.required">La fecha es requerido</div>
+          </div>
+          </div>
+          <div class="form-group col-md-6 col-lg-6">
+            <label for="CI">Cédua</label>
+            <input type="text" [(ngModel)]="childseleccionado.CI" formControlName="CI" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.CI.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifChild.controls.CI.errors" class="text-danger">
+                <div *ngIf="modifChild.controls.CI.errors.required">Cédula es requerido</div>
+            </div>
+            </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 col-lg-6">
+        <label for="houseAddress">Dirección</label>
+        <input type="text" [(ngModel)]="childseleccionado.houseAddress" formControlName="houseAddress" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.houseAddress.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifChild.controls.houseAddress.errors" class="text-danger">
+            <div *ngIf="modifChild.controls.houseAddress.errors.required">La Direccion es requerido</div>
+        </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+          <label for="age">Edad</label>
+          <input type="text" [(ngModel)]="childseleccionado.age" formControlName="age" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.age.errors }" />
+          <div *ngIf="submitted &amp;&amp; modifChild.controls.age.errors" class="text-danger">
+              <div *ngIf="modifChild.controls.age.errors.required">Edad es requerido</div>
+          </div>
+          </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+      <label for="mothersName">Nombres de la Madre</label>
+      <input type="text" [(ngModel)]="childseleccionado.mothersName" formControlName="mothersName" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.mothersName.errors }" />
+      <div *ngIf="submitted &amp;&amp; modifChild.controls.mothersName.errors" class="text-danger">
+          <div *ngIf="modifChild.controls.mothersName.errors.required">La Direccion es requerido</div>
+      </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="fathersName">Nombres Padre</label>
+        <input type="text" [(ngModel)]="childseleccionado.fathersName" formControlName="fathersName" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.fathersName.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifChild.controls.fathersName.errors" class="text-danger">
+            <div *ngIf="modifChild.controls.fathersName.errors.required">Edad es requerido</div>
+        </div>
+        </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-6">
+    <label for="study">Esta Estudiando?</label>
+    <input type="text" [(ngModel)]="childseleccionado.study" formControlName="study" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.study.errors }" />
+    <div *ngIf="submitted &amp;&amp; modifChild.controls.study.errors" class="text-danger">
+        <div *ngIf="modifChild.controls.study.errors.required">La Direccion es requerido</div>
+    </div>
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+      <label for="schoolName">Nombres Escuela</label>
+      <input type="text" [(ngModel)]="childseleccionado.schoolName" formControlName="schoolName" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.schoolName.errors }" />
+      <div *ngIf="submitted &amp;&amp; modifChild.controls.schoolName.errors" class="text-danger">
+          <div *ngIf="modifChild.controls.schoolName.errors.required">Edad es requerido</div>
+      </div>
+      </div>
+</div>
+
+
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="centro">
+            <button class="btn btn-primary" (click)="modificarChild()">Modificar</button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+ <!-- Modal Crear-->
+ <p-dialog header="Agregar Niño" [(visible)]="displayResponsiveCrear" [breakpoints]="{'960px': '75vw'}"
+ [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true">
+ <form [formGroup]="registerChild" (ngSubmit)="crearChild()">
+     <div class="form-row">
+         <div class="form-group col-md-6 col-lg-6">
+         <label for="name">Nombres</label>
+         <input type="text"  formControlName="name" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.name.errors }" />
+         <div *ngIf="submitted &amp;&amp; registerChild.controls.name.errors" class="text-danger">
+             <div *ngIf="registerChild.controls.name.errors.required">Título es requerido</div>
+         </div>
+         </div>
+         <div class="form-group col-md-6 col-lg-6">
+           <label for="surname">Apellidos</label>
+           <input type="text"  formControlName="surname" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.surname.errors }" />
+           <div *ngIf="submitted &amp;&amp; registerChild.controls.surname.errors" class="text-danger">
+               <div *ngIf="registerChild.controls.surname.errors.required">Título es requerido</div>
+           </div>
+           </div>
+     </div>
+     <div class="form-row">
+       <div class="form-group col-md-6 col-lg-6">
+       <label for="dateBirth">Fecha de Nacimiento</label>
+       <input type="date"  formControlName="dateBirth" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.dateBirth.errors }" />
+       <div *ngIf="submitted &amp;&amp; registerChild.controls.dateBirth.errors" class="text-danger">
+           <div *ngIf="registerChild.controls.dateBirth.errors.required">La fecha es requerido</div>
+       </div>
+       </div>
+       <div class="form-group col-md-6 col-lg-6">
+         <label for="CI">Cédua</label>
+         <input type="text"  formControlName="CI" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.CI.errors }" />
+         <div *ngIf="submitted &amp;&amp; registerChild.controls.CI.errors" class="text-danger">
+             <div *ngIf="registerChild.controls.CI.errors.required">Cédula es requerido</div>
+         </div>
+         </div>
+   </div>
+   <div class="form-row">
+     <div class="form-group col-md-6 col-lg-6">
+     <label for="houseAddress">Dirección</label>
+     <input type="text"  formControlName="houseAddress" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.houseAddress.errors }" />
+     <div *ngIf="submitted &amp;&amp; registerChild.controls.houseAddress.errors" class="text-danger">
+         <div *ngIf="registerChild.controls.houseAddress.errors.required">La Direccion es requerido</div>
+     </div>
+     </div>
+     <div class="form-group col-md-6 col-lg-6">
+       <label for="age">Edad</label>
+       <input type="text" formControlName="age" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.age.errors }" />
+       <div *ngIf="submitted &amp;&amp; registerChild.controls.age.errors" class="text-danger">
+           <div *ngIf="registerChild.controls.age.errors.required">Edad es requerido</div>
+       </div>
+       </div>
+ </div>
+ <div class="form-row">
+   <div class="form-group col-md-6 col-lg-6">
+   <label for="mothersName">Nombres de la Madre</label>
+   <input type="text"  formControlName="mothersName" class="form-control"
+       [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.mothersName.errors }" />
+   <div *ngIf="submitted &amp;&amp; registerChild.controls.mothersName.errors" class="text-danger">
+       <div *ngIf="registerChild.controls.mothersName.errors.required">La Direccion es requerido</div>
+   </div>
+   </div>
+   <div class="form-group col-md-6 col-lg-6">
+     <label for="fathersName">Nombres Padre</label>
+     <input type="text"  formControlName="fathersName" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.fathersName.errors }" />
+     <div *ngIf="submitted &amp;&amp; registerChild.controls.fathersName.errors" class="text-danger">
+         <div *ngIf="registerChild.controls.fathersName.errors.required">Edad es requerido</div>
+     </div>
+     </div>
+</div>
+<div class="form-row">
+ <div class="form-group col-md-6 col-lg-6">
+ <label for="study">Esta Estudiando?</label>
+ <input type="text" formControlName="study" class="form-control"
+     [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.study.errors }" />
+ <div *ngIf="submitted &amp;&amp; registerChild.controls.study.errors" class="text-danger">
+     <div *ngIf="registerChild.controls.study.errors.required">La Direccion es requerido</div>
+ </div>
+ </div>
+ <div class="form-group col-md-6 col-lg-6">
+   <label for="schoolName">Nombres Escuela</label>
+   <input type="text"  formControlName="schoolName" class="form-control"
+       [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.schoolName.errors }" />
+   <div *ngIf="submitted &amp;&amp; registerChild.controls.schoolName.errors" class="text-danger">
+       <div *ngIf="registerChild.controls.schoolName.errors.required">Edad es requerido</div>
+   </div>
+   </div>
+</div>
+
+
+ </form>
+ <ng-template pTemplate="footer">
+     <div class="centro">
+         <button class="btn btn-primary" (click)="crearChild()">Guardar</button>
+     </div>
+ </ng-template>
+</p-dialog>

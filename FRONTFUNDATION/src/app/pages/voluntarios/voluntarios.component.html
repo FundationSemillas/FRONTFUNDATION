@@ -1,0 +1,158 @@
+<section class="page-section bg"
+    style="padding:5rem; background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);">
+    <div class="container">
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0 font-weight-bold"></h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="background: linear-gradient(45deg,  hsla(0, 0%, 100%, 1) 20%, rgba(128, 241, 193, 0.548) 100%);">
+    <!-- <div class="margen"> -->
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+            <div class="titulo">
+                <strong> Forma Parte de Nuestro Club</strong>
+            </div>
+            <div class="parrafo">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias voluptates amet autem
+                    repudiandae architecto optio. Unde porro eveniet, magni quod sit dolore nulla laboriosam velit
+                    tempora
+                    distinctio voluptate vero.</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias voluptates amet autem
+                    repudiandae architecto optio. Unde porro eveniet, magni quod sit dolore nulla laboriosam velit
+                    tempora
+                    distinctio voluptate vero.</p>
+            </div>
+        </div>
+        <div class="col-md-5 caja">
+            <img class="img-fluid" src="./assets/img/voluntarios.jpg" alt="s">
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5 caja">
+            <img class="img-fluid" src="./assets/img/r5.png" alt="s1">
+        </div>
+        <div class="col-md-5">
+            <div class="titulo">
+                Requisitos para unirte a nuestro Club
+            </div>
+            <h3>
+                <ul class="requisitos">
+                    <li>requisito 1</li>
+                    <li>requisito 2</li>
+                    <li>requisito 3</li>
+                    <li>requisito 4</li>
+                    <li>requisito 5</li>
+                </ul>
+            </h3>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 butoncenter">
+        <button pTooltip="Aquí puedes formar parte de nuestro Club de Amigos" tooltipPosition="right" pButton pRipple
+            type="button" (click)="modalCrear()" label="Inscribete" class="p-button-rounded p-button-help"></button>
+    </div>
+</div>
+
+<!-- Modal Crear Club -->
+<p-dialog header="Crear Club de Amigos" [(visible)]="displayResponsiveCrear" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true">
+    <form [formGroup]="registerClub">
+        <div class="form-row">
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="name">Nombre</label>
+                <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.name.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.name.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.name.errors.required">Nombre es requerido</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="surname">Apellido</label>
+                <input type="text" formControlName="surname" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.surname.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.surname.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.surname.errors.required">Apellido es obligatorio</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="CI">Cédula</label>
+                <input type="number" formControlName="CI" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.CI.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.CI.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.CI.errors.required">Cédula es requerido</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="address">Dirección</label>
+                <input type="text" formControlName="address" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.address.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.address.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.address.errors.required">La dirección es requerido</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+      <label for="event">Evento</label>
+      <select formControlName="event" class="form-control">
+        <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
+      </select>
+    </div> -->
+
+        <div class="form-row">
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="availability">Disponibilidad</label>
+                <input type="text" formControlName="availability" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.availability.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.availability.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.availability.errors.required">Disponibilidad requerido</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-lg-6">
+                <label for="telefonNumber">Número Telefónico</label>
+                <input type="number" formControlName="telefonNumber" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.telefonNumber.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerClub.controls.telefonNumber.errors" class="text-danger">
+                    <div *ngIf="registerClub.controls.telefonNumber.errors.required">Número de teléfono requerido</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" formControlName="description" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.description.errors }" />
+            <div *ngIf="submitted &amp;&amp; registerClub.controls.description.errors" class="text-danger">
+                <div *ngIf="registerClub.controls.description.errors.required">La Descripción es requerida
+                </div>
+            </div>
+        </div>
+        <div class="centro">
+            <button class="btn btn-primary" (click)="crearClub()">Crear</button>
+
+        </div>
+
+    </form>
+</p-dialog>
+
+
+<ng-template pTemplate="footer">
+    <button (click)="displayResponsiveCrear=false" pButton pRipple type="button" label="Enviar"
+        class="p-button-rounded  p-button-warning"></button>
+</ng-template>

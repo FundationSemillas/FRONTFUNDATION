@@ -1,0 +1,86 @@
+
+.product-item {
+  .product-item-content {
+      border: 1px solid var(--surface-d);
+      border-radius: 3px;
+      margin: .3rem;
+      text-align: center;
+      padding: 2rem 0;
+  }
+
+  .product-image {
+      width: 50%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      border-radius: 15px;
+  }
+
+  .text-center {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.page-header {
+  background-color: rgba(255, 255, 255, 0.993);
+  overflow: hidden;
+  padding: 20px 10px;
+
+}
+
+.polaroid {
+  width: 100%;
+  background-color: white;
+  // margin-bottom: 25px;
+  // box-shadow: 10px 6px 10px 8px rgba(23, 239, 0, 0.822);
+  background: linear-gradient(-45deg, #71ccf3, #ee20ee);
+}
+
+.container {
+  height: 100%;
+  align-content: center;
+
+}
+
+.card-title {
+  font-weight: bold;
+  text-align: center;
+  //color: #009FE3;
+  color: #e9a43c;
+  font-size: 30px;
+  padding-bottom: 15px;
+  font-family: 'Satisfy', sans-serif;
+}
+
+.card-category {
+  color: #00A0E4;
+}
+
+.text-center {
+  text-align: justify;
+  font-size: 20px;
+  //color: #fffefb;
+  color: #E40711;
+  height: auto;
+  width: auto;
+  font-weight: bold;
+}
+
+.card-text {
+  text-align: justify;
+  font-size: 25px;
+  //color: #fffefb;
+  color: #050505;
+  height: auto;
+  width: auto;
+}
+
+
+.description {
+  color: rgb(2, 2, 2);
+  text-align: justify;
+  font-weight: bold;
+}
+
+.titulo{
+  font-size: 35px;
+  color: #112A46;
+}

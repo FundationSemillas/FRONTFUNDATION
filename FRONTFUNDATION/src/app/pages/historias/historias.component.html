@@ -1,0 +1,48 @@
+<h2 class="title text-center"><strong>HISTORIAS</strong></h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let item of historias; index as i">
+            <p-card class="title text-center box" styleClass="p-card-shadow" (click)="showResponsiveDialog(item)">
+                <ng-template pTemplate="title"> 
+                    {{item.titulo}} 
+                </ng-template>
+                <ng-template pTemplate="subtitle">
+                    <img alt="Card" [src]="item.imagen">
+                </ng-template>
+                <ng-template pTemplate="footer">
+                        footer
+                </ng-template>
+            </p-card><br>
+        </div>
+    </div>
+</div>
+
+
+<h5>Responsive</h5>
+<p-dialog [header]="usuarioSeleccionado.titulo" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false" *ngIf="usuarioSeleccionado">
+ <img class="center" [src]="usuarioSeleccionado.imagen" alt="asd"> <br>
+    <p>Mi primo Juan tiene 30 años y vive en Barcelona. Es un chico alto y robusto, con la cara ancha y unos ojos negros
+        muy grandes. Tiene la nariz aguileña y una boca redonda y fina. Suele vestir muy elegante porque trabaja como
+        asesor para una empresa muy importante, aunque aprovecha los fines de semana para llevar ropa más cómoda.
+        Es un chico muy alegre y educado, comprometido con su trabajo y siempre dispuesto a ayudar a quienes se lo
+        piden. Le encanta ir al cine cuando tiene tiempo libre y, sobre todo, viajar. De hecho, este último año ha
+        recorrido medio mundo él solo.</p><br>
+    <p>Mi primo Juan tiene 30 años y vive en Barcelona. Es un chico alto y robusto, con la cara ancha y unos ojos negros
+        muy grandes. Tiene la nariz aguileña y una boca redonda y fina. Suele vestir muy elegante porque trabaja como
+        asesor para una empresa muy importante, aunque aprovecha los fines de semana para llevar ropa más cómoda.
+        Es un chico muy alegre y educado, comprometido con su trabajo y siempre dispuesto a ayudar a quienes se lo
+        piden. Le encanta ir al cine cuando tiene tiempo libre y, sobre todo, viajar. De hecho, este último año ha
+        recorrido medio mundo él solo.</p><br>
+    <p>Mi primo Juan tiene 30 años y vive en Barcelona. Es un chico alto y robusto, con la cara ancha y unos ojos negros
+        muy grandes. Tiene la nariz aguileña y una boca redonda y fina. Suele vestir muy elegante porque trabaja como
+        asesor para una empresa muy importante, aunque aprovecha los fines de semana para llevar ropa más cómoda.
+        Es un chico muy alegre y educado, comprometido con su trabajo y siempre dispuesto a ayudar a quienes se lo
+        piden. Le encanta ir al cine cuando tiene tiempo libre y, sobre todo, viajar. De hecho, este último año ha
+        recorrido medio mundo él solo.</p>
+    <ng-template pTemplate="footer">
+        <p-button (click)="displayResponsive=false" label="No" styleClass="p-button-text"></p-button>
+        <p-button (click)="displayResponsive=false" label="Yes" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>

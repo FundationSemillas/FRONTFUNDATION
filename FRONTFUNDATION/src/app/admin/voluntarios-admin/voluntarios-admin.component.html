@@ -1,0 +1,265 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title" style="text-align: center;">Administrador de Club de Amigos</h3>
+    <button type="button" class="btn btn-outline-primary col-md-4 offset-md-4" (click)="modalCrear()">Agregar nuevo
+      Club</button>
+    <br><br>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Cédula/Pasaporte</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Disponibilidad</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Descripción</th>
+          <!-- <th scope="col">Imagen</th> -->
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alb of clubs; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{alb.name}}</td>
+          <td>{{alb.surname}}</td>
+          <td>{{alb.CI}}</td>
+          <td>{{alb.address}}</td>
+          <td>{{alb.availability}}</td>
+          <td>{{alb.telefonNumber}}</td>
+          <td>{{alb.description}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-primary" (click)="getClub(alb.id)">Editar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="getIdEliminar(alb.id)" data-toggle="modal"
+              data-target="#modalDelete"><i class="far fa-trash-alt">Eliminar</i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Paginador -->
+    <nav aria-label="..." class="row justify-content-md-center">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Anterior</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+
+<!-- Modal Editar -->
+<p-dialog header="Modificar Club" [(visible)]="displayResponsiveModificar" [breakpoints]="{'960px': '75vw'}"
+  [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
+  *ngIf="clubseleccionado">
+  <form [formGroup]="modifClub" (ngSubmit)="modificarClub()">
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="name">Nombres</label>
+        <input type="text" [(ngModel)]="clubseleccionado.name" formControlName="name" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.name.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.name.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.name.errors.required">Nombres son requerido</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="surname">Apellidos</label>
+        <input type="text" [(ngModel)]="clubseleccionado.surname" formControlName="surname" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.surname.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.surname.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.surname.errors.required">Apillidos son requerido</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="CI">Cédula</label>
+        <input type="text" [(ngModel)]="clubseleccionado.CI" formControlName="CI" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.CI.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.CI.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.CI.errors.required">Cédula requerida
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="address">Dirección</label>
+        <input type="text" [(ngModel)]="clubseleccionado.address" formControlName="address" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.address.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.address.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.address.errors.required">La Descripción es requerida
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="availability">Disponibilidad</label>
+        <input type="text" [(ngModel)]="clubseleccionado.availability" formControlName="availability"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.availability.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.availability.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.availability.errors.required">Cédula requerida
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="telefonNumber">Número Telefónico</label>
+        <input type="number" [(ngModel)]="clubseleccionado.telefonNumber" formControlName="telefonNumber"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.telefonNumber.errors }" />
+        <div *ngIf="submitted &amp;&amp; modifClub.controls.telefonNumber.errors" class="text-danger">
+          <div *ngIf="modifClub.controls.telefonNumber.errors.required">La Descripción es requerida
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label for="event">Evento</label>
+      <select formControlName="event" class="form-control" [(ngModel)]="clubseleccionado.events_id">
+        <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
+      </select>
+    </div> -->
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <input type="text" [(ngModel)]="clubseleccionado.description" formControlName="description" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifClub.controls.description.errors }" />
+      <div *ngIf="submitted &amp;&amp; modifClub.controls.description.errors" class="text-danger">
+        <div *ngIf="modifClub.controls.description.errors.required">La Descripción es requerida
+        </div>
+      </div>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="centro">
+      <button class="btn btn-primary" (click)="modificarClub()">Modificar</button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+
+<!-- Modal Eliminar-->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Alerta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Desea eliminar información del Club?
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" (click)="deleteClub(idEliminar)" data-dismiss="modal" class="btn btn-danger">
+                    <h2>Si</h2>
+                </button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">
+                    <h2>No</h2>
+                </button> -->
+        <button type="button" class="btn btn-danger" (click)="deleteClub(idEliminar)" data-dismiss="modal">Sí</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Crear Club -->
+<p-dialog header="Crear Club de Amigos" [(visible)]="displayResponsiveCrear" [breakpoints]="{'960px': '75vw'}"
+  [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true">
+  <form [formGroup]="registerClub">
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="name">Nombres</label>
+        <input type="text" formControlName="name" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.name.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.name.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.name.errors.required">Nombres es requerido</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="surname">Apellidos</label>
+        <input type="text" formControlName="surname" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.surname.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.surname.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.surname.errors.required">Apellidos es requerido</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="CI">Cédula</label>
+        <input type="number" formControlName="CI" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.CI.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.CI.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.CI.errors.required">Cédula es requerido</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="address">Dirección</label>
+        <input type="text" formControlName="address" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.address.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.address.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.address.errors.required">La dirección es requerido</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="event">Evento</label>
+      <select formControlName="event" class="form-control">
+        <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
+      </select>
+    </div> -->
+
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="availability">Disponibilidad</label>
+        <input type="text" formControlName="availability" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.availability.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.availability.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.availability.errors.required">Disponibilidad requerido</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-6">
+        <label for="telefonNumber">Número Telefónico</label>
+        <input type="number" formControlName="telefonNumber" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.telefonNumber.errors }" />
+        <div *ngIf="submitted &amp;&amp; registerClub.controls.telefonNumber.errors" class="text-danger">
+          <div *ngIf="registerClub.controls.telefonNumber.errors.required">Número de teléfono requerido</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <input type="text" formControlName="description" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerClub.controls.description.errors }" />
+      <div *ngIf="submitted &amp;&amp; registerClub.controls.description.errors" class="text-danger">
+        <div *ngIf="registerClub.controls.description.errors.required">La Descripción es requerida
+        </div>
+      </div>
+    </div>
+    <div class="centro">
+      <button class="btn btn-primary" (click)="crearClub()">Crear</button>
+
+    </div>
+
+  </form>
+</p-dialog>

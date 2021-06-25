@@ -1,0 +1,126 @@
+<!-- Modal de Inicio -->
+
+<div class="wrapper">
+    <div class="card page-carousel">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let item of imageObject; index as i">
+                <div class="page-header section-dark backimage" [style.backgroundImage]="'url('+ item.image +')'">
+                    <div class="carousel-caption">
+                        <p>Imagen {{i+1}}</p>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+      <!-- Misión y Visión -->
+    <div class="polaroid"style="background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, hsla(144, 100%, 47%, 1) 100%);">
+      <img src="../../assets/img/a.png" alt="" style="background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, rgb(184, 0, 240) 100%); width:100%">
+      <div class="container">
+        <div class="title text-center titulo">MISIÓN</div>
+      <p class="card-text" >
+        La fundación Semillas de Esperanza, tiene como objetivos crear y
+        promocionar programas y servicios de desarrollo integral apadrinando centros infantiles del
+        buen vivir, en donde se impulse la igualdad y el buen trato; y, la ejecución de proyectos
+        encaminados a brindar ayuda con prioridad a aquellos que se encuentran en los sectores
+        marginados.
+        Realizando actividades de atención familiar, apoyando el crecimiento de sus hijos,
+        respetando una cultura de libre expresión, erradicando y separándoles del trabajo infantil y
+        atendiendo las necesidades de los que se encuentran en situación de abandono y mendicidad.
+      </p>
+      <div class="title text-center titulo">VISIÓN</div>
+      <p class="card-text">
+        La Fundación Semillas de Esperanza es una organización, sin ánimo de
+        lucro, que tiene como fines proponer y ejecutar programas y servicios de cuidado e inclusión
+        económica y social de desarrollo infantil, niños y niñas; con énfasis en aquella población
+        que se encuentra en situación de exclusión, discriminación, pobreza, vulnerabilidad;
+        promoviendo, asegurando, protegiendo y apoyando la restitución del ejercicio pleno de sus
+        derechos, en todo su ciclo de vida.
+      </p>
+      </div>
+    </div>
+
+    <!-- <div class="main" >
+        <div class="section " style="background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, rgb(184, 0, 240) 100%);">
+          <img src="./../assets/img/a.png" alt="as" style="width:100%">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mr-auto ml-auto">
+                        <div class="title text-center">MISIÓN</div>
+                        <h5 class="description">La fundación Semillas de Esperanza, tiene como objetivos crear y
+                            promocionar programas y servicios de desarrollo integral apadrinando centros infantiles del
+                            buen vivir, en donde se impulse la igualdad y el buen trato; y, la ejecución de proyectos
+                            encaminados a brindar ayuda con prioridad a aquellos que se encuentran en los sectores
+                            marginados.
+                            Realizando actividades de atención familiar, apoyando el crecimiento de sus hijos,
+                            respetando una cultura de libre expresión, erradicando y separándoles del trabajo infantil y
+                            atendiendo las necesidades de los que se encuentran en situación de abandono y mendicidad.
+                        </h5>
+                    </div>
+                    <div class="col-md-6 mr-auto ml-auto">
+                        <div class="title text-center">VISIÓN</div>
+                        <h5 class="description">La Fundación Semillas de Esperanza es una organización, sin ánimo de
+                            lucro, que tiene como fines proponer y ejecutar programas y servicios de cuidado e inclusión
+                            económica y social de desarrollo infantil, niños y niñas; con énfasis en aquella población
+                            que se encuentra en situación de exclusión, discriminación, pobreza, vulnerabilidad;
+                            promoviendo, asegurando, protegiendo y apoyando la restitución del ejercicio pleno de sus
+                            derechos, en todo su ciclo de vida.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+    <!-- Voluntarios -->
+    <!-- <div class="section  text-center" style="background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, hsla(144, 100%, 47%, 1) 100%);">
+        <div class="container">
+            <h3 class="title" style="color: #E40711;">VOLUNTARIOS</h3>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let v of voluntarios">
+                    <div class="card card-profile card-plain">
+                        <div class="card-avatar">
+                            <a href="#avatar"><img src={{v.imagen}} alt="1"></a>
+                        </div>
+                        <div class="card-block">
+                            <a href="#paper-kit">
+                                <div class="author">
+                                    <h4 class="card-title">{{v.nombre}} {{v.apellido}} </h4>
+                                    <h6 class="card-category" >{{v.cargo}}</h6>
+                                </div>
+                            </a>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Carrusel Patricinadores       background: linear-gradient(136deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);-->
+    <div class="section text-center" style="background: linear-gradient(136deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);">
+
+        <p-carousel [value]="partners" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true"
+            [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+            <ng-template pTemplate="header">
+                <div class="auspiciante-encabezado">
+                    <h3> AUSPICIANTES</h3>
+                </div>
+            </ng-template>
+            <ng-template let-product pTemplate="item">
+                <div class="product-item">
+                    <div class="product-item-content p-mb-3">
+                        <div class="p-mb-3">
+                            <img [src]="product.image" [alt]="product.nombre" class="product-image"/>
+                        </div>
+                        <div>
+                            <h4 class="p-mb-1">{{product.name}}</h4>
+                            <!-- <h5 class="p-mt-0 p-mb-3">${{product.description}}</h5> -->
+                        </div>
+                    </div>
+                </div>
+            </ng-template>            
+        </p-carousel>
+    </div>
+
+</div>
