@@ -68,7 +68,7 @@ saveFile(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post("http://127.0.0.1:8000/child", formData).map((res) => res);
+  return this.http.post("https://backendfundation.herokuapp.com/child", formData).map((res) => res);
 }
 /** 
   public selectedField: Person = {

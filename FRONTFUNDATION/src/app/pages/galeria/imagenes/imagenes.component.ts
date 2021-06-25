@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AlbumService } from '../../../services/album.service';
+import { environment } from "../../../../environments/environment";
+const API_URL_FORM = environment.baseUrl;
 
 @Component({
   selector: 'app-imagenes',
@@ -14,7 +16,7 @@ export class ImagenesComponent implements OnInit {
   showFlag: any = false;
   album: string;
   fotos: any;
-  directorioImagenes: any = 'http://127.0.0.1:8000/storage/posts/';
+  directorioImagenes: any = API_URL_FORM +'/storage/posts/';
   imaganesAlbum: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private restService: AlbumService) {

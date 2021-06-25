@@ -7,6 +7,8 @@ import { isNullOrUndefined } from 'util';
 import { Session } from '../models/session';
 import { UserInterface } from '../models/user';
 import { LoginObject } from '../pages/login/login-object.model';
+import { environment } from "../../environments/environment";
+const API_URL_FORM = environment.baseUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,7 @@ export class AuthService {
 
   registerUser(form: any){
     console.log(form.value);
-    return this.http.post('http://localhost:8000/register', form.value);
+    return this.http.post(API_URL_FORM +'/register', form.value);
   }
 
    isAuthonticated(){
@@ -44,39 +46,13 @@ export class AuthService {
   }
 
   logIn(form: any): Observable<any>{
-    return this.http.post('http://localhost:8000/login', form.value);
+    return this.http.post(API_URL_FORM +'/login', form.value);
     //return result;
   }
 
   logout(token: any): Observable<any>{
-    return this.http.post('http://localhost:8000/logout', {'token': token});
+    return this.http.post(API_URL_FORM +'/logout', {'token': token});
     //return result;
   }
-  /**logoutUser() {
-    let accessToken = localStorage.getItem("accessToken");
-    const url_api = `http://localhost:3000/api/Users/logout?access_token=${accessToken}`;
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("currentUser");
-    return this.htttp.post<UserInterface>(url_api, { headers: this.headers });
-  } */
-
-  
-/**constructor(private http: HttpClient) {}
- 
-  headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json"
-  });
-  
-  private basePath = "http://localhost:8000/";
-
-  login(loginObj: LoginObject): Observable<Session> {
-    return this.http.post<Session>(this.basePath + 'login', loginObj);
-  }
-
-  logout(): Observable<Boolean> {
-    return this.http.post<Boolean>(this.basePath + 'logout', {});
-  } */
-  
- 
  
 }

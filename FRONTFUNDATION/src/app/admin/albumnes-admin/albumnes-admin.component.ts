@@ -26,7 +26,7 @@ export class AlbumnesAdminComponent implements OnInit {
   eventos: any;
   submitted = false;
   files: any;
-  // directorioImagenes:any = 'http://127.0.0.1:8000/public/img/';
+  
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private restService: AlbumService, private toastr: ToastrService) {
     this.modifAlbum = this.formBuilder.group({
