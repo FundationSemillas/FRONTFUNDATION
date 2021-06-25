@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AlbumService } from '../../../services/album.service';
 import { environment } from "../../../../environments/environment";
-const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-imagenes',
@@ -10,6 +9,7 @@ const  directorioImagenes: any = environment.baseUrl+'/storage/';
   styleUrls: ['./imagenes.component.scss']
 })
 export class ImagenesComponent implements OnInit {
+  directorioImagenes: any
   navigationSubscription;
   id: number;
   currentIndex: any = -1;
@@ -36,6 +36,8 @@ export class ImagenesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+        this.directorioImagenes = environment.baseUrl+'/storage/';
+
   }
 
   showLightbox(index) {
