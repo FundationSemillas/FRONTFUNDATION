@@ -89,13 +89,24 @@
                 </div>
             </div>
         </div>
-
+<!-- 
         <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" [(ngModel)]="albumseleccionado.description" formControlName="description"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifAlbum.controls.description.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifAlbum.controls.description.errors" class="text-danger">
+                <div *ngIf="modifAlbum.controls.description.errors.required">La Descripción es requerida
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="form-group">
             <label for="event">Evento</label>
             <select formControlName="event" class="form-control" [(ngModel)]="albumseleccionado.events_id">
                 <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
             </select>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label for="date">Año</label>
@@ -136,16 +147,26 @@
         </div>
 
         <div class="form-group">
-            <label for="description">Imagen</label>
+            <label for="image">Imagen</label>
             <input type="file" class="form-control" name="image" id="image" (change)="foto($event)">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="event">Evento</label>
             <select formControlName="event" class="form-control">
                 <option *ngFor="let v of eventos" value="{{v.id}}">{{v.name}}</option>
             </select>
-        </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+            <label for="event">Evento</label>
+            <input type="text" formControlName="event" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerAlbum.controls.event.errors }" />
+            <div *ngIf="submitted &amp;&amp; registerAlbum.controls.event.errors" class="text-danger">
+                <div *ngIf="registerAlbum.controls.event.errors.required">El evento es requerido
+                </div>
+            </div>
+        </div> -->
 
         <div class="form-group">
             <label for="description">Año</label>

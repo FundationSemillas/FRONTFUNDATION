@@ -5,6 +5,8 @@ import { AlbumService } from './../../services/album.service';
 import { ToastrService } from 'ngx-toastr';
 // @ViewChild('closebutton') closebutton;
 import { ConfirmationService } from "primeng/api";
+import { environment } from "../../../environments/environment";
+const  directorioImagenes: any = environment.baseUrl+'/storage/posts/';
 
 @Component({
   selector: 'app-albumnes-admin',
@@ -24,7 +26,6 @@ export class AlbumnesAdminComponent implements OnInit {
   eventos: any;
   submitted = false;
   files: any;
-  directorioImagenes:any = 'http://127.0.0.1:8000/storage/posts/';
   // directorioImagenes:any = 'http://127.0.0.1:8000/public/img/';
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private restService: AlbumService, private toastr: ToastrService) {
@@ -32,19 +33,19 @@ export class AlbumnesAdminComponent implements OnInit {
       title: ["", Validators.required],
       description: ["", Validators.required],
       date: ["", Validators.required],
-      event: ["", Validators.required],
+      // event: ["", Validators.required],
     });
     this.registerAlbum = this.formBuilder.group({
       title: ["", Validators.required],
       description: ["", Validators.required],
       date: ["", Validators.required],
-      event: ["", Validators.required],
+      // event: ["", Validators.required],
     });
   }
 
   ngOnInit(): void {
     this.getAlbums();
-    this.getEventos();
+    // this.getEventos();
   }
   // seteo de objeto enviar
   crearAlbum() {
@@ -54,14 +55,15 @@ export class AlbumnesAdminComponent implements OnInit {
       return;
     }
     // Objeto json que se envia al back
-    let objetoCrear = {
-      "title": this.registerAlbum.value.title,
-      "description": this.registerAlbum.value.description,
-      "date": this.registerAlbum.value.date,
-      "events_id": this.registerAlbum.value.event
-    }
-    console.log("valores crear: ", objetoCrear);
-    this.restService.saveFile(this.files, objetoCrear, "/album").subscribe(
+    // let objetoCrear = {
+    //   "title": this.registerAlbum.value.title,
+    //   "description": this.registerAlbum.value.description,
+    //   "date": this.registerAlbum.value.date,
+    //   // "events_i": this.registerAlbum.value.event
+    // }
+    // console.log("valores crear: ", objetoCrear);
+    console.log("objeto crear: ", this.registerAlbum.value);
+    this.restService.saveFile(this.files, this.registerAlbum.value, "/album").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Album creado Exitosamente');
@@ -89,7 +91,7 @@ export class AlbumnesAdminComponent implements OnInit {
     this.files = event.target.files[0];
     console.log("foto: ", this.files);
   }
-  
+
   // Seteo del objeto modificar 
   modificarAlbum() {
     this.displayResponsiveModificar = false;
@@ -98,18 +100,19 @@ export class AlbumnesAdminComponent implements OnInit {
       return;
     }
     //Objeto json que se envia al back
-    let objetoModificar = {
-      "albums": {
-        "title": this.modifAlbum.value.title,
-        "description": this.modifAlbum.value.description,
-        "date": this.modifAlbum.value.date
-      },
-      "events": {
-        "id": this.modifAlbum.value.event
-      }
-    }
+    // let objetoModificar = {
+    //   "albums": {
+    //     "title": this.modifAlbum.value.title,
+    //     "description": this.modifAlbum.value.description,
+    //     "date": this.modifAlbum.value.date
+    //   },
+    //   "events": {
+    //     "id": this.modifAlbum.value.event
+    //   }
+    // }
     // console.log("objetoModificar: ", objetoModificar)
-    this.restService.updateData(objetoModificar, "/album/" + this.albumseleccionado.id).subscribe(
+    console.log("objeto crear: ", this.modifAlbum.value);
+    this.restService.updateData(this.modifAlbum.value, "/album/" + this.albumseleccionado.id).subscribe(
       res => {
         this.toastr.success('Álbum modificado Exitosamente');
         console.log("modificado: exitosamente", res);
@@ -131,12 +134,12 @@ export class AlbumnesAdminComponent implements OnInit {
   }
 
   //Obtengo todos los eventos
-  getEventos() {
-    this.restService.get("/event").subscribe((data) => {
-      this.eventos = data;
-      console.log("eventos: ", this.eventos);
-    });
-  }
+  // getEventos() {
+  //   this.restService.get("/event").subscribe((data) => {
+  //     this.eventos = data;
+  //     console.log("eventos: ", this.eventos);
+  //   });
+  // }
 
 
   //Despliege de Modales
@@ -175,7 +178,7 @@ export class AlbumnesAdminComponent implements OnInit {
     });
   }
 
-  agregarImagenes(objeto){
+  agregarImagenes(objeto) {
     let id = objeto.id;
     let album = objeto.title;
     console.log("album admin: ", id + "  || ", album)

@@ -18,6 +18,7 @@ export class BlogAdminComponent implements OnInit {
   displayResponsiveModificar: boolean;
   idEliminar: number;
   eventos: any;
+  files: any;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
@@ -50,18 +51,33 @@ export class BlogAdminComponent implements OnInit {
     }
     //Objeto json que se envia al back
     let objetoCrear = {
-      "blogs": {
+      //"blogs": {
         "title": this.registerBlog.value.title,
         "description": this.registerBlog.value.description,
         "image": this.registerBlog.value.image,
         "link": this.registerBlog.value.link
-      }/*,
+      //}
+      /*,
       "events": {
         "id": this.registerBlog.value.event
       }*/
     }
     console.log("valores crear: ", objetoCrear)
-    this._blogServices.add(objetoCrear, "/blog").subscribe(
+    this._blogServices.saveFile(this.files, objetoCrear, "/blog").subscribe(
+      // this.restService.saveFile(this.files,objetoModificar,
+      res => {
+        this.toastr.success('Blog creado Exitosamente');
+        this.resetForm();
+        this.getBlogs();
+      },
+      err => {
+        this.toastr.success('Blog creado Exitosamente');
+        this.resetForm();
+        this.getBlogs();
+        console.log("error crear", err)
+      }
+    );
+    /*this._blogServices.add(objetoCrear, "/blog").subscribe(
       res => {
         this.toastr.success('Blog creado Exitosamente');
         console.log("creado exitosamente", res)
@@ -71,7 +87,7 @@ export class BlogAdminComponent implements OnInit {
       err => {
         console.log("error crear", err)
       }
-    );
+    );*/
   }
   // Obtengo todos los blogs
   getBlogs() {

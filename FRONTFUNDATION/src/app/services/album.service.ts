@@ -36,7 +36,7 @@ saveFile(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post("http://127.0.0.1:8000/album", formData).map((res) => res);
+  return this.http.post(API_URL_FORM+"/album", formData).map((res) => res);
 }
 
 saveFileSponsor(file: File,objeto, url: String): Observable<any> {
@@ -50,7 +50,7 @@ saveFileSponsor(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post("http://127.0.0.1:8000/sponsor", formData).map((res) => res);
+  return this.http.post(API_URL_FORM+"/sponsor", formData).map((res) => res);
 }
 
 updateData(objeto, add: String) {
@@ -85,6 +85,6 @@ guardarImagenes(formdata: FormData): Observable<any> {
   // console.log("formData: ",formData )
 
   // formData.append('data', json);
-  return this.http.post("http://127.0.0.1:8000/image", formdata).map((res) => res);
+  return this.http.post(API_URL_FORM+"/image", formdata).map((res) => res);
 }
 }

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
 import { AlbumService } from './../../services/album.service';
+import { environment } from "../../../environments/environment";
+const directorioImagenes: any = environment.baseUrl+'/storage/posts/';
 
 @Component({
   selector: 'app-patrocinadores-admin',
@@ -21,7 +23,6 @@ export class PatrocinadoresAdminComponent implements OnInit {
   displayResponsiveModificar: boolean;
   idEliminar: number;
   files: any;
-  directorioImagenes: any = 'http://127.0.0.1:8000/storage/posts/';
   submitted = false;
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private restService: AlbumService,) {

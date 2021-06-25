@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
+import { environment } from "../../../../environments/environment";
+const   directorioImagenes: any = environment.baseUrl+'/storage/posts/';
 
 @Component({
   selector: 'app-imagenes-admin',
@@ -13,7 +15,6 @@ import { ConfirmationService } from "primeng/api";
 })
 export class ImagenesAdminComponent implements OnInit {
   files: any;
-  directorioImagenes: any = 'http://127.0.0.1:8000/storage/posts/';
   registeImages: FormGroup;
   submitted = false;
   id: any;
@@ -44,6 +45,7 @@ export class ImagenesAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("imagen admin: ", directorioImagenes);
   }
 
   foto(event) {

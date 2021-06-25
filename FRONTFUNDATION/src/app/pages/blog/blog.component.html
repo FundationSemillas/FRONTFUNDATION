@@ -18,36 +18,9 @@
     <br>
     <br>
     <div class="row justify-content-center ">
-        <div class="col-md-12 offset-lg-1 col-lg-4 col-sm-12">
-            <div class="list-group ">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <small>3 days ago</small>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <small>And some small print.</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <small class="text-muted">3 days ago</small>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <small class="text-muted">And some muted small print.</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <small class="text-muted">3 days ago</small>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <small class="text-muted">And some muted small print.</small>
-                </a>
-            </div>
-        </div>
+        
         <div class="col">
-            <div  class="d-flex main justify-content-center align-items-center" style="background: transparent">
+            <div  *ngFor="let lb of blogs" class="d-flex main justify-content-center align-items-center" style="background: transparent">
                 <section class="blog_area  section-padding " >
                     <div class="container">
                         <div class="row">
@@ -65,9 +38,9 @@
                                         </div>
                                         <div class="card-body blog_details bg">
                                             <a class="d-inline-block">
-                                                <h2>ngjgj</h2>
+                                                <h2>{{lb.title}}</h2>
                                             </a>
-                                            <p>jhgjj</p>
+                                            <p>{{lb.description}}</p>
                                         </div>
                                     </article>
                                     <br><br>
@@ -77,61 +50,7 @@
                     </div>
                 </section>
             </div>
-            <div  class="d-flex main justify-content-center align-items-center" style="background: transparent">
-                <section class="blog_area  section-padding " >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card blog_left_sidebar media blog-media">
-                                    <article class="blog_item">
-                                        <br><br>
-                                        <div class="blog_item_img imagen">
-                                            <img class="d-flex card-img rounded-0" src="./assets/img/faces/joe-gardner-2.jpg"
-                                                alt="">
-                                            <a href="#" class="blog_item_date">
-                                                <h3>15</h3>
-                                                <p>Jan</p>
-                                            </a>
-                                        </div>
-                                        <div class="card-body blog_details bg">
-                                            <a class="d-inline-block">
-                                                <h2>ngjgj</h2>
-                                            </a>
-                                            <p>jhgjj</p>
-                                        </div>
-                                    </article>
-                                    <br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="container" style="padding-bottom: 10rem;">
-                <div class="row">
-                    <div class="col-md-12 col-lg-8 offset-lg-2 col-sm-12">
-                        <div class="card ">
-                            <article class="blog_item">
-                                <br><br>
-                                <div class="blog_item_img imagen">
-                                    <img class="card-img rounded-0" src="./assets/img/2.jpg" alt="">
-                                    <a href="#" class="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div class="card-body blog_details bg">
-                                    <a class="d-inline-block">
-                                        <h2>asdfghjwertyusdfgh</h2>
-                                    </a>
-                                    <p>xcvbnfgh</p>
-                                </div>
-                            </article>
-                            <br><br>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
     </div>

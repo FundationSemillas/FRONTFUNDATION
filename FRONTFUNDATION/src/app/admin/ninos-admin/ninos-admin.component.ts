@@ -1,5 +1,5 @@
 import { PersonService } from './../../services/person.service';
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, ElementRef, OnInit, Pipe, PipeTransform, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,7 +18,10 @@ export class NinosAdminComponent implements OnInit {
   displayResponsiveModificar: boolean;
   idEliminar: number;
   eventos: any;
+  files: any;
+  id: any;
   submitted = false;
+
 
   constructor(private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
     this.modifChild = this.formBuilder.group({
@@ -63,11 +66,11 @@ export class NinosAdminComponent implements OnInit {
     }
     //Objeto json que se envia al back
     let objetoCrear = {
-      "children": {
+      //"children": {
         "id": this.registerChild.value.id,
         "name": this.registerChild.value.name,
         "surname": this.registerChild.value.surname,
-        "image": this.registerChild.value.image,
+       // "image": this.registerChild.value.image,
         "dateBirth": this.registerChild.value.dateBirth,
         "CI": this.registerChild.value.CI,
         "houseAddress": this.registerChild.value.houseAddress,
@@ -76,10 +79,25 @@ export class NinosAdminComponent implements OnInit {
         "study": this.registerChild.value.study,
         "schoolName": this.registerChild.value.schoolName,
         "age": this.registerChild.value.age,
-      }
+     // }
     }
     console.log("valores crear: ", objetoCrear)
-    this.restService.add(objetoCrear, "/child").subscribe(
+    
+    this.restService.saveFile(this.files, objetoCrear, "/child").subscribe(
+      // this.restService.saveFile(this.files,objetoModificar,
+      res => {
+        this.toastr.success('Niño creado Exitosamente');
+        this.resetForm();
+        this.getChildren();
+      },
+      err => {
+        this.toastr.error('Niño error al crear');
+        this.resetForm();
+        this.getChildren();
+        console.log("error crear", err)
+      }
+    );
+    /*this.restService.add(objetoCrear, "/child").subscribe(
       res => {
         this.toastr.success('Niño creado Exitosamente');
         console.log("creado exitosamente", res)
@@ -88,10 +106,11 @@ export class NinosAdminComponent implements OnInit {
       },
       err => {
         console.log("error crear", err)
+        this.toastr.error ('Error al crear el Registro');
       }
-    );
-  }
+    );*/
 
+  }
 
 
   // Obtengo todos los niños
@@ -190,6 +209,21 @@ export class NinosAdminComponent implements OnInit {
   resetForm() {
     this.registerChild.reset();
   }
+
+  foto(event) {
+    this.files = event.target.files[0];
+    console.log("foto: ", this.files);
+  }
+
+  agregarImagenes(objeto){
+    let id = objeto.id;
+    let imaChild = objeto.title;
+    console.log("album admin: ", id + "  || ", imaChild)
+    //this.router.navigate(['/imageChild', id, imaChild], { skipLocationChange: true });
+  }
+
+
+
   /*selected = '';
 
   constructor(

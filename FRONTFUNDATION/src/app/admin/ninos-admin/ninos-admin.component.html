@@ -1,4 +1,4 @@
-html 
+ 
 <br>
   
   <div class="card" style="padding-top: 5%;">
@@ -21,14 +21,16 @@ html
           <tr *ngFor="let person of children;  index as i">
             <th scope="row">{{i+1}}</th>
             <td>{{person.name}}</td>
-            <td>{{person.surname}}</td>
+            <td><img [src]="person.image"></td>
+            <!--<td>{{person.surname}}</td>-->
             <td>
               <button type="button" (click)="getChild(person.id)" class="btn btn-outline-primary">
                 <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
               </button>
             </td>
             <td>
-              <button (click)="getIdEliminar(person.id)" type="button" class="btn btn-outline-danger" >
+              <button (click)="getIdEliminar(person.id)" type="button" class="btn btn-outline-danger" 
+                      data-toggle="modal" data-target="#modalDelete">
                 <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
               </button>
             </td>
@@ -56,26 +58,28 @@ html
   </div>
   
   
-  <!-- Modal -->
-  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+ <!-- Modal Eliminar-->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
         <div class="modal-header">
-          <!--<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>-->
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <h5 class="modal-title" id="exampleModalLongTitle">Alerta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
-          Desea descartar este campo?
+            ¿Desea Borrar el Regitro?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-          <!--<button type="button" (click)="acceptD()" class="btn btn-danger" data-dismiss="modal">Borrar</button>-->
+            <button type="button" class="btn btn-danger" (click)="deleteChild(idEliminar)"
+                data-dismiss="modal">Sí</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
         </div>
-      </div>
     </div>
-  </div> 
+</div>
+</div>
   
   
  
@@ -85,7 +89,7 @@ html
   <p-dialog header="Modificar Niño" [(visible)]="displayResponsiveModificar" [breakpoints]="{'960px': '75vw'}"
     [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
     *ngIf="childseleccionado">
-    <form [formGroup]="modifChild" (ngSubmit)="modificarChild()">
+    <form [formGroup]="modifChild" (ngSubmit)="modificarChild()"  enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6 col-lg-6">
             <label for="name">Nombres</label>
@@ -115,7 +119,7 @@ html
           </div>
           <div class="form-group col-md-6 col-lg-6">
             <label for="CI">Cédua</label>
-            <input type="text" [(ngModel)]="childseleccionado.CI" formControlName="CI" class="form-control"
+            <input type="number" max="10" [(ngModel)]="childseleccionado.CI" formControlName="CI" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.CI.errors }" />
             <div *ngIf="submitted &amp;&amp; modifChild.controls.CI.errors" class="text-danger">
                 <div *ngIf="modifChild.controls.CI.errors.required">Cédula es requerido</div>
@@ -133,7 +137,7 @@ html
         </div>
         <div class="form-group col-md-6 col-lg-6">
           <label for="age">Edad</label>
-          <input type="text" [(ngModel)]="childseleccionado.age" formControlName="age" class="form-control"
+          <input type="number" max="18" [(ngModel)]="childseleccionado.age" formControlName="age" class="form-control"
               [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.age.errors }" />
           <div *ngIf="submitted &amp;&amp; modifChild.controls.age.errors" class="text-danger">
               <div *ngIf="modifChild.controls.age.errors.required">Edad es requerido</div>
@@ -176,6 +180,17 @@ html
       </div>
       </div>
 </div>
+<div class="form-row">
+  <div class="form-group">
+  <label for="image">Iamgen</label>
+  <input accept="application/image/png,image/jpeg" #image id="image" class="form-control" id="image" 
+         formControlName="image" multiple  type="file" name="image" [(ngModel)]="childseleccionado.image"
+         [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.image.errors }">
+  <div *ngIf="submitted &amp;&amp; registerChild.controls.image.errors" class="text-danger">
+      <div *ngIf="registerChild.controls.image.errors.required">La Direccion es requerido</div>
+  </div>
+  </div>
+</div>
 
 
     </form>
@@ -189,7 +204,7 @@ html
  <!-- Modal Crear-->
  <p-dialog header="Agregar Niño" [(visible)]="displayResponsiveCrear" [breakpoints]="{'960px': '75vw'}"
  [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true">
- <form [formGroup]="registerChild" (ngSubmit)="crearChild()">
+ <form [formGroup]="registerChild" (ngSubmit)="crearChild()"  enctype="multipart/form-data">
      <div class="form-row">
          <div class="form-group col-md-6 col-lg-6">
          <label for="name">Nombres</label>
@@ -219,7 +234,7 @@ html
        </div>
        <div class="form-group col-md-6 col-lg-6">
          <label for="CI">Cédua</label>
-         <input type="text"  formControlName="CI" class="form-control"
+         <input type="number" maxlength="10"  formControlName="CI" class="form-control"
              [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.CI.errors }" />
          <div *ngIf="submitted &amp;&amp; registerChild.controls.CI.errors" class="text-danger">
              <div *ngIf="registerChild.controls.CI.errors.required">Cédula es requerido</div>
@@ -237,7 +252,7 @@ html
      </div>
      <div class="form-group col-md-6 col-lg-6">
        <label for="age">Edad</label>
-       <input type="text" formControlName="age" class="form-control"
+       <input type="number" max="18" formControlName="age" class="form-control"
            [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.age.errors }" />
        <div *ngIf="submitted &amp;&amp; registerChild.controls.age.errors" class="text-danger">
            <div *ngIf="registerChild.controls.age.errors.required">Edad es requerido</div>
@@ -265,13 +280,16 @@ html
 <div class="form-row">
  <div class="form-group col-md-6 col-lg-6">
  <label for="study">Esta Estudiando?</label>
- <input type="text" formControlName="study" class="form-control"
-     [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.study.errors }" />
+     <select formControlName="study" class="form-control"
+     [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.study.errors }" name="study">
+      <option value="1">Sí</option>
+      <option value="2" selected>No</option>
+    </select>
  <div *ngIf="submitted &amp;&amp; registerChild.controls.study.errors" class="text-danger">
      <div *ngIf="registerChild.controls.study.errors.required">La Direccion es requerido</div>
  </div>
  </div>
- <div class="form-group col-md-6 col-lg-6">
+ <div *ngIf="registerChild.controls.study.value == 1 " class="form-group col-md-6 col-lg-6">
    <label for="schoolName">Nombres Escuela</label>
    <input type="text"  formControlName="schoolName" class="form-control"
        [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.schoolName.errors }" />
@@ -280,7 +298,34 @@ html
    </div>
    </div>
 </div>
+<div class="form-row">
+  <div class="form-group">
+    <!--<label for="photo">Photo:</label>
+          <image-upload
+                  [max]="1"
+                  [buttonCaption]="'Select Photo'"
+                  [dropBoxMessage]="''"
+                  [extensions]="['jpg','jpeg','gif','png']"
+                  (isPending)="disableSendButton($event)"
+                  (uploadFinished)="imageUploaded($event)"
+                  (removed)="imageRemoved($event)">
+          </image-upload><br>
 
+    <img src="{{ default_image }}" height="200px" width="200px"/>-->
+
+  <label for="image">Iamgen</label>
+  <input accept="application/image/png,image/jpeg" #image id="image" class="form-control" id="image" 
+         formControlName="image" multiple type="file" name="image"  (change)="foto($event)" 
+         [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.image.errors }">
+
+  <div *ngIf="submitted &amp;&amp; registerChild.controls.image.errors" class="text-danger">
+      <div *ngIf="registerChild.controls.image.errors.required">La imagen es requerido</div>
+  </div>
+  <div class="preview">
+    <p>No files currently selected for upload</p>
+  </div>
+  </div>
+</div>
 
  </form>
  <ng-template pTemplate="footer">
@@ -289,3 +334,43 @@ html
      </div>
  </ng-template>
 </p-dialog>
+
+  
+<div class="col-md-4" *ngFor="let person of children">
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{person.name}}
+      <button class="btn btn-danger">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img class="card-img-top" [src]="person.image">
+    <div class="card-body">
+      <p>{{person.surname}}</p>
+    </div>
+  </div>
+</div>
+
+  <form (ngSubmit)="CodificarArchivo(file)"  enctype="multipart/form-data">
+    <div>
+      <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
+      <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+    </div>
+    <div class="preview">
+      <p>No files currently selected for upload</p>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <form #form = 'ngForm' (ngSubmit) = 'onSubmit()'  >
+    <div>
+    <p>
+        <label>Subir archivo</label>
+        <input type="file" (change)='fileChangeEvent($event)' />
+    </p>
+        <input type="submit" value="Subir" [disabled] = '!form.form.valid' >
+  </div>
+</form>
+

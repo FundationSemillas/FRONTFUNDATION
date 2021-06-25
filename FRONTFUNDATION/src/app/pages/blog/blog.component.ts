@@ -1,3 +1,4 @@
+import { BlogService } from './../../services/blog.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class BlogComponent implements OnInit {
 contenido: any[];
-  constructor() {
+blogs: any;
+  constructor( private _blogServices: BlogService) {
+    
     this.contenido = [
       {
           "nombre": "Marcos",
@@ -28,7 +31,15 @@ contenido: any[];
   ]
    }
 
+   getBlogs() {
+    this._blogServices.get("/blog").subscribe((data) => {
+      this.blogs = data;
+      console.log("blogs: ", this.blogs);
+    });
+  }
+
   ngOnInit(): void {
+    this.getBlogs() 
   }
 
 }
