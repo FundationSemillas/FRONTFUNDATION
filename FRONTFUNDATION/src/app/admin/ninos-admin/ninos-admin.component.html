@@ -336,41 +336,7 @@ aria-hidden="true">
 </p-dialog>
 
   
-<div class="col-md-4" *ngFor="let person of children">
-  <div class="card text-center">
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-      {{person.name}}
-      <button class="btn btn-danger">
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </div>
-    <img class="card-img-top" [src]="person.image">
-    <div class="card-body">
-      <p>{{person.surname}}</p>
-    </div>
-  </div>
-</div>
 
-  <form (ngSubmit)="CodificarArchivo(file)"  enctype="multipart/form-data">
-    <div>
-      <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
-      <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-    </div>
-    <div class="preview">
-      <p>No files currently selected for upload</p>
-    </div>
-    <div>
-      <button type="submit">Submit</button>
-    </div>
-  </form>
 
-  <form #form = 'ngForm' (ngSubmit) = 'onSubmit()'  >
-    <div>
-    <p>
-        <label>Subir archivo</label>
-        <input type="file" (change)='fileChangeEvent($event)' />
-    </p>
-        <input type="submit" value="Subir" [disabled] = '!form.form.valid' >
-  </div>
-</form>
+  
 

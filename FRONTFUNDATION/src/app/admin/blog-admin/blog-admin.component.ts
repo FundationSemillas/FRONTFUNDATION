@@ -174,6 +174,18 @@ export class BlogAdminComponent implements OnInit {
   resetForm() {
     this.registerBlog.reset();
   }
+  
+  foto(event) {
+    this.files = event.target.files[0];
+    console.log("foto: ", this.files);
+  }
+
+  agregarImagenes(objeto){
+    let id = objeto.id;
+    let imaChild = objeto.title;
+    console.log("album admin: ", id + "  || ", imaChild)
+    //this.router.navigate(['/imageChild', id, imaChild], { skipLocationChange: true });
+  }
 
   /* formBlog: FormGroup;
 
