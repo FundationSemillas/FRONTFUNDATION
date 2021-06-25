@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AlbumService } from './../../services/album.service';
 import { environment } from "../../../environments/environment";
-const API_URL_FORM = environment.baseUrl;
+const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-galeria',
@@ -11,7 +11,6 @@ const API_URL_FORM = environment.baseUrl;
 })
 export class GaleriaComponent implements OnInit {
   selectedAlbum: any;
-  directorioImagenes: any = API_URL_FORM + '/storage/posts/';
 
   // years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
 

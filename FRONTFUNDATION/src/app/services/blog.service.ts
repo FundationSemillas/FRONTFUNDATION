@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx';
+const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 const API_URL_FORM = environment.baseUrl;
 const http = {
@@ -60,7 +61,7 @@ saveFile(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post("https://backendfundation.herokuapp.com/blog", formData).map((res) => res);
+  return this.http.post(API_URL_FORM+'blog', formData).map((res) => res);
 }
 
 

@@ -5,9 +5,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AlbumService } from './../services/album.service';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { environment } from "../../environments/environment";
-const API_URL_FORM = environment.baseUrl;
-
-const directorioImagenes: any = API_URL_FORM +'/storage/posts/';
+const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
     selector: 'app-components',

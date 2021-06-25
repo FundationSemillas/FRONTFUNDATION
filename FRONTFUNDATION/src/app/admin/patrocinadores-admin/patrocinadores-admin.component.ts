@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
 import { AlbumService } from './../../services/album.service';
 import { environment } from "../../../environments/environment";
-const directorioImagenes: any = environment.baseUrl+'/storage/posts/';
+const directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-patrocinadores-admin',

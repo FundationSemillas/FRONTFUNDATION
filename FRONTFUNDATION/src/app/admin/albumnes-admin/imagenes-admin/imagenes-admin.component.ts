@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
 import { environment } from "../../../../environments/environment";
-const   directorioImagenes: any = environment.baseUrl+'/storage/posts/';
+const   directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-imagenes-admin',
