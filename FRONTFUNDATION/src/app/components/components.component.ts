@@ -122,7 +122,7 @@ export class ComponentsComponent implements OnInit {
         this.restService.get("/sponsor").subscribe((data) => {
             this.partners = data;
             for (var i = 0; i < this.partners.length; i++) {
-                this.partners[i].image = directorioImagenes + this.partners[i].image;
+                this.partners[i].image = this.directorioImagenes + this.partners[i].image;
             }
 
             console.log("sponsornes: ", this.partners);
