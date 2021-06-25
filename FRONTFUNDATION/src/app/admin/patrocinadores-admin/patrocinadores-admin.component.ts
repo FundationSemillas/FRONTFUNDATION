@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
 import { AlbumService } from './../../services/album.service';
 import { environment } from "../../../environments/environment";
-const directorioImagenes: any = environment.baseUrl+'/storage/';
 
 @Component({
   selector: 'app-patrocinadores-admin',
@@ -15,6 +14,7 @@ const directorioImagenes: any = environment.baseUrl+'/storage/';
 
 })
 export class PatrocinadoresAdminComponent implements OnInit {
+  directorioImagenes: any
   modifSponsor: FormGroup;
   registerSponsor: FormGroup;
   sponsors: any;
@@ -39,6 +39,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.directorioImagenes = environment.baseUrl + '/storage/';
     this.getSponsors();
   }
   // seteo de objeto enviar
