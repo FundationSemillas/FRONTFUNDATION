@@ -118,7 +118,7 @@ aria-hidden="true">
           </div>
           </div>
           <div class="form-group col-md-6 col-lg-6">
-            <label for="CI">Cédua</label>
+            <label for="CI">Cédula</label>
             <input type="number" max="10" [(ngModel)]="childseleccionado.CI" formControlName="CI" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.CI.errors }" />
             <div *ngIf="submitted &amp;&amp; modifChild.controls.CI.errors" class="text-danger">
@@ -182,7 +182,7 @@ aria-hidden="true">
 </div>
 <div class="form-row">
   <div class="form-group">
-  <label for="image">Iamgen</label>
+  <label for="image">Imagen</label>
   <input accept="application/image/png,image/jpeg" #image id="image" class="form-control" id="image" 
          formControlName="image" multiple  type="file" name="image" [(ngModel)]="childseleccionado.image"
          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.image.errors }">

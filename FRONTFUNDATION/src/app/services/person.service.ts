@@ -14,6 +14,11 @@ const http = {
     "Content-Type": "application/json",
     Accept: "application/json",
   }),
+  /**
+   *  "enctype": "multipart/form-data",
+    "Content-Type":"application/json",
+    "X-Requested-With": "XMLHttpRequest",
+   */
 };
 
 @Injectable({
@@ -25,7 +30,12 @@ export class PersonService {
 add(objeto, url: String): Observable<any> {
   return this.http.post(API_URL_FORM + url, objeto).map((res) => res);
 }
+/*
+addImage(image:FormData){
+  
+  return this.httpi.formdata(API_URL_FORM, image)
 
+}*/
 
 updateData(objeto, add: String) {
   console.log(objeto, "URL " + add);
@@ -46,6 +56,19 @@ delete(url: String): Observable<any> {
 
 get(url: string): Observable<any> {
   return this.http.get(API_URL_FORM + url).map((res) => res);
+}
+saveFile(file: File,objeto, url: String): Observable<any> {
+  let formData = new FormData();
+  let json = JSON.stringify(objeto);
+  console.log("json: ", json)
+  let objetoJson = new Blob([json], {
+    type: 'application/json'
+  });
+  console.log("obejtojspn: ",objetoJson )
+  formData.append('image', file);
+  formData.append('data', json);
+  // formData.append('data', json);
+  return this.http.post("http://127.0.0.1:8000/child", formData).map((res) => res);
 }
 /** 
   public selectedField: Person = {
