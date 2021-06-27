@@ -1,5 +1,6 @@
 import { BlogService } from './../../services/blog.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-blog',
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class BlogComponent implements OnInit {
 contenido: any[];
 blogs: any;
+directorioImagenes: any;
   constructor( private _blogServices: BlogService) {
     
     this.contenido = [
@@ -39,6 +41,7 @@ blogs: any;
   }
 
   ngOnInit(): void {
+    this.directorioImagenes = environment.baseUrl+'/storage/';
     this.getBlogs() 
   }
 

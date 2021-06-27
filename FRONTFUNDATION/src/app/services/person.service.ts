@@ -64,8 +64,8 @@ export class PersonService {
     let objetoJson = new Blob([json], {
       type: 'application/json'
     });
-    console.log("obejtojspn: ", objetoJson)
-    formData.append('image', file);
+    console.log("obejtojson: ", objetoJson)
+    formData.append('Image', file);
     formData.append('data', json);
     // formData.append('data', json);
     return this.http.post(API_URL_FORM + '/child', formData).map((res) => res);

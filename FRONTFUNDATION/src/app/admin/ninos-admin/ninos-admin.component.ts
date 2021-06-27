@@ -3,11 +3,13 @@ import { Component, ElementRef, OnInit, Pipe, PipeTransform, ViewChild } from '@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-ninos-admin',
   templateUrl: './ninos-admin.component.html',
-  styleUrls: ['./ninos-admin.component.scss']
+  styleUrls: ['./ninos-admin.component.scss'],
+  providers: [ConfirmationService],
 })
 export class NinosAdminComponent implements OnInit {
   modifChild: FormGroup;
@@ -23,12 +25,12 @@ export class NinosAdminComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
+  constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
     this.modifChild = this.formBuilder.group({
       id: [null],//valor por defecto, 
       name: ['', [Validators.required, Validators.maxLength(20)]],
       surname: ['', [Validators.required, Validators.maxLength(20)]],//pipe para fechas??
-      image: [null],//si es una validacicion tener un Validators
+      //image: [null],//si es una validacicion tener un Validators
       dateBirth: [null],
       CI: [null],
       houseAddress: ['', [Validators.required, Validators.maxLength(70)]],
@@ -42,7 +44,7 @@ export class NinosAdminComponent implements OnInit {
       id: [null],//valor por defecto, 
       name: ['', [Validators.required, Validators.maxLength(20)]],
       surname: ['', [Validators.required, Validators.maxLength(20)]],//pipe para fechas??
-      image: [null],//si es una validacicion tener un Validators
+      //image: [null],//si es una validacicion tener un Validators
       dateBirth: [null],
       CI: [null],
       houseAddress: ['', [Validators.required, Validators.maxLength(70)]],
@@ -129,8 +131,7 @@ export class NinosAdminComponent implements OnInit {
       return;
     }
     //Objeto json que se envia al back
-    let objetoModificar = {
-
+    /*let objetoModificar = {
       "id": this.modifChild.value.id,
       "name": this.modifChild.value.name,
       "surname": this.modifChild.value.surname,
@@ -143,10 +144,10 @@ export class NinosAdminComponent implements OnInit {
       "study": this.modifChild.value.study,
       "schoolName": this.modifChild.value.schoolName,
       "age": this.modifChild.value.age,
+    }*/
 
-    }
     // console.log("objetoModificar: ", objetoModificar)
-    this.restService.updateData(objetoModificar, "/child/" + this.childseleccionado.id).subscribe(
+    this.restService.updateData(this.modifChild.value, "/child/" + this.childseleccionado.id).subscribe(
       res => {
         this.toastr.success('Niño modificado Exitosamente');
         console.log("modificado: exitosamente", res);
@@ -175,17 +176,25 @@ export class NinosAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteChild(id) {
     console.log("id a eliminar:")
-    this.restService.delete("/child/" + id).subscribe(
-      res => {
-        this.toastr.success('Eliminado Exitosamente');
-
-        console.log("eliminado: exitosamente", res);
-        this.getChildren();
+     this.confirmationService.confirm({
+      message: 'Desea Eliminar el Registro',
+      header: 'Eliminar',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.restService.delete("/child/" + id).subscribe(
+          res => {
+            this.toastr.success('Eliminado Exitosamente');
+            this.getChildren();
+          },
+          err => {
+            console.log("error: eliminar", err)
+          }
+        );
       },
-      err => {
-        console.log("error: eliminar", err)
+      reject: () => {
+        this.toastr.error('Operación Cancelada');
       }
-    );
+    });
   }
 
   //Obtengo todos los eventos

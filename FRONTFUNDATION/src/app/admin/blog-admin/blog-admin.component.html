@@ -28,6 +28,9 @@
                       <button type="button" class="btn btn-outline-primary" (click)="getBlog(lb.id)">
                         <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
                       </button>
+                      
+                  </td>
+                  <td>
                       <button type="button" class="btn btn-outline-danger" (click)="getIdEliminar(lb.id)">
                         <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
                       </button>
@@ -142,7 +145,7 @@
 
         <div class="form-group">
             <label for="description">Imagen</label>
-            <input type="file" class="form-control" name="image" id="image" (change)="foto($event)">
+            <input accept="application/image/png,image/jpeg" #Image type="file" class="form-control" name="image" id="image" (change)="foto($event)">
         </div>
 
 

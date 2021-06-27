@@ -9,7 +9,7 @@ export class Person {
         public study?: string,
         public houseAddress?: string,
         public schoolName?: string,
-        public image?:string,
+        public Image?:string,
         public id?: number,
         public age?: number, 
         ){}

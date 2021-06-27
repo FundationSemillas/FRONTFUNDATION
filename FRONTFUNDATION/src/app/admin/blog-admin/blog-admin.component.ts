@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationService } from 'primeng/api';
 import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'app-blog-admin',
   templateUrl: './blog-admin.component.html',
-  styleUrls: ['./blog-admin.component.scss']
+  styleUrls: ['./blog-admin.component.scss'],
+  providers: [ConfirmationService],
 })
 export class BlogAdminComponent implements OnInit {
   modifBlog: FormGroup;
@@ -21,19 +23,19 @@ export class BlogAdminComponent implements OnInit {
   files: any;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
+  constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
     this.modifBlog = this.formBuilder.group({
       id: [null],//valor por defecto, 
       title: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', [Validators.required, Validators.maxLength(80)]],
-      image: [null],//si es una validacicion tener un Validators
+      //image: [null],//si es una validacicion tener un Validators
       link: [null]
     });
     this.registerBlog = this.formBuilder.group({
       id: [null],//valor por defecto, 
       title: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', [Validators.required, Validators.maxLength(80)]],
-      image: [null],//si es una validacicion tener un Validators
+      //image: [null],//si es una validacicion tener un Validators
       link: [null]
     });
   }
@@ -54,13 +56,9 @@ export class BlogAdminComponent implements OnInit {
       //"blogs": {
         "title": this.registerBlog.value.title,
         "description": this.registerBlog.value.description,
-        "image": this.registerBlog.value.image,
+        //"image": this.registerBlog.value.image,
         "link": this.registerBlog.value.link
       //}
-      /*,
-      "events": {
-        "id": this.registerBlog.value.event
-      }*/
     }
     console.log("valores crear: ", objetoCrear)
     this._blogServices.saveFile(this.files, objetoCrear, "/blog").subscribe(
@@ -71,7 +69,7 @@ export class BlogAdminComponent implements OnInit {
         this.getBlogs();
       },
       err => {
-        this.toastr.success('Blog creado Exitosamente');
+        this.toastr.error('Blog error');
         this.resetForm();
         this.getBlogs();
         console.log("error crear", err)
@@ -105,19 +103,17 @@ export class BlogAdminComponent implements OnInit {
       return;
     }
     //Objeto json que se envia al back
-    let objetoModificar = {
-      "blogs": {
-        "title": this.modifBlog.value.title,
-        "description": this.modifBlog.value.description,
-        "image": this.modifBlog.value.image,
-        "link": this.registerBlog.value.link
-      }/*,
-      "events": {
-        "id": this.modifBlog.value.event
-      }*/
-    }
+    //let objetoModificar = {
+     // "blogs": {
+     //   "title": this.modifBlog.value.title,
+     //   "description": this.modifBlog.value.description,
+    //  "image": this.modifBlog.value.image,
+     //   "link": this.registerBlog.value.link
+      //}
+    //}
+    console.log("objeto crear: ", this.modifBlog.value);
     // console.log("objetoModificar: ", objetoModificar)
-    this._blogServices.updateData(objetoModificar, "/blog/" + this.blogseleccionado.id).subscribe(
+    this._blogServices.updateData(this.modifBlog.value, "/blog/" + this.blogseleccionado.id).subscribe(
       res => {
         this.toastr.success('Álbum modificado Exitosamente');
         console.log("modificado: exitosamente", res);
@@ -146,17 +142,25 @@ export class BlogAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteBlog(id) {
     console.log("id a eliminar:")
-    this._blogServices.delete("/blog/" + id).subscribe(
-      res => {
-        this.toastr.success('Eliminado Exitosamente');
-
-        console.log("eliminado: exitosamente", res);
-        this.getBlogs();
-      },
-      err => {
-        console.log("error: eliminar", err)
-      }
-    );
+      this.confirmationService.confirm({
+        message: 'Desea Eliminar el Blog',
+        header: 'Eliminar',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this._blogServices.delete("/blog/" + id).subscribe(
+            res => {
+              this.toastr.success('Eliminado Exitosamente');
+              this.getBlogs();
+            },
+            err => {
+              console.log("error: eliminar", err)
+            }
+          );
+        },
+        reject: () => {
+          this.toastr.error('Operación Cancelada');
+        }
+      });
   }
 
 
@@ -174,7 +178,6 @@ export class BlogAdminComponent implements OnInit {
   resetForm() {
     this.registerBlog.reset();
   }
-  
   foto(event) {
     this.files = event.target.files[0];
     console.log("foto: ", this.files);
@@ -186,6 +189,7 @@ export class BlogAdminComponent implements OnInit {
     console.log("album admin: ", id + "  || ", imaChild)
     //this.router.navigate(['/imageChild', id, imaChild], { skipLocationChange: true });
   }
+
 
   /* formBlog: FormGroup;
 

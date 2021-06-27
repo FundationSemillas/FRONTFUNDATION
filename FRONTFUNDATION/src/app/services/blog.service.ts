@@ -57,11 +57,11 @@ saveFile(file: File,objeto, url: String): Observable<any> {
   let objetoJson = new Blob([json], {
     type: 'application/json'
   });
-  console.log("obejtojspn: ",objetoJson )
+  console.log("obejtojson: ",objetoJson )
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+'blog', formData).map((res) => res);
+  return this.http.post(API_URL_FORM+'/blog', formData).map((res) => res);
 }
 
 
