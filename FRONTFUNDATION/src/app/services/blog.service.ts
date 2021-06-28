@@ -31,7 +31,7 @@ add(objeto, url: String): Observable<any> {
 
 
 updateData(objeto, add: String) {
-  console.log(objeto, "URL " + add);
+  console.log(objeto, "URL jh" + add);
   return this.http.put(API_URL_FORM + add, objeto, http).pipe(
     map(
       (res: any) => {

@@ -21,7 +21,7 @@
           <tr *ngFor="let person of children;  index as i">
             <th scope="row">{{i+1}}</th>
             <td>{{person.name}}</td>
-            <td><img [src]="person.image"></td>
+            <td><img [src]="directorioImagenes+person.image"></td>
             <!--<td>{{person.surname}}</td>-->
             <td>
               <button type="button" (click)="getChild(person.id)" class="btn btn-outline-primary">
@@ -29,7 +29,7 @@
               </button>
             </td>
             <td>
-              <button (click)="getIdEliminar(person.id)" type="button" class="btn btn-outline-danger" 
+              <button (click)="deleteChild(person.id)" type="button" class="btn btn-outline-danger" 
                       data-toggle="modal" data-target="#modalDelete">
                 <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
               </button>

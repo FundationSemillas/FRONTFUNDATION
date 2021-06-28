@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { PersonService } from './../../services/person.service';
 import { Component, ElementRef, OnInit, Pipe, PipeTransform, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -23,6 +24,7 @@ export class NinosAdminComponent implements OnInit {
   files: any;
   id: any;
   submitted = false;
+  directorioImagenes:any;
 
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
@@ -57,6 +59,7 @@ export class NinosAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.directorioImagenes = environment.baseUrl+'/storage/';
     this.getChildren();
   }
   // seteo de objeto enviar

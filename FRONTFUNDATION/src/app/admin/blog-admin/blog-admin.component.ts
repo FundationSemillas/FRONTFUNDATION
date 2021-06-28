@@ -25,14 +25,14 @@ export class BlogAdminComponent implements OnInit {
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
     this.modifBlog = this.formBuilder.group({
-      id: [null],//valor por defecto, 
+      //id: [null],//valor por defecto, 
       title: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', [Validators.required, Validators.maxLength(80)]],
       //image: [null],//si es una validacicion tener un Validators
       link: [null]
     });
     this.registerBlog = this.formBuilder.group({
-      id: [null],//valor por defecto, 
+      //id: [null],//valor por defecto, 
       title: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', [Validators.required, Validators.maxLength(80)]],
       //image: [null],//si es una validacicion tener un Validators
@@ -113,9 +113,11 @@ export class BlogAdminComponent implements OnInit {
     //}
     console.log("objeto crear: ", this.modifBlog.value);
     // console.log("objetoModificar: ", objetoModificar)
+    console.log(this.modifBlog.value, "/blog/" + this.blogseleccionado.id);
     this._blogServices.updateData(this.modifBlog.value, "/blog/" + this.blogseleccionado.id).subscribe(
       res => {
-        this.toastr.success('Álbum modificado Exitosamente');
+        
+        this.toastr.success('Blog modificado Exitosamente');
         console.log("modificado: exitosamente", res);
         this.getBlogs();
       },
@@ -142,11 +144,11 @@ export class BlogAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteBlog(id) {
     console.log("id a eliminar:")
-      this.confirmationService.confirm({
+      /*this.confirmationService.confirm({
         message: 'Desea Eliminar el Blog',
         header: 'Eliminar',
         icon: 'pi pi-exclamation-triangle',
-        accept: () => {
+        accept: () => {*/
           this._blogServices.delete("/blog/" + id).subscribe(
             res => {
               this.toastr.success('Eliminado Exitosamente');
@@ -156,11 +158,11 @@ export class BlogAdminComponent implements OnInit {
               console.log("error: eliminar", err)
             }
           );
-        },
+        /*},
         reject: () => {
           this.toastr.error('Operación Cancelada');
         }
-      });
+      });*/
   }
 
 
