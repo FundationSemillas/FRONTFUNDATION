@@ -43,7 +43,7 @@ export class NinosAdminComponent implements OnInit {
       age: [null, [Validators.required]]
     });
     this.registerChild = this.formBuilder.group({
-      id: [null],//valor por defecto, 
+     // id: [null],valor por defecto, 
       name: ['', [Validators.required, Validators.maxLength(20)]],
       surname: ['', [Validators.required, Validators.maxLength(20)]],//pipe para fechas??
       //image: [null],//si es una validacicion tener un Validators
