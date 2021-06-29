@@ -21,7 +21,7 @@
           <tr *ngFor="let person of children;  index as i">
             <th scope="row">{{i+1}}</th>
             <td>{{person.name}}</td>
-            <td><img [src]="directorioImagenes+person.image"></td>
+            <td><img [src]="directorioImagenes+person.Image"></td>
             <!--<td>{{person.surname}}</td>-->
             <td>
               <button type="button" (click)="getChild(person.id)" class="btn btn-outline-primary">
