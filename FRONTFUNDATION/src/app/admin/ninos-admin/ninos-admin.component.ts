@@ -67,6 +67,7 @@ export class NinosAdminComponent implements OnInit {
     this.displayResponsiveCrear = false;
     this.submitted = true;
     if (this.registerChild.invalid) {
+          console.log("error validacion crear: ", )
       return;
     }
     //Objeto json que se envia al back
