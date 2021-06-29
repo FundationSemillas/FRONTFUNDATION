@@ -73,7 +73,7 @@ export class NinosAdminComponent implements OnInit {
     //Objeto json que se envia al back
     let objetoCrear = {
       //"children": {
-        "id": this.registerChild.value.id,
+       // "id": this.registerChild.value.id,
         "name": this.registerChild.value.name,
         "surname": this.registerChild.value.surname,
        // "image": this.registerChild.value.image,
