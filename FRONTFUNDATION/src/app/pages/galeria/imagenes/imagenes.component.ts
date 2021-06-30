@@ -53,6 +53,9 @@ export class ImagenesComponent implements OnInit {
   getImagenesAlbum(id) {
     this.restService.get("/image/" + id).subscribe((data) => {
       this.imaganesAlbum = data;
+       for (var i = 0; i < this.imaganesAlbum.length; i++) {
+        this.imaganesAlbum[i].image = this.directorioImagenes + this.imaganesAlbum[i].image;
+      }
       console.log("imagnes album: ", this.imaganesAlbum);
     });
   }
