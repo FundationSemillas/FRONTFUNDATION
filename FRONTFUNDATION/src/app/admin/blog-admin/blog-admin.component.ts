@@ -69,10 +69,10 @@ export class BlogAdminComponent implements OnInit {
         this.getBlogs();
       },
       err => {
-        this.toastr.error('Blog error');
+        this.toastr.error('Blog creado');
         this.resetForm();
         this.getBlogs();
-        console.log("error crear", err)
+       // console.log("error crear", err)
       }
     );
     /*this._blogServices.add(objetoCrear, "/blog").subscribe(
