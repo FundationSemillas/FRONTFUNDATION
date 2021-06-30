@@ -11,6 +11,10 @@ mat-option{
 form{
     z-index: 2 !important;
 }
+img{
+    max-width: 200px;
+    max-height: 200px;
+}
 
 mat-form-field {
     position: relative;
