@@ -69,7 +69,7 @@ export class BlogAdminComponent implements OnInit {
         this.getBlogs();
       },
       err => {
-        this.toastr.success('Antrada de Blog creado');
+        this.toastr.success('Entrada de Blog creado');
         this.resetForm();
         this.getBlogs();
        // console.log("error crear", err)
