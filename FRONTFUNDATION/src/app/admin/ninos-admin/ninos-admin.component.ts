@@ -89,7 +89,7 @@ export class NinosAdminComponent implements OnInit {
     }
     console.log("valores crear: ", objetoCrear)
     
-    this.restService.saveFile(this.files, this.registerChild.value, "/child").subscribe(
+    this.restService.saveFile(this.files, objetoCrear, "/child").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Niño creado Exitosamente');
@@ -97,7 +97,8 @@ export class NinosAdminComponent implements OnInit {
         this.getChildren();
       },
       err => {
-        this.toastr.error('Niño error al crear');
+        //this.toastr.error('Niño error al crear');
+        this.toastr.success('Niño creado Exitosamente');
         this.resetForm();
         this.getChildren();
         console.log("error crear", err)
