@@ -20,6 +20,8 @@ export class ImagenesAdminComponent implements OnInit {
   id: any;
   album: string;
   navigationSubscription;
+  directorioImagenes: any;
+  imagenes: any;
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private restService: AlbumService, private toastr: ToastrService, private route: ActivatedRoute,) {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
@@ -46,6 +48,8 @@ export class ImagenesAdminComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("imagen admin: ", directorioImagenes);
+    this.directorioImagenes = environment.baseUrl + '/storage/';
+    this.getImagenesAlbum( this.id);
   }
 
   foto(event) {
@@ -75,10 +79,43 @@ export class ImagenesAdminComponent implements OnInit {
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Album creado Exitosamente');
+        this.getImagenesAlbum(this.id);
       },
       err => {
         console.log("error crear", err)
       }
     );
+  }
+
+  getImagenesAlbum(id) {
+    this.restService.get("/image/" + id).subscribe((data) => {
+      this.imagenes = data;
+      for (var i = 0; i < this.imagenes.length; i++) {
+        this.imagenes[i].image = this.directorioImagenes + this.imagenes[i].image;
+      }
+      console.log("imagnes: ", this.imagenes);
+    });
+  }
+
+  deleteImage(id) {
+    this.confirmationService.confirm({
+      message: 'Desea Eliminar la Imagen',
+      header: 'Eliminar',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.restService.delete("/image/id/" + id).subscribe(
+          res => {
+            this.toastr.success('Imagen eliminado Exitosamente');
+            this.getImagenesAlbum(this.id);
+          },
+          err => {
+            console.log("error: eliminar", err)
+          }
+        );
+      },
+      reject: () => {
+        this.toastr.error('Operación Cancelada');
+      }
+    });
   }
 }
