@@ -39,7 +39,7 @@ export class NinosAdminComponent implements OnInit {
       mothersName: ['', [Validators.required, Validators.maxLength(70)]],
       fathersName: ['', [Validators.required, Validators.maxLength(70)]],
       study: [null],
-      schoolName: ['', [Validators.required, Validators.maxLength(70)]],
+      schoolName: [null, [Validators.maxLength(70)]],
       age: [null, [Validators.required]]
     });
     this.registerChild = this.formBuilder.group({
@@ -53,7 +53,7 @@ export class NinosAdminComponent implements OnInit {
       mothersName: ['', [Validators.required, Validators.maxLength(70)]],
       fathersName: ['', [Validators.required, Validators.maxLength(70)]],
       study: [null],
-      schoolName: ['', [Validators.required, Validators.maxLength(70)]],
+      schoolName: [null, [Validators.maxLength(70)]],
       age: [null, [Validators.required]]
     });
   }
@@ -89,7 +89,7 @@ export class NinosAdminComponent implements OnInit {
     }
     console.log("valores crear: ", objetoCrear)
     
-    this.restService.saveFile(this.files, objetoCrear, "/child").subscribe(
+    this.restService.saveFile(this.files, this.registerChild.value, "/child").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Niño creado Exitosamente');
@@ -180,11 +180,11 @@ export class NinosAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteChild(id) {
     console.log("id a eliminar:")
-     this.confirmationService.confirm({
+    /* this.confirmationService.confirm({
       message: 'Desea Eliminar el Registro',
       header: 'Eliminar',
       icon: 'pi pi-exclamation-triangle',
-      accept: () => {
+      accept: () => {*/
         this.restService.delete("/child/" + id).subscribe(
           res => {
             this.toastr.success('Eliminado Exitosamente');
@@ -194,11 +194,11 @@ export class NinosAdminComponent implements OnInit {
             console.log("error: eliminar", err)
           }
         );
-      },
+     /* },
       reject: () => {
         this.toastr.error('Operación Cancelada');
       }
-    });
+    });*/
   }
 
   //Obtengo todos los eventos
