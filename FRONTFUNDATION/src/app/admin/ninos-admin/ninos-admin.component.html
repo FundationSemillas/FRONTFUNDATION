@@ -21,16 +21,15 @@
           <tr *ngFor="let person of children;  index as i">
             <th scope="row">{{i+1}}</th>
             <td>{{person.name}}</td>
-            <td><img [src]="directorioImagenes+person.Image"></td>
-            <!--<td>{{person.surname}}</td>-->
+             <!--<td><img [src]="directorioImagenes+person.Image"></td>-->
+            <td>{{person.surname}}</td>
             <td>
               <button type="button" (click)="getChild(person.id)" class="btn btn-outline-primary">
                 <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
               </button>
             </td>
             <td>
-              <button (click)="deleteChild(person.id)" type="button" class="btn btn-outline-danger" 
-                      data-toggle="modal" data-target="#modalDelete">
+              <button (click)="deleteChild(person.id)" type="button" class="btn btn-outline-danger">
                 <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
               </button>
             </td>
@@ -165,27 +164,28 @@ aria-hidden="true">
   <div class="form-row">
     <div class="form-group col-md-6 col-lg-6">
     <label for="study">Esta Estudiando?</label>
-    <input type="text" [(ngModel)]="childseleccionado.study" formControlName="study" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.study.errors }" />
-    <div *ngIf="submitted &amp;&amp; modifChild.controls.study.errors" class="text-danger">
-        <div *ngIf="modifChild.controls.study.errors.required">La Direccion es requerido</div>
-    </div>
+     <select formControlName="study" class="form-control" [(ngModel)]="childseleccionado.study"
+     [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.study.errors }" name="study">
+      <option value="1">Sí</option>
+      <option value="2" selected>No</option>
+    </select>
     </div>
     <div class="form-group col-md-6 col-lg-6">
       <label for="schoolName">Nombres Escuela</label>
-      <input type="text" [(ngModel)]="childseleccionado.schoolName" formControlName="schoolName" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.schoolName.errors }" />
+      <input type="text" [(ngModel)]="childseleccionado.schoolName" formControlName="schoolName" class="form-control"/>
+         <!-- [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.schoolName.errors }" />
       <div *ngIf="submitted &amp;&amp; modifChild.controls.schoolName.errors" class="text-danger">
           <div *ngIf="modifChild.controls.schoolName.errors.required">Edad es requerido</div>
-      </div>
+      </div>-->
       </div>
 </div>
 <div class="form-row">
-  <div class="form-group">
+ <img [src]="directorioImagenes+childseleccionado.Image">
+ <!-- <div class="form-group">
   <label for="Image">Iamgen</label>
   <input accept="application/image/png,image/jpeg" #Image id="Image" class="form-control" id="Image" 
           multiple  type="file" name="Image" [(ngModel)]="childseleccionado.Image">
-  </div>
+  </div>-->
 </div>
 
 
@@ -229,7 +229,7 @@ aria-hidden="true">
        </div>
        </div>
        <div class="form-group col-md-6 col-lg-6">
-         <label for="CI">Cédua</label>
+         <label for="CI">Cédula</label>
          <input type="number" maxlength="10"  formControlName="CI" class="form-control"
              [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.CI.errors }" />
          <div *ngIf="submitted &amp;&amp; registerChild.controls.CI.errors" class="text-danger">
@@ -265,7 +265,7 @@ aria-hidden="true">
    </div>
    </div>
    <div class="form-group col-md-6 col-lg-6">
-     <label for="fathersName">Nombres Padre</label>
+     <label for="fathersName">Nombres del Padre</label>
      <input type="text" style="text-transform:uppercase;" formControlName="fathersName" class="form-control"
          [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.fathersName.errors }" />
      <div *ngIf="submitted &amp;&amp; registerChild.controls.fathersName.errors" class="text-danger">
@@ -282,16 +282,16 @@ aria-hidden="true">
       <option value="2" selected>No</option>
     </select>
  <div *ngIf="submitted &amp;&amp; registerChild.controls.study.errors" class="text-danger">
-     <div *ngIf="registerChild.controls.study.errors.required">La Direccion es requerido</div>
+     <div *ngIf="registerChild.controls.study.errors.required">El campo es requerido</div>
  </div>
  </div>
  <div *ngIf="registerChild.controls.study.value == 1 " class="form-group col-md-6 col-lg-6">
    <label for="schoolName">Nombres Escuela</label>
-   <input type="text"  formControlName="schoolName" class="form-control"
-       [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.schoolName.errors }" />
+   <input type="text"  formControlName="schoolName" class="form-control"/>
+       <!-- [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.schoolName.errors }" />
    <div *ngIf="submitted &amp;&amp; registerChild.controls.schoolName.errors" class="text-danger">
        <div *ngIf="registerChild.controls.schoolName.errors.required">Edad es requerido</div>
-   </div>
+   </div>-->
    </div>
 </div>
 <div class="form-row">
@@ -309,7 +309,7 @@ aria-hidden="true">
 
     <img src="{{ default_image }}" height="200px" width="200px"/>-->
 
-  <label for="Image">Iamgen</label>
+  <label for="Image">Imagen</label>
   <input accept="application/image/png,image/jpeg" #Image id="Image" class="form-control" id="Image" 
          multiple type="file" name="Image"  (change)="foto($event)" >
   </div>
