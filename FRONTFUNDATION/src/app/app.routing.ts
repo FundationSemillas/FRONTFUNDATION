@@ -27,12 +27,12 @@ const routes: Routes = [
   { path: 'galeria', component: GaleriaComponent },
   { path: 'imagenes/:id/:album', component: ImagenesComponent },
   { path: 'clubAmigos', component: VoluntariosComponent },
-  { path: 'albumAdmin', component: AlbumnesAdminComponent}, 
-  { path: 'blogAdmin', component: BlogAdminComponent },
-  { path: 'ninosAdmin', component: NinosAdminComponent },//
-  { path: 'patrocinadoresAdmin', component: PatrocinadoresAdminComponent},
-  { path: 'clubAdmin', component: VoluntariosAdminComponent },
-  { path: 'imagenesAdmin/:id/:album', component: ImagenesAdminComponent},
+  { path: 'albumAdmin', component: AlbumnesAdminComponent, canActivate: [AuthGuard]}, 
+  { path: 'blogAdmin', component: BlogAdminComponent, canActivate: [AuthGuard] },
+  { path: 'ninosAdmin', component: NinosAdminComponent, canActivate: [AuthGuard] },//
+  { path: 'patrocinadoresAdmin', component: PatrocinadoresAdminComponent, canActivate: [AuthGuard]},
+  { path: 'clubAdmin', component: VoluntariosAdminComponent, canActivate: [AuthGuard] },
+  { path: 'imagenesAdmin/:id/:album', component: ImagenesAdminComponent, canActivate: [AuthGuard]},
 
   
 
