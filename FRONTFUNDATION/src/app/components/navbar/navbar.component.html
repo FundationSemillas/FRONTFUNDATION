@@ -59,16 +59,20 @@
     </div>
     <div class="navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" *ngIf="!isDocumentation()">
-                <a class="nav-link" target="_blank"><i class="nc-icon nc-image"></i> HISTORIAS</a>
-            </li>
-            <li class="nav-item" *ngIf="!isDocumentation()">
-                <a [routerLink]="['/blog']" class="nav-link" data-placement="bottom" ><i class="nc-icon nc-bold"></i> BLOG</a>
-            </li>
-            <li class="nav-item" *ngIf="!isDocumentation()">
-                <a class="nav-link" ><i class="nc-icon nc-credit-card"></i> DONACIONES</a>
-            </li>
-        </ul>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a [routerLink]="['/galeria']" class="nav-link"><i class="nc-icon nc-image"></i>GALERÍA</a>
+                </li>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a [routerLink]="['/blog']" class="nav-link"><i class="nc-icon nc-bold"></i> BLOG</a>
+                </li>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a [routerLink]="['/clubAmigos']" class="nav-link"><i class="nc-icon nc-credit-card"></i> CLUB DE
+                        AMIGOS</a>
+                </li>
+                <!--<li class="nav-item" *ngIf="!isDocumentation()">
+                    <a class="nav-link" target="_blank"><i class="nc-icon nc-credit-card"></i> DONACIONES</a>
+                </li>-->
+            </ul>
     </div>
 
 
