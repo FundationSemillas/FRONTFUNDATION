@@ -10,12 +10,14 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    public isLogged = false;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(private authService: StorageService, public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        this.onCheckUser();
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
