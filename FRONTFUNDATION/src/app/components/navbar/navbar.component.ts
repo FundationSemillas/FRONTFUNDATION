@@ -1,3 +1,4 @@
+import { StorageService } from './../../services/storage.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
@@ -71,4 +72,17 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+    
+    onLogout(): void {
+    this.authService.logout();
+    location.reload();
+  }
+
+  onCheckUser(): void {
+    if (this.authService.isAuthenticated() === false) {
+      this.isLogged = false;
+    } else {
+      this.isLogged = true;
+    }
+  }
 }
