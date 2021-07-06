@@ -12,7 +12,7 @@ export class GaleriaComponent implements OnInit {
   selectedAlbum: any;
   directorioImagenes: any
 
-  // years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
+  years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
 
   albums: any;
   constructor(private router: Router, private restService: AlbumService) {
@@ -27,22 +27,18 @@ export class GaleriaComponent implements OnInit {
     // console.log("item: ", item);
     let id = item.id;
     let album = item.title;
-    console.log("galeria: ", id + "  || ", album)
     this.router.navigate(['/imagenes', id, album], { skipLocationChange: true });
   }
 
   filtrarEventoYear(value) {
-    console.log("año: ", value);
-    // this.selectedAlbum = this.albums.filter(albums => albums.year === value);
-    this.albums = this.albums.filter(albums => albums.year === value);
-
-    console.log("album final: ", this.albums);
+      this.restService.get("/filterYear/"+value).subscribe((data) => {
+      this.albums = data;
+    });
   }
 
   getAlbums() {
     this.restService.get("/album").subscribe((data) => {
       this.albums = data;
-      console.log("albumnes galeria: ", this.albums);
     });
   }
 }
