@@ -35,6 +35,7 @@ export class StorageService {
 
   removeCurrentSession(): void {
     this.localStorageService.removeItem('currentUser');
+    localStorage.clear();
     this.currentSession = null;
   }
 
