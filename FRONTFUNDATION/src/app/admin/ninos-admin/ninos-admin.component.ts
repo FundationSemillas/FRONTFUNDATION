@@ -25,9 +25,12 @@ export class NinosAdminComponent implements OnInit {
   id: any;
   submitted = false;
   directorioImagenes:any;
-
+  logeado: any;
+  validacion: any;
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
+    this.logeado = localStorage.getItem('logeado');
+    this.validacion = localStorage.getItem('validacion');
     this.modifChild = this.formBuilder.group({
       id: [null],//valor por defecto, 
       name: ['', [Validators.required, Validators.maxLength(20)]],
@@ -60,8 +63,20 @@ export class NinosAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.directorioImagenes = environment.baseUrl+'/storage/';
+     if (this.logeado === 'si') {
+      if (this.validacion === 'si') {
+      } else {
+        localStorage.setItem('validacion', 'si');
+        this.refrescar();
+      }
+    }
     this.getChildren();
   }
+  
+  refrescar() {
+    window.location.reload();
+  }
+
   // seteo de objeto enviar
   crearChild() {
     this.displayResponsiveCrear = false;
