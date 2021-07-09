@@ -85,6 +85,9 @@
                 <a [routerLink]="['/ninosAdmin']" class="nav-link" data-placement="bottom" ><i class="nc-icon nc-bold"></i> Niños</a>
             </li>
             <li class="nav-item" *ngIf="isLogged">
+                <a [routerLink]="['/albumAdmin']" class="nav-link" data-placement="bottom" ><i class="nc-icon nc-image"></i> Álbum</a>
+            </li>
+            <li class="nav-item" *ngIf="isLogged">
                 <a class="nav-link" (click)="onLogout()" ><i class="nc-icon nc-credit-card"></i> Cerrar Sesión</a>
             </li>
         </ul>
