@@ -59,8 +59,8 @@ text-shadow: -3px -3px 3px #F7C42D, 3px -3px 3px #F7C42D, -3px 3px 3px #F7C42D, 
     }
     }
 
- @media screen and (max-width: 400px) {
-    .navbar-brand{
+ @media only screen and (max-width: 400px) {
+    .navbar-brand a{
     font-size: 15px;
     }
     }
