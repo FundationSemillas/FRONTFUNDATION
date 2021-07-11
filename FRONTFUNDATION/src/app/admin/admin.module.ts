@@ -22,6 +22,7 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ImagenesAdminComponent } from './albumnes-admin/imagenes-admin/imagenes-admin.component';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ImagenesAdminComponent } from './albumnes-admin/imagenes-admin/imagenes
     MessageModule,
     MessagesModule,
     TooltipModule,
+    NgxPaginationModule,
   ]
 })
 export class AdminModule { }
