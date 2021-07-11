@@ -22,6 +22,8 @@ export class ImagenesAdminComponent implements OnInit {
   navigationSubscription;
   directorioImagenes: any;
   imagenes: any;
+  p: number = 1;
+
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private restService: AlbumService, private toastr: ToastrService, private route: ActivatedRoute,) {
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
