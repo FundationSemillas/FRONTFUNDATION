@@ -19,7 +19,7 @@ export class VoluntariosAdminComponent implements OnInit {
   idEliminar: number;
   //eventos: any;
   submitted = false;
-
+  p: number = 1;
   constructor(private formBuilder: FormBuilder, private router: Router, private restService: ClubService, private toastr: ToastrService) {
     this.modifClub = this.formBuilder.group({
       id: [null],//valor por defecto,
