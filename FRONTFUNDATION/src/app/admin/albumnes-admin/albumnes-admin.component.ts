@@ -16,6 +16,7 @@ const  directorioImagenes: any = environment.baseUrl+'/storage/';
 
 })
 export class AlbumnesAdminComponent implements OnInit {
+    p: number = 1;
   modifAlbum: FormGroup;
   registerAlbum: FormGroup;
   albums: any;
