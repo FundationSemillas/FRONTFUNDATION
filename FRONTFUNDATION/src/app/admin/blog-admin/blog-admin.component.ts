@@ -22,6 +22,8 @@ export class BlogAdminComponent implements OnInit {
   eventos: any;
   files: any;
   submitted = false;
+    p: number = 1;
+
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
     this.modifBlog = this.formBuilder.group({
