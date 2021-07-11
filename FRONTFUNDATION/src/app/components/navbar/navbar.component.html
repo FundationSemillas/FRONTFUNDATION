@@ -8,7 +8,7 @@
             <a class="navbar-brand" [routerLink]="['/home']" style="font-size: 20px;">
                 <img src="./../../../assets/img/Logo_fundacion.svg" alt="" width="70" height="44"
                     class="d-inline-block align-text-top">
-                FUNDACIÓN SEMILLAS DE ESPERANZA
+                <p> FUNDACIÓN SEMILLAS DE ESPERANZA</p>
             </a>
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
                 data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -32,13 +32,13 @@
                 </li>
                 <!--<li class="nav-item" *ngIf="!isDocumentation()">
                      <a class="nav-link" target="_blank"><i class="nc-icon nc-credit-card"></i> DONACIONES</a>
-                 </li>-->
+                 </li>-- >
 
-            </ul>
+            <!-- </ul>
         </div>
 
-        <!-- <div class="navbar-collapse flex-column" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">
+        <div class="navbar-collapse flex-column" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">-->
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom"><i
                             class="nc-icon nc-image"></i> Blog Administrdor</a>
@@ -60,7 +60,6 @@
                         Sesión</a>
                 </li>
             </ul>
-        </div> -->
+        </div> 
     </div>
-    <!-- </div> -->
 </nav>
