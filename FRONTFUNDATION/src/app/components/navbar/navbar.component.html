@@ -53,7 +53,11 @@
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-image"></i> Club Añigos Administrdor</a>
+                            class="nc-icon nc-image"></i> Club Amigos Administrdor</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom"><i
+                            class="nc-icon nc-image"></i> Sponsor Admin.</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a class="nav-link" (click)="onLogout()"><i class="nc-icon nc-credit-card"></i> Cerrar
