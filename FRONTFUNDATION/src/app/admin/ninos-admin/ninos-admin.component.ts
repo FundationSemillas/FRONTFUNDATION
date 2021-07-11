@@ -27,6 +27,8 @@ export class NinosAdminComponent implements OnInit {
   directorioImagenes:any;
   logeado: any;
   validacion: any;
+    p: number = 1;
+
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private restService: PersonService, private toastr: ToastrService) {
     this.logeado = localStorage.getItem('logeado');
