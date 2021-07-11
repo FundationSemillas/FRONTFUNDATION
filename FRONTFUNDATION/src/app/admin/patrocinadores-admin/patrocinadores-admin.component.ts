@@ -24,6 +24,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
   idEliminar: number;
   files: any;
   submitted = false;
+    p: number = 1;
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private restService: AlbumService,) {
     this.modifSponsor = this.formBuilder.group({
