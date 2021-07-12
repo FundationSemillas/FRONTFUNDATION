@@ -1,30 +1,14 @@
-.domenica {
-    color: #6bd098;
-    text-align: center;
-}
-
 .container {
     height: 100%;
     align-content: center;
 }
 
 .card {
-    height: 370px;
+    height: 340px;
     margin-top: auto;
     margin-bottom: auto;
-    width: 400px;
+    width: 370px;
     background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.social_icon span {
-    font-size: 60px;
-    margin-left: 10px;
-    color: #0275D8;
-}
-
-.social_icon span:hover {
-    color: #61D46E;
-    cursor: pointer;
 }
 
 .card-header h3 {
@@ -33,41 +17,27 @@
     font-weight: bold
 }
 
-.social_icon {
-    position: absolute;
-    right: 20px;
-    top: -45px;
-}
-
-.input-group-prepend span {
-    width: 50px;
+.input-group-prepend {
+    width: 40px;
+    height: 40px;
     background-color: #0275D8;
     color: black;
-    border: 0 !important;
 }
 
-input:focus {
-    outline: 0 0 0 0 !important;
-    box-shadow: 0 0 0 0 !important;
-
+.form-control {
+    width: 200px;
+    height: 40px;
+    border: #ffffff;
 }
 
-.remember {
-    color: white;
-}
-
-.remember input {
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-    margin-right: 5px;
+.login_btn {
+    width: 100%;
+    position: center;
 }
 
 .login_btn {
     color: black;
-    background-color: #0275D8;
-
-
+    background-color: #0275d8;
 
 }
 
