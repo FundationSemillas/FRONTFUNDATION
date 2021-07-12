@@ -1,56 +1,81 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/login.jpg');">
-        <div class="filter"></div>
-        <div class="container">
-          <div class="d-flex justify-content-center h-100">
-            <div class="card">
-              <div class="card-header">
-                <h3>Registro Usuario </h3>
-                <!-- <div class="d-flex justify-content-end social_icon">
+  <div class="page-header" style="background-image: url('./assets/img/login.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="d-flex justify-content-center h-100">
+        <div class="card">
+          <div class="card-header">
+            <h3>Registro Usuario </h3>
+            <!-- <div class="d-flex justify-content-end social_icon">
                   <span><i class="fab fa-facebook-square"></i></span>
                 </div> -->
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario()">
+
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="design bullet-list-67"></i></span>
+                </div>
+                <input type="text" formControlName="name" class="form-control" placeholder="Nombre"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.name.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.name.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.name.errors.required">El Nombre es requerido</div>
+                </div>
               </div>
-              <div class="card-body">
-                <form>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class=""></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Nombre ">
-                  </div>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class=""></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Apellido">
-                  </div>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class=""></i></span>
-                    </div>
-                    <input type="email" class="form-control" placeholder="Email">
-                  </div>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class=""></i></span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                  </div>
-                 
-                  <div class="form-group">
-                    <input type="submit" value="Registrar" class="btn float-right login_btn">
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Cancelar" class="btn float-right login_btn">
-                  </div>
-                </form>
+
+
+
+
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="design bullet-list-67"></i></span>
+                </div>
+                <input type="text" formControlName="last_name" class="form-control" placeholder="Apellido"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.last_name.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.last_name.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.last_name.errors.required">El Nombre es requerido</div>
+                </div>
               </div>
-              <div class="card-footer">
-               
+
+
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="design bullet-list-67"></i></span>
+                </div>
+                <input type="email" formControlName="email" class="form-control" placeholder="Email"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.email.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.email.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.email.errors.required">Email es requerido</div>
+                </div>
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.email.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.email.errors.email">El formato no es de tipo Email</div>
+                </div>
               </div>
-            </div>
+
+
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="design bullet-list-67"></i></span>
+                </div>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.password.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.password.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.password.errors.required">Password es requerido</div>
+                </div>
+              </div>
+
+              <!-- <button class="btn btn-primary">Registrar</button> -->
+              <div class="centro">
+                <input type="submit" value="Iniciar Sesión" class="btn login_btn">
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+
           </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-
