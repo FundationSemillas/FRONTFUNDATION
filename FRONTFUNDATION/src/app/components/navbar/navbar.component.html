@@ -41,26 +41,26 @@
             <ul class="navbar-nav ml-auto">-->
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-image"></i> Blog Admin.</a>
+                            class="nc-icon nc-bold"></i> Blog Admin</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/ninosAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-bold"></i> Niños Admin.</a>
+                            class="nc-icon nc-satisfied"></i> Niños Admin</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/albumAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-image"></i> Álbum Admin.</a>
+                            class="nc-icon nc-badge"></i> Álbum Admin</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-image"></i> Club Amigos Admin.</a>
+                            class="nc-icon nc-bank"></i> Club Amigos Admin</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-image"></i> Sponsor Admin.</a>
+                            class="nc-icon nc-tag-content"></i> Sponsor Admin</a>
                 </li>
                 <li class="nav-item" *ngIf="isLogged">
-                    <a class="nav-link" (click)="onLogout()"><i class="nc-icon nc-credit-card"></i> Cerrar
+                    <a class="nav-link" (click)="onLogout()"><i class="nc-icon nc-simple-remove"></i> Cerrar
                         Sesión</a>
                 </li>
             </ul>
