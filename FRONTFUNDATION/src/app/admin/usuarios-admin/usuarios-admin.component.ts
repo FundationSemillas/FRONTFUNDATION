@@ -60,12 +60,12 @@ export class UsuariosAdminComponent implements OnInit {
       err => {
         this.toastr.success('Usuario Modificado Exitosamente');
         this.modifUser.reset();
-        this.modifUser.reset();
         this.modifUser.clearAsyncValidators()
         this.modifUser.clearValidators();
         console.log("error crear", err)
       }
     );
+    this.getUsuarios();
     this.displayResponsiveModificar = false;
   }
 
