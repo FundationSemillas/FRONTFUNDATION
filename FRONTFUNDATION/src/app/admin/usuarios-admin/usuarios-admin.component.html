@@ -1,1 +1,97 @@
-<p>usuarios-admin works!</p>
+<p-confirmDialog [style]="{ width: '50vw' }" appendToBody="true"></p-confirmDialog>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title" style="text-align: center;">Administrador de Usuarios</h3>
+        <button type="button" class="btn btn-outline-primary col-md-4 offset-md-4"
+            [routerLink]="['/register']">Agregar Usuario
+        </button>
+        <br><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alb of usuarios | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{alb.name}}</td>
+                    <td>{{alb.last_name}}</td>
+                    <td>{{alb.email}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary" (click)="getUser(alb.id)"
+                            pTooltip="Modificar" tooltipPosition="top">
+                            <mat-icon style="color:rgba(29, 29, 189, 0.938)">create</mat-icon>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteUser(alb.id)"
+                            pTooltip="Eliminar" tooltipPosition="top">
+                            <mat-icon style="color:rgb(206, 22, 22)">delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+<p-dialog header="Modificar Usuario" [(visible)]="displayResponsiveModificar" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
+    *ngIf="usuarioSeleccionado">
+    <form [formGroup]="modifUser" (ngSubmit)="modificarUsuario()">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" [(ngModel)]="usuarioSeleccionado.name" formControlName="name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifUser.controls.name.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifUser.controls.name.errors" class="text-danger">
+                <div *ngIf="modifUser.controls.name.errors.required">El Nombre es requerido</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Apellido</label>
+            <input type="text" [(ngModel)]="usuarioSeleccionado.last_name" formControlName="last_name"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifUser.controls.last_name.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifUser.controls.last_name.errors" class="text-danger">
+                <div *ngIf="modifUser.controls.last_name.errors.required">El Apellido es requerido
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" [(ngModel)]="usuarioSeleccionado.email" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifUser.controls.email.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifUser.controls.email.errors" class="text-danger">
+                <div *ngIf="modifUser.controls.email.errors.required">Email es requerido
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Email</label>
+            <input type="password" [(ngModel)]="usuarioSeleccionado.password" formControlName="password"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifUser.controls.password.errors }" />
+            <div *ngIf="submitted &amp;&amp; modifUser.controls.password.errors" class="text-danger">
+                <div *ngIf="modifUser.controls.password.errors.required">La Contraseña es requerida
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="centro">
+            <button class="btn btn-primary" (click)="modificarUsuario()">Modificar</button>
+        </div>
+    </ng-template>
+</p-dialog>
