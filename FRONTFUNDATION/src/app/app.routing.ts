@@ -16,6 +16,7 @@ import { PatrocinadoresAdminComponent } from './admin/patrocinadores-admin/patro
 import { VoluntariosAdminComponent } from './admin/voluntarios-admin/voluntarios-admin.component';
 import { ImagenesAdminComponent } from './admin/albumnes-admin/imagenes-admin/imagenes-admin.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UsuariosAdminComponent } from './admin/usuarios-admin/usuarios-admin.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'patrocinadoresAdmin', component: PatrocinadoresAdminComponent, canActivate: [AuthGuard]},
   { path: 'clubAdmin', component: VoluntariosAdminComponent, canActivate: [AuthGuard] },
   { path: 'imagenesAdmin/:id/:album', component: ImagenesAdminComponent, canActivate: [AuthGuard]},
+  { path: 'usuariosAdmin', component: UsuariosAdminComponent, canActivate: [AuthGuard]},
 
   
 
