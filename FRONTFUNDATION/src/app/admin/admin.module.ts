@@ -23,6 +23,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ImagenesAdminComponent } from './albumnes-admin/imagenes-admin/imagenes-admin.component';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
     AlbumnesAdminComponent,
     VoluntariosAdminComponent,
     ImagenesAdminComponent,
+    UsuariosAdminComponent,
+
   ],
   imports: [
     CommonModule,
