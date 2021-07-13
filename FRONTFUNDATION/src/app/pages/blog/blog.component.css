@@ -9,7 +9,7 @@
   }
   @supports(object-fit: cover){
       .box img{
-        height: 205.5px;
+        height: 90%;
         width: 100%;
         object-fit: cover;
         object-position: center center;
