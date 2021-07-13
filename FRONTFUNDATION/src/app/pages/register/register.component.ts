@@ -49,7 +49,7 @@ constructor(private auth: AlbumService, private formBuilder: FormBuilder, privat
     this.registerForm.reset();
     this.registerForm.clearValidators();
     this.registerForm.clearAsyncValidators();
-    this.router.navigate(['/ninosAdmin']);
+    this.router.navigate(['/usuariosAdmin']);
 
   }
   
