@@ -1,0 +1,27 @@
+.container {
+    height: 400px;
+  }
+  
+  
+  .first-box {
+    width: 450px; 
+    float:left; 
+    height: 200px;
+    margin: 50px
+  }
+  
+  .first-box p {
+    color: #ffffff;
+    font-size: 111%;  }
+  
+  .second-box {
+    width: 450px; 
+    float:left; 
+    height: 200px;
+    margin: 50px
+  }
+  
+  .second-box p {
+    color: #ffffff;
+    font-size: 111%;
+  } 
