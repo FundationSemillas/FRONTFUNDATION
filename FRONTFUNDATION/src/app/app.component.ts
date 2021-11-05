@@ -60,4 +60,16 @@ export class AppComponent implements OnInit {
             return true;
         }
     }
+
+    removeNavbar(){
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        titlee = titlee.slice(1);
+        if (titlee === 'login' || titlee === 'nucleoicons') {
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
 }

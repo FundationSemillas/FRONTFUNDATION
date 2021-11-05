@@ -1,43 +1,85 @@
-<div class="container">
-<div class="text-center">
-    <div align="center"><img src="../../assets/img/a.png" width="777" height="111"></div>
-</div>
-</div>
+<div class="navbar-brand sticky-top" >
+    <input type="checkbox" id="check">
+                    <label for="check">
+                        <i class="fas fa-bars" id="btn"></i>
+                        <i class="fas fa-times" id="cancel"></i>
+                        </label>
 
-  
-  
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-  <div class="navbar-toggler-right">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-  </div>
-  
-  
-  <div class="collapse navbar-collapse flex-column " id="navbar">
-  
-    <ul class="navbar-nav  w-100 justify-content-center px-3">
-      <li class="nav-item active">
-        <button type="button" class="btn btn-outline-light  " aria-current="page"
-        style=" margin: 5px; border: none; " [routerLink]="['/home']">Inicio</button>
-      </li>
+            <div class="sidebar" >
+              <th *ngIf="isLogged" >
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-bold"></i>Blog Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/ninosAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-satisfied"></i> Niños Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/albumAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-badge"></i> Álbum Admin</a>
+                  </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-bank"></i> Club Amigos Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/patrocinadoresAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-tag-content"></i> Sponsor Admin</a>
+                    </a>
+                        <a class="nav-item" *ngIf="isLogged">
+                            <a [routerLink]="['/zonas']" class="nav-link" data-placement="bottom">
+                                <i class="nc-icon nc-map-big"></i>Zonas</a>
+                            </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a class="nav-link" (click)="onLogout()">
+                        <i class="nc-icon nc-simple-remove">
+                        </i> Cerrar Sesión</a>
+                    </a>
+                  </th>
+        </div> 
+    </div>
+
+  <div class="container">
+    <div class="text-center">
+        <div align="center"><img src="../../assets/img/a.png" width="777" height="111"></div>
+    </div>
+    </div>
+    
+    
       
-  
-        
-      <li class="nav-item active">
-        <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
-        [routerLink]="['/galeria']">Galería</button>
-      </li>
-      <li class="nav-item active">
-        <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
-        [routerLink]="['/blog']">Blog</button>
-      </li>
-      <li class="nav-item active">
-        <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
-        [routerLink]="['/clubAmigos']">Club de Amigos</button>
-      </li>
-    </ul>
-  
-  
-  
-  </div>
+      
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-brand">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+      </div>
+      
+      
+      <div class="collapse navbar-collapse flex-column " id="navbar">
+      
+        <ul class="navbar-nav  w-100 justify-content-center px-3">
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " aria-current="page"
+            style=" margin: 5px; border: none; " [routerLink]="['/home']">Inicio</button>
+          </li>
+    
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/galeria']">Galería</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/blog']">Blog</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/eventos']">Eventos</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/clubAmigos']">Club de Amigos</button>
+          </li>
+        </ul>
+      </div>

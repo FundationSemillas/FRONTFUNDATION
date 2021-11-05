@@ -1,0 +1,26 @@
+.card-img-top{
+    height: 230px;
+}
+.boton{
+    border-color: rgb(9, 139, 122);
+    color: rgb(9, 139, 122);
+}
+.boton:hover{
+    background-color:rgb(9, 139, 122) ;
+    color: white;
+}
+.col{
+    margin-top: 10px;
+}
+
+.card{
+    border-radius: 10px;
+}
+.we-carousel{
+    height: 350px;
+}
+
+.scroll{
+    height: 350px;
+    overflow-y: scroll;
+}
