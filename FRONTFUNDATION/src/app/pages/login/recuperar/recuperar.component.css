@@ -1,4 +1,7 @@
 
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
 *{
 	margin: 0;
 	padding: 0;
@@ -14,7 +17,7 @@
  	justify-content: center;
  	align-items: center;
  	min-height: 100vh;
- 	background: linear-gradient(to bottom,#f1f4f9,#dff1ff);
+ 	background: linear-gradient(to bottom,#939393,#474747);
 
  }
 
@@ -27,7 +30,8 @@
 top: -350px;
 width: 600px;
 height: 600px;
-background: #747474;
+background: #777777;
+;
 
  }
 
@@ -211,7 +215,5 @@ background: #747474;
 color: #fff;
 font-weight: 600;
 }
-
-
 
 

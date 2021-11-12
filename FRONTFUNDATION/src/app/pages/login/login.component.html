@@ -1,48 +1,57 @@
-
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
   <div class="page-header" style="background-image: url('./assets/img/login.jpg');">
-      <div class="filter"></div>
-      <div class="container">
-        <div class="d-flex justify-content-center h-100">
-          <div class="card">
-            <div class="card-header">
-              <h3>Iniciar Sesión </h3>
-              <div class="d-flex justify-content-end social_icon">
-                <span><i class="fab fa-facebook-square"></i></span>
-              </div>
-            </div>
-            <div class="card-body">
           <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
-            <div class class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
-                <input id="email" name="email" type="text" formControlName="email" class="form-control mb-4"
-                  placeholder="Usuario">
-              </div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="box">
+                 <div class="container">
+                   <div class="form">
+                     <h2>Iniciar Sesión</h2>
+                     <form >
+                      <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
+                       <div class="inputBox">
+                         <input id="email" name="email" type="text" formControlName="email" placeholder="Correo electronico"/>
+                       </div>
+                       <div class="inputBox">
+                         <input id="password" name="password" type="password" formControlName="password" placeholder="Contraseña"/>
+                       </div>
+                       <div class="inputBox">
+                         <input type="submit" value="Iniciar Sesión" [disabled]="!loginForm.valid"/>
+                       </div>
+                       <!-- <p class="forget">
+                        Has olvidado tu contraseña?<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Recuperar contraseña</a>
+                      </p> -->
 
-            </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="nc-icon nc-lock-circle-open"></i></span>
-                <input id="password" name="password" type="password" class="form-control mb-4"
-                  formControlName="password" placeholder="Contraseña">
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Iniciar Sesión" class="btn float-right login_btn">
-            </div>
-          </form>
-        </div>
-            <div class="card-footer">
-              <div class="d-flex justify-content-center links">
-                ¿No tienes una cuenta?<a href="/FRONTFUNDATION/src/app/pages/register/register.component.html">Registrar</a>
-              </div>
-              <!--<div class="d-flex justify-content-center">
-                <a href="#">¿Olvidaste tu contraseña?</a>
-              </div>-->
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-</div>
+                      <p class="forget">
+                        Has olvidado tu contraseña? <a href="#recuperar">Recuperar contraseña</a>
+                      </p>
+
+
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="box">
+                                     <div class="container">
+                                         <div class="form">
+                                             <h2>Recuperar contraseña</h2>
+                                             <form >
+                                                 <div class="inputBox">
+                                                     <input type="text" placehaolder="Correo electrónico"/>
+                                                 </div>
+                                                 <div class="inputBox">
+                                                     <input type="submit" value="Enviar" />
+                                                 </div>
+                                                 <p class="forget">
+                                                     Ya tienes una cuenta? <a href="index.html">Iniciar sesión</a>
+                                                 </p>
+                                             </form>
+                                         </div>
+                                     </div>
+                                </div>
+                          </div>
+                        </div>
+                      </div>
+
+                     

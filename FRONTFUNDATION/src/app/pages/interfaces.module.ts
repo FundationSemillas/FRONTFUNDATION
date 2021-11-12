@@ -22,6 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecuperarComponent } from './login/recuperar/recuperar.component';
 
 @NgModule({
     imports: [
@@ -47,7 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         GaleriaComponent,
         ImagenesComponent,
         HistoriasComponent,
-        VoluntariosComponent
+        VoluntariosComponent,
+        RecuperarComponent
     ]
 })
 export class ExamplesModule { }

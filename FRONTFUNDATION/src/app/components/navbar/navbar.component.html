@@ -1,11 +1,11 @@
-<div class="navbar-brand sticky-top" >
+<div class="navbar-brand sticky-top" *ngIf="isLogged">
     <input type="checkbox" id="check">
                     <label for="check">
                         <i class="fas fa-bars" id="btn"></i>
                         <i class="fas fa-times" id="cancel"></i>
                         </label>
 
-            <div class="sidebar" >
+            <div class="sidebar" *ngIf="isLogged">
               <th *ngIf="isLogged" >
                 <a class="nav-item" *ngIf="isLogged">
                     <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom">
@@ -34,7 +34,7 @@
                 <a class="nav-item" *ngIf="isLogged">
                     <a class="nav-link" (click)="onLogout()">
                         <i class="nc-icon nc-simple-remove">
-                        </i> Cerrar Sesión</a>
+                        </i>Cerrar Sesión</a>
                     </a>
                   </th>
         </div> 

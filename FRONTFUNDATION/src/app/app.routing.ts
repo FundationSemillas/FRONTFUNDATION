@@ -20,6 +20,7 @@ import { UsuariosAdminComponent } from './admin/usuarios-admin/usuarios-admin.co
 import { EventosAdminComponent } from './admin/eventos-admin/eventos-admin.component';
 import { ZonasAdminComponent } from './admin/zonas-admin/zonas-admin.component';
 import { FormularioComponent } from './admin/zonas-admin/formulario.component';
+import { RecuperarComponent } from './pages/login/recuperar/recuperar.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,9 @@ const routes: Routes = [
   { path: 'eventos', component: EventosAdminComponent},
   { path: 'zonas', component: ZonasAdminComponent, canActivate: [AuthGuard]},
   { path: 'zonas-admin/formulario', component: FormularioComponent, canActivate: [AuthGuard]},
+  { path: 'recuperar', component: RecuperarComponent},
+
+
 
 ];
 

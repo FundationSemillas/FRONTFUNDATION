@@ -1,6 +1,7 @@
 import { StorageService } from './../../services/storage.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-navbar',
@@ -76,9 +77,11 @@ export class NavbarComponent implements OnInit {
     }
     
     onLogout(): void {
+        
     this.authService.logout();
     location.reload();
   }
+
 
   onCheckUser(): void {
     if (this.authService.isAuthenticated() === false) {
