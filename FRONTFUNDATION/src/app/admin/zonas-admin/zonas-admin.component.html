@@ -1,0 +1,50 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Zonas</div>
+  <div class="card-body text-primary">
+<div class="my-2 text-left">
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Crear Zona
+    </button>
+  </div>
+</div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Zona</th>
+          
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let equipo of Zones">
+          
+          <td>{{equipo.name}}</td>
+
+          <td>
+            <button type="button" (click)="deleteZone(equipo.id)" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
+        </tr> 
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Zonas</h5>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <label for="inputAddress2">Zona</label>
+            <input type="text" class="form-control" id="zona" placeholder="Zona" [(ngModel)] = "newZone">
+          </div> 
+        
+      <div class="modal-footer">
+        <button type="button"  (click)="createZone()" class="btn btn-secondary" data-bs-dismiss="modal">Crear Zona</button>
+        <button type="button"   class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>

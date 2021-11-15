@@ -1,0 +1,31 @@
+<section class="form-register">
+  <div class="card-body">
+    <form>
+
+      <div class="alert alert-danger">
+        <div>Debe ingresar su nombre</div>
+      </div>
+        <input class="controls" type="text"  name="nombre" placeholder="Ingrese su Nombre">
+    
+          <div class="alert alert-danger">
+            <div>Debe ingresar su apellido</div>
+          </div>
+          <input class="controls" type="text" name="apellido"  placeholder="Ingrese su Apellido">  
+          
+          <div class="alert alert-danger">
+            <div>Debe ingresar la zona</div>
+          </div>
+          <input class="controls" type="text"  name="zona"  placeholder="Ingrese la Zona">      
+    
+    
+          
+          <input matInput [matDatepicker]="picker" class="controls"  name="fecha" style="display:inline; width:300px" placeholder="Año de Ingreso">   
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+  
+    
+        <button class="botons" role="button">Crear</button>
+        <ng-template #elseBlock>
+          <button class="botons" role="button">Editar</button>
+        </ng-template>
+    </form>
