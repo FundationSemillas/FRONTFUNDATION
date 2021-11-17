@@ -1,57 +1,57 @@
 <!-- <div class="wrapper"> -->
-  <div class="page-header" style="background-image: url('./assets/img/login.jpg');">
-          <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
-              <div class="color"></div>
-              <div class="color"></div>
-              <div class="color"></div>
-              <div class="box">
-                 <div class="container">
-                   <div class="form">
-                     <h2>Iniciar Sesión</h2>
-                     <form >
-                      <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
-                       <div class="inputBox">
-                         <input id="email" name="email" type="text" formControlName="email" placeholder="Correo electronico"/>
-                       </div>
-                       <div class="inputBox">
-                         <input id="password" name="password" type="password" formControlName="password" placeholder="Contraseña"/>
-                       </div>
-                       <div class="inputBox">
-                         <input type="submit" value="Iniciar Sesión" [disabled]="!loginForm.valid"/>
-                       </div>
-                       <!-- <p class="forget">
+<div class="page-header" style="background-image: url('./assets/img/login.jpg');">
+  <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="box">
+      <div class="container">
+        <div class="form">
+          <h2>Iniciar Sesión</h2>
+          <form>
+            <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
+              <div class="inputBox">
+                <input id="email" name="email" type="text" formControlName="email" placeholder="Correo electronico" />
+              </div>
+              <div class="inputBox">
+                <input id="password" name="password" type="password" formControlName="password"
+                  placeholder="Contraseña" />
+              </div>
+              <div class="inputBox">
+                <input type="submit" value="Iniciar Sesión" [disabled]="!loginForm.valid" />
+              </div>
+              <!-- <p class="forget">
                         Has olvidado tu contraseña?<a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Recuperar contraseña</a>
                       </p> -->
 
-                      <p class="forget">
-                        Has olvidado tu contraseña? <a href="#recuperar">Recuperar contraseña</a>
-                      </p>
+              <p class="forget">
+                Has olvidado tu contraseña? <a href="#recuperar">Recuperar contraseña</a>
+              </p>
 
 
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                                <div class="box">
-                                     <div class="container">
-                                         <div class="form">
-                                             <h2>Recuperar contraseña</h2>
-                                             <form >
-                                                 <div class="inputBox">
-                                                     <input type="text" placehaolder="Correo electrónico"/>
-                                                 </div>
-                                                 <div class="inputBox">
-                                                     <input type="submit" value="Enviar" />
-                                                 </div>
-                                                 <p class="forget">
-                                                     Ya tienes una cuenta? <a href="index.html">Iniciar sesión</a>
-                                                 </p>
-                                             </form>
-                                         </div>
-                                     </div>
-                                </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="box">
+                        <div class="container">
+                          <div class="form">
+                            <h2>Recuperar contraseña</h2>
+                            <form>
+                              <div class="inputBox">
+                                <input type="text" placehaolder="Correo electrónico" />
+                              </div>
+                              <div class="inputBox">
+                                <input type="submit" value="Enviar" />
+                              </div>
+                              <p class="forget">
+                                Ya tienes una cuenta? <a href="index.html">Iniciar sesión</a>
+                              </p>
+                            </form>
                           </div>
                         </div>
                       </div>
-
-                     
+                    </div>
+                  </div>
+                </div>

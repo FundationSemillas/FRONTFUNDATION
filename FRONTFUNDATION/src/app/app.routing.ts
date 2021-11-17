@@ -45,7 +45,6 @@ const routes: Routes = [
   { path: 'recuperar', component: RecuperarComponent},
 
 
-
 ];
 
 @NgModule({

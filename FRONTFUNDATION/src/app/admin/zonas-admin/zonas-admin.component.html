@@ -19,28 +19,14 @@
       </thead>
       
       <tbody>
-        <!-- <tr *ngFor="let equipo of equipos"> -->
-          <td>1</td>
-          <td>El Recreo </td>
+         <tr *ngFor="let equipo of Zones">
+          
+          <td>{{equipo.name}}</td>
+
           <td>
-            <button type="button" name="editar"  class="btn btn-primary btn-sm">Editar</button>
+            <button type="button" (click)="deleteZone(equipo.id)" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button>
           </td>
-          <td>
-            <button type="button" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button>
-          </td>
-        <!-- </tr> -->
-      </tbody>
-      <tbody>
-        <!-- <tr *ngFor="let equipo of equipos"> -->
-          <td>2</td>
-          <td>La Armenia </td>
-          <td>
-            <button type="button" name="editar"  class="btn btn-primary btn-sm">Editar</button>
-          </td>
-          <td>
-            <button type="button" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button>
-          </td>
-        <!-- </tr> -->
+        </tr> 
       </tbody>
     </table>
   </div>
@@ -54,25 +40,13 @@
         <h5 class="modal-title" id="staticBackdropLabel">Zonas</h5>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">Apellido</label>
-              <input type="text" class="form-control" id="apellido" placeholder="Apellido">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputAddress">Fecha</label>
-            <input type="date" class="form-control" id="fecha" placeholder="Feha">
-          </div>
+        
           <div class="form-group">
             <label for="inputAddress2">Zona</label>
-            <input type="text" class="form-control" id="zona" placeholder="Zona">
-          </div>  
+            <input type="text" class="form-control" id="zona" placeholder="Zona" [(ngModel)] = "newZone">
+          </div> 
+        
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button"  (click)="createZone()" class="btn btn-secondary" data-bs-dismiss="modal">Crear Zona</button>
+        <button type="button"   class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
