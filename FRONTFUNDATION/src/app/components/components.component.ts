@@ -10,7 +10,7 @@ import { environment } from "../../environments/environment";
 @Component({
     selector: 'app-components',
     templateUrl: './components.component.html',
-    styleUrls: ['./components.component.scss']
+    styleUrls: ['./components.component.scss', './components.component.css']
 })
 
 export class ComponentsComponent implements OnInit {
