@@ -11,7 +11,6 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
           <th>Zona</th>
           <th>Editar</th>
           <th>Eliminar</th>
@@ -22,7 +21,9 @@
          <tr *ngFor="let equipo of Zones">
           
           <td>{{equipo.name}}</td>
-
+          <td>
+            
+          </td>
           <td>
             <button type="button" (click)="deleteZone(equipo.id)" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button>
           </td>

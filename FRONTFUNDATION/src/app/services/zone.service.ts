@@ -39,22 +39,24 @@ export class ZoneService {
 
 
 
-  get(url: string): Observable<ZoneInterface[]> {
-    return this.http.get<ZoneInterface[]>(API_URL_FORM + url);
+  get(url: string) {
+    return this.http.get(API_URL_FORM + url, { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json"}});
   }
 
 
 
 
   add(objeto: any, url: String): Observable<ZoneInterface[]> {
-    return this.http.post<ZoneInterface[]>(API_URL_FORM + url, objeto, headersApi);
+    let u = localStorage.getItem('currentUser')
+    let user = JSON.parse(u)
+    return this.http.post<ZoneInterface[]>(API_URL_FORM + url, JSON.stringify(objeto), { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json"}});
 
   }
 
 
 
   delete(url: String): Observable<ZoneInterface[]> {
-    return this.http.delete<ZoneInterface[]>(API_URL_FORM + url, headersApi);
+    return this.http.delete<ZoneInterface[]>(API_URL_FORM + url, { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json"}});
   }
 
 

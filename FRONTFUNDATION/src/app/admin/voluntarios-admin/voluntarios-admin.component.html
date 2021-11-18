@@ -51,6 +51,7 @@
   [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
   *ngIf="clubseleccionado">
   <form [formGroup]="modifClub" (ngSubmit)="modificarClub()">
+    <input type="hidden" [(ngModel)]="clubseleccionado.id" formControlName="id">
     <div class="form-row">
       <div class="form-group col-md-6 col-lg-6">
         <label for="name">Nombres</label>

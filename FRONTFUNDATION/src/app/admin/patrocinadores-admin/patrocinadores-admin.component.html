@@ -50,6 +50,7 @@
   *ngIf="sponsorseleccionado">
   <form [formGroup]="modifSponsor">
     <div class="form-group">
+      <input type="hidden" [(ngModel)]="sponsorseleccionado.id" formControlName="id">
       <label for="name">Nombre</label>
       <input type="text" [(ngModel)]="sponsorseleccionado.name" formControlName="name" class="form-control"
         [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifSponsor.controls.name.errors }" />

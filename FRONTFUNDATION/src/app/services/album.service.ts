@@ -56,7 +56,7 @@ saveFileSponsor(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+"/sponsor", formData, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
+  return this.http.post(API_URL_FORM+url , formData, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 
 updateData(objeto, add: String) {

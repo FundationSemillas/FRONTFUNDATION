@@ -50,7 +50,7 @@ export class ImagenesAdminComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.directorioImagenes = environment.baseUrl + '/storage/';
+    this.directorioImagenes = environment.baseUrl + '/public/';
     this.getImagenesAlbum(this.id);
   }
 

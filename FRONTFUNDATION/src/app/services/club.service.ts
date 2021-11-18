@@ -23,15 +23,15 @@ export class ClubService {
 
   add(objeto, url: String): Observable<any> {
     let u = localStorage.getItem('currentUser')
-  let user = JSON.parse(u)
-    return this.http.post(API_URL_FORM + url, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
+    let user = JSON.parse(u)
+    return this.http.post(API_URL_FORM + url, JSON.stringify(objeto), { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
   }
 
   updateData(objeto, add: String) {
     console.log(objeto, "URL " + add);
     let u = localStorage.getItem('currentUser')
-  let user = JSON.parse(u)
-    return this.http.put(API_URL_FORM + add, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).pipe(
+    let user = JSON.parse(u)
+    return this.http.put(API_URL_FORM + add, JSON.stringify(objeto), { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json"}}).pipe(
       map(
         (res: any) => {
           return res;
@@ -44,11 +44,13 @@ export class ClubService {
 
   delete(url: String): Observable<any> {
     let u = localStorage.getItem('currentUser')
-  let user = JSON.parse(u)
-    return this.http.delete(API_URL_FORM + url, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
+    let user = JSON.parse(u)
+    return this.http.delete(API_URL_FORM + url, { headers: { 'Authorization': `Bearer ${user.token}`, "Content-Type": "application/json" } }).map((res) => res);
   }
 
   get(url: string): Observable<any> {
-    return this.http.get(API_URL_FORM + url).map((res) => res);
+    let u = localStorage.getItem('currentUser')
+    let user = JSON.parse(u)
+    return this.http.get(API_URL_FORM + url, {headers: {'Authorization': `Bearer ${user.token}`}}).map((res) => res);
   }
 }
