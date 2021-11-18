@@ -73,6 +73,7 @@ aria-hidden="true">
     [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
     *ngIf="childseleccionado">
     <form [formGroup]="modifChild" (ngSubmit)="modificarChild()"  enctype="multipart/form-data">
+        <input type="hidden" [(ngModel)]="childseleccionado.id" formControlName="id">
         <div class="form-row">
             <div class="form-group col-md-6 col-lg-6">
             <label for="name">Nombres</label>
@@ -230,14 +231,6 @@ aria-hidden="true">
          <div *ngIf="registerChild.controls.houseAddress.errors.required">La Direccion es requerido</div>
      </div>
      </div>
-     <div class="form-group col-md-6 col-lg-6">
-       <label for="age">Edad</label>
-       <input type="number" max="18" formControlName="age" class="form-control"
-           [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerChild.controls.age.errors }" />
-       <div *ngIf="submitted &amp;&amp; registerChild.controls.age.errors" class="text-danger">
-           <div *ngIf="registerChild.controls.age.errors.required">Edad es requerido</div>
-       </div>
-       </div>
  </div>
  <div class="form-row">
    <div class="form-group col-md-6 col-lg-6">

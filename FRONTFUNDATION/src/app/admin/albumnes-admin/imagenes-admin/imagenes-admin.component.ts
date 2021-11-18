@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from "primeng/api";
 import { environment } from "../../../../environments/environment";
-const   directorioImagenes: any = environment.baseUrl+'/storage/';
+//const directorioImagenes: any = environment.baseUrl + '/storage/';
 
 @Component({
   selector: 'app-imagenes-admin',
@@ -49,9 +49,9 @@ export class ImagenesAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("imagen admin: ", directorioImagenes);
+    
     this.directorioImagenes = environment.baseUrl + '/storage/';
-    this.getImagenesAlbum( this.id);
+    this.getImagenesAlbum(this.id);
   }
 
   foto(event) {
@@ -62,17 +62,16 @@ export class ImagenesAdminComponent implements OnInit {
     for (var x = 0; x < this.files.length; x++) {
       console.log("s: ", this.files[x]);
       formData.append("image[]", this.files[x]);
-  }
-  formData.append("id",  this.id)
+    }
+    formData.append("id", this.id)
 
 
     // console.log("foto: ", this.files);
     // const files = event.target.files;
     // for (var i = 0; i < this.files.length; i++) {
-      // formData.append("image[]", files);
+    // formData.append("image[]", files);
     // }
     this.guardarImagenes(formData);
-
   }
 
   guardarImagenes(formData: FormData) {
@@ -90,7 +89,7 @@ export class ImagenesAdminComponent implements OnInit {
   }
 
   getImagenesAlbum(id) {
-    this.restService.get("/image/" + id).subscribe((data) => {
+    this.restService.get("/image/findById/" + id).subscribe((data) => {
       this.imagenes = data;
       for (var i = 0; i < this.imagenes.length; i++) {
         this.imagenes[i].image = this.directorioImagenes + this.imagenes[i].image;

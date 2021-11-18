@@ -30,6 +30,7 @@ export class AlbumnesAdminComponent implements OnInit {
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private restService: AlbumService, private toastr: ToastrService) {
     this.modifAlbum = this.formBuilder.group({
+      id: [null, Validators.required],
       title: ["", Validators.required],
       description: ["", Validators.required],
       date: ["", Validators.required],
@@ -63,7 +64,7 @@ export class AlbumnesAdminComponent implements OnInit {
     // }
     // console.log("valores crear: ", objetoCrear);
     console.log("objeto crear: ", this.registerAlbum.value);
-    this.restService.saveFile(this.files, this.registerAlbum.value, "/album").subscribe(
+    this.restService.saveFile(this.files, this.registerAlbum.value, "/album/create").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Album creado Exitosamente');
@@ -112,7 +113,7 @@ export class AlbumnesAdminComponent implements OnInit {
     // }
     // console.log("objetoModificar: ", objetoModificar)
     console.log("objeto crear: ", this.modifAlbum.value);
-    this.restService.updateData(this.modifAlbum.value, "/album/" + this.albumseleccionado.id).subscribe(
+    this.restService.updateData(this.modifAlbum.value, "/album/update").subscribe(
       res => {
         this.toastr.success('Álbum modificado Exitosamente');
         console.log("modificado: exitosamente", res);
@@ -127,7 +128,7 @@ export class AlbumnesAdminComponent implements OnInit {
   // Obtener album por Id
   getAlbum(id: number) {
     this.modalModificar();
-    this.restService.get("/album/" + id).subscribe((data) => {
+    this.restService.get("/album/findById/" + id).subscribe((data) => {
       this.albumseleccionado = data;
       console.log("album seleccionado: ", this.albumseleccionado);
     });
@@ -162,7 +163,7 @@ export class AlbumnesAdminComponent implements OnInit {
       header: 'Eliminar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.restService.delete("/album/" + id).subscribe(
+        this.restService.delete("/album/delete/" + id).subscribe(
           res => {
             this.toastr.success('Eliminado Exitosamente');
             this.getAlbums();

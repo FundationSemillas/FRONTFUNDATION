@@ -9,14 +9,16 @@ import 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
 const API_URL_FORM = environment.baseUrl;
-let token:string = JSON.parse(localStorage.getItem("currentUser")).token
+let token: string = JSON.parse(localStorage.getItem("currentUser")).token
+let u = localStorage.getItem('currentUser')
+let user = JSON.parse(u)
 const headersApi = {
   headers: new HttpHeaders({
-    
-    "Content-Type":"application/json",
+
+    "Content-Type": "application/json",
     "Accept": "application/json",
     "X-Requested-With": "XMLHttpRequest",
-    "Authorization": "Bearer " +token,
+    "Authorization": "Bearer " + user.token,
   }),
   /**
    *  "enctype": "multipart/form-data",
@@ -29,30 +31,30 @@ const headersApi = {
 @Injectable({
   providedIn: 'root'
 })
-export class ZoneService{
+export class ZoneService {
 
-  constructor(private http: HttpClient) {}
-
-
-  
+  constructor(private http: HttpClient) { }
 
 
-  get(url: string):Observable<ZoneInterface[]> {
+
+
+
+  get(url: string): Observable<ZoneInterface[]> {
     return this.http.get<ZoneInterface[]>(API_URL_FORM + url);
   }
 
 
 
 
-  add(objeto:any, url: String):Observable<ZoneInterface[]>{
-    return this.http.post<ZoneInterface[]>(API_URL_FORM + url, objeto ,headersApi);
-    
+  add(objeto: any, url: String): Observable<ZoneInterface[]> {
+    return this.http.post<ZoneInterface[]>(API_URL_FORM + url, objeto, headersApi);
+
   }
 
 
 
-  delete(url: String):Observable<ZoneInterface[]> {
-    return this.http.delete<ZoneInterface[]>(API_URL_FORM + url,headersApi);
+  delete(url: String): Observable<ZoneInterface[]> {
+    return this.http.delete<ZoneInterface[]>(API_URL_FORM + url, headersApi);
   }
 
 

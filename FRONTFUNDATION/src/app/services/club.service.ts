@@ -22,12 +22,16 @@ export class ClubService {
   constructor(private http: HttpClient) { }
 
   add(objeto, url: String): Observable<any> {
-    return this.http.post(API_URL_FORM + url, objeto).map((res) => res);
+    let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+    return this.http.post(API_URL_FORM + url, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
   }
 
   updateData(objeto, add: String) {
     console.log(objeto, "URL " + add);
-    return this.http.put(API_URL_FORM + add, objeto, http).pipe(
+    let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+    return this.http.put(API_URL_FORM + add, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).pipe(
       map(
         (res: any) => {
           return res;
@@ -39,7 +43,9 @@ export class ClubService {
   }
 
   delete(url: String): Observable<any> {
-    return this.http.delete(API_URL_FORM + url).map((res) => res);
+    let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+    return this.http.delete(API_URL_FORM + url, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
   }
 
   get(url: string): Observable<any> {

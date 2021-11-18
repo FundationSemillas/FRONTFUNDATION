@@ -26,13 +26,17 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
 add(objeto, url: String): Observable<any> {
-  return this.http.post(API_URL_FORM + url, objeto).map((res) => res);
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+  return this.http.post(API_URL_FORM + url + '/create', objeto, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 
 
 updateData(objeto, add: String) {
-  console.log(objeto, "URL jh" + add);
-  return this.http.put(API_URL_FORM + add, objeto, http).pipe(
+  console.log(JSON.stringify(objeto));
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+  return this.http.put(API_URL_FORM + add, JSON.stringify(objeto), {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).pipe(
     map(
       (res: any) => {
         return res;
@@ -44,7 +48,9 @@ updateData(objeto, add: String) {
 }
 
 delete(url: String): Observable<any> {
-  return this.http.delete(API_URL_FORM + url).map((res) => res);
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+  return this.http.delete(API_URL_FORM + url, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
 }
 
 get(url: string): Observable<any> {
@@ -52,6 +58,8 @@ get(url: string): Observable<any> {
 }
 saveFile(file: File,objeto, url: String): Observable<any> {
   let formData = new FormData();
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
   let json = JSON.stringify(objeto);
   console.log("json: ", json)
   let objetoJson = new Blob([json], {
@@ -61,7 +69,7 @@ saveFile(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+'/blog', formData).map((res) => res);
+  return this.http.post(API_URL_FORM+'/blog/create', formData, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 
 

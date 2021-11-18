@@ -88,6 +88,7 @@ export class LoginComponent implements OnInit {
 
   private correctLogin(data: Session){
     this.storage.setCurrentSession(data);
+    console.log(data)
     this.router.navigate(['/ninosAdmin']);
   }
   

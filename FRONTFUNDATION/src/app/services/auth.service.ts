@@ -23,8 +23,10 @@ export class AuthService {
   loggedIn = false;
 
   registerUser(form: any){
+    let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
     console.log(form.value);
-    return this.http.post(API_URL_FORM +'/register', form.value);
+    return this.http.post(API_URL_FORM +'/register', form.value, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}});
   }
 
    isAuthonticated(){
@@ -46,12 +48,15 @@ export class AuthService {
   }
 
   logIn(form: any): Observable<any>{
-    return this.http.post(API_URL_FORM +'/login', form.value);
+    console.log(JSON.stringify(form.value));
+    return this.http.post(API_URL_FORM +'/login', JSON.stringify(form.value), {headers:{'Content-Type':'application/json'}});
     //return result;
   }
 
   logout(token: any): Observable<any>{
-    return this.http.post(API_URL_FORM +'/logout', {'token': token});
+    let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+    return this.http.get(API_URL_FORM +'/logout', {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}});
     //return result;
   }
  

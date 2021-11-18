@@ -49,6 +49,7 @@
     [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true"
     *ngIf="albumseleccionado">
     <form [formGroup]="modifAlbum" (ngSubmit)="modificarAlbum()">
+        <input type="hidden" [(ngModel)]="albumseleccionado.id" formControlName="id">
         <div class="form-group">
             <label for="title">Título</label>
             <input type="text" [(ngModel)]="albumseleccionado.title" formControlName="title" class="form-control"

@@ -7,6 +7,8 @@ import 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 import { pipe } from 'rxjs';
 const API_URL_FORM = environment.baseUrl;
+let u = localStorage.getItem('currentUser')
+let user = JSON.parse(u)
 const http = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
@@ -22,25 +24,29 @@ export class AlbumService {
   constructor(private http: HttpClient) { }
 
 add(objeto, url: String): Observable<any> {
-  return this.http.post(API_URL_FORM + url, objeto).map((res) => res);
+  return this.http.post(API_URL_FORM + url, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
 }
 
 saveFile(file: File,objeto, url: String): Observable<any> {
   let formData = new FormData();
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
   let json = JSON.stringify(objeto);
   console.log("json: ", json)
   let objetoJson = new Blob([json], {
     type: 'application/json'
   });
-  console.log("obejtojspn: ",objetoJson )
+  console.log("obejtojspn: ",objetoJson)
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+"/album", formData).map((res) => res);
+  return this.http.post(API_URL_FORM+url, formData, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 
 saveFileSponsor(file: File,objeto, url: String): Observable<any> {
   let formData = new FormData();
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
   let json = JSON.stringify(objeto);
   console.log("json: ", json)
   let objetoJson = new Blob([json], {
@@ -50,12 +56,14 @@ saveFileSponsor(file: File,objeto, url: String): Observable<any> {
   formData.append('image', file);
   formData.append('data', json);
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+"/sponsor", formData).map((res) => res);
+  return this.http.post(API_URL_FORM+"/sponsor", formData, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).map((res) => res);
 }
 
 updateData(objeto, add: String) {
   console.log(objeto, "URL " + add);
-  return this.http.put(API_URL_FORM + add, objeto, http).pipe(
+  let u = localStorage.getItem('currentUser')
+  let user = JSON.parse(u)
+  return this.http.put(API_URL_FORM + add, objeto, {headers:{'Authorization':`Bearer ${user.token}`, "Content-Type": "application/json"}}).pipe(
     map(
       (res: any) => {
         return res;
@@ -67,7 +75,7 @@ updateData(objeto, add: String) {
 }
 
 delete(url: String): Observable<any> {
-  return this.http.delete(API_URL_FORM + url).map((res) => res);
+  return this.http.delete(API_URL_FORM + url, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 
 get(url: string): Observable<any> {
@@ -85,6 +93,6 @@ guardarImagenes(formdata: FormData): Observable<any> {
   // console.log("formData: ",formData )
 
   // formData.append('data', json);
-  return this.http.post(API_URL_FORM+"/image", formdata).map((res) => res);
+  return this.http.post(API_URL_FORM+"/image/create", formdata, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 }
