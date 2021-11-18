@@ -17,6 +17,10 @@ import { VoluntariosAdminComponent } from './admin/voluntarios-admin/voluntarios
 import { ImagenesAdminComponent } from './admin/albumnes-admin/imagenes-admin/imagenes-admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UsuariosAdminComponent } from './admin/usuarios-admin/usuarios-admin.component';
+import { EventosAdminComponent } from './admin/eventos-admin/eventos-admin.component';
+import { ZonasAdminComponent } from './admin/zonas-admin/zonas-admin.component';
+import { FormularioComponent } from './admin/zonas-admin/formulario.component';
+import { RecuperarComponent } from './pages/login/recuperar/recuperar.component';
 
 
 const routes: Routes = [
@@ -35,8 +39,11 @@ const routes: Routes = [
   { path: 'clubAdmin', component: VoluntariosAdminComponent, canActivate: [AuthGuard] },
   { path: 'imagenesAdmin/:id/:album', component: ImagenesAdminComponent, canActivate: [AuthGuard]},
   { path: 'usuariosAdmin', component: UsuariosAdminComponent, canActivate: [AuthGuard]},
+  { path: 'eventos', component: EventosAdminComponent},
+  { path: 'zonas', component: ZonasAdminComponent, canActivate: [AuthGuard]},
+  { path: 'zonas-admin/formulario', component: FormularioComponent, canActivate: [AuthGuard]},
+  { path: 'recuperar', component: RecuperarComponent},
 
-  
 
 ];
 

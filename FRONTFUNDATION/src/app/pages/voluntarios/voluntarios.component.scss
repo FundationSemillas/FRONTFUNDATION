@@ -1,7 +1,7 @@
 .caja img {
-  border: #3509FD;
+  border: #000000;
   border-style: solid;
-  border-width: 3px;
+  border-width: 1.8px;
   width: 100%;
   height: 350px;
 }
@@ -12,32 +12,32 @@
 }
 
 .titulo {
-  color: #112A46;
+  color: #000000;
   padding-top: 5px;
   padding-bottom: 15px;
-  font-size: 30px;
+  font-size: 144%;
   font-style: normal;
   text-align: center;
   text-transform: capitalize;
-  font-weight: bold;
 
 }
 
 .parrafo p {
-  font-size: 19px;
-  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 135%;
   text-align: justify;
 }
 
 .requisitos {
-  font-size: 22px;
-  font-weight: bold;
+  color: #ffffff;
+  font-size: 80%;  
 }
 
 ul {
   list-style-image: url('~assets/img/circulo.png');
   list-style-position: inside;
-  font-weight: bold;
+  font-size: 135%;
+
   // list-style-position: inside;
 }
 
@@ -116,7 +116,7 @@ p {
 }
 
 .p-tooltip-tex {
-  color: red;
+  color: rgb(133, 107, 107);
 }
 
 .form-control:focus {

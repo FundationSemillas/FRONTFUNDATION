@@ -45,7 +45,7 @@ export class NinosAdminComponent implements OnInit {
       fathersName: ['', [Validators.required, Validators.maxLength(70)]],
       study: [null],
       schoolName: [null, [Validators.maxLength(70)]],
-      age: [null, [Validators.required]]
+      //age: [null, [Validators.required]]
     });
     this.registerChild = this.formBuilder.group({
      // id: [null],valor por defecto, 
@@ -59,7 +59,7 @@ export class NinosAdminComponent implements OnInit {
       fathersName: ['', [Validators.required, Validators.maxLength(70)]],
       study: [null],
       schoolName: [null, [Validators.maxLength(70)]],
-      age: [null, [Validators.required]]
+      //age: [null, [Validators.required]]
     });
   }
 
@@ -101,12 +101,16 @@ export class NinosAdminComponent implements OnInit {
         "fathersName": this.registerChild.value.fathersName,
         "study": this.registerChild.value.study,
         "schoolName": this.registerChild.value.schoolName,
-        "age": this.registerChild.value.age,
+        //"age": this.registerChild.value.age,
      // }
     }
     console.log("valores crear: ", objetoCrear)
-    
-    this.restService.saveFile(this.files, objetoCrear, "/child").subscribe(
+    if(objetoCrear.study == 'si'){
+      objetoCrear.study = true
+    }else{
+      objetoCrear.study = false
+    }
+    this.restService.saveFile(this.files, objetoCrear, "/child/create").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
       res => {
         this.toastr.success('Niño creado Exitosamente');
@@ -169,10 +173,16 @@ export class NinosAdminComponent implements OnInit {
     }*/
 
     // console.log("objetoModificar: ", objetoModificar)
-    this.restService.updateData(this.modifChild.value, "/child/" + this.childseleccionado.id).subscribe(
+    if(this.modifChild.value.study == 'Sí'){
+      this.modifChild.value.study = true
+    }else{
+      this.modifChild.value.study = false
+    }
+    this.restService.updateData(this.modifChild.value, "/child/update").subscribe(
       res => {
         this.toastr.success('Niño modificado Exitosamente');
         console.log("modificado: exitosamente", res);
+        this.displayResponsiveModificar = false;
         this.getChildren();
       },
       err => {
@@ -184,7 +194,9 @@ export class NinosAdminComponent implements OnInit {
   // Obtener niño por Id
   getChild(id: number) {
     this.modalModificar();
-    this.restService.get("/child/" + id).subscribe((data) => {
+    let u = localStorage.getItem('currentUser')
+    let user = JSON.parse(u)
+    this.restService.get("/child/findById/" + id).subscribe((data) => {
       this.childseleccionado = data;
       console.log("Niño seleccionado: ", this.childseleccionado);
     });
@@ -203,7 +215,7 @@ export class NinosAdminComponent implements OnInit {
       header: 'Eliminar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {*/
-        this.restService.delete("/child/" + id).subscribe(
+        this.restService.delete("/child/delete/" + id).subscribe(
           res => {
             this.toastr.success('Eliminado Exitosamente');
             this.getChildren();

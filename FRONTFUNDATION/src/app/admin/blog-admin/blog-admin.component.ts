@@ -27,7 +27,7 @@ export class BlogAdminComponent implements OnInit {
 
   constructor(private confirmationService: ConfirmationService,private formBuilder: FormBuilder, private router: Router, private _blogServices: BlogService, private toastr: ToastrService) {
     this.modifBlog = this.formBuilder.group({
-      //id: [null],//valor por defecto, 
+      id: [null],//valor por defecto, 
       title: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', [Validators.required, Validators.maxLength(80)]],
       //image: [null],//si es una validacicion tener un Validators
@@ -116,7 +116,7 @@ export class BlogAdminComponent implements OnInit {
     console.log("objeto crear: ", this.modifBlog.value);
     // console.log("objetoModificar: ", objetoModificar)
     console.log(this.modifBlog.value, "/blog/" + this.blogseleccionado.id);
-    this._blogServices.updateData(this.modifBlog.value, "/blog/" + this.blogseleccionado.id).subscribe(
+    this._blogServices.updateData(this.modifBlog.value, "/blog/update").subscribe(
       res => {
         
         this.toastr.success('Blog modificado Exitosamente');
@@ -132,7 +132,7 @@ export class BlogAdminComponent implements OnInit {
   // Obtener blog por Id
   getBlog(id: number) {
     this.modalModificar();
-    this._blogServices.get("/blog/" + id).subscribe((data) => {
+    this._blogServices.get("/blog/findById/" + id).subscribe((data) => {
       this.blogseleccionado = data;
       console.log("blog seleccionado: ", this.blogseleccionado);
     });
@@ -151,7 +151,7 @@ export class BlogAdminComponent implements OnInit {
         header: 'Eliminar',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {*/
-          this._blogServices.delete("/blog/" + id).subscribe(
+          this._blogServices.delete("/blog/delete/" + id).subscribe(
             res => {
               this.toastr.success('Eliminado Exitosamente');
               this.getBlogs();

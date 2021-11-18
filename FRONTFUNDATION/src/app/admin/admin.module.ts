@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { BlogAdminComponent } from './blog-admin/blog-admin.component';
 import { PatrocinadoresAdminComponent } from './patrocinadores-admin/patrocinadores-admin.component';
@@ -23,7 +21,10 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ImagenesAdminComponent } from './albumnes-admin/imagenes-admin/imagenes-admin.component';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
-import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component'; // <-- import the module
+import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
+import { EventosAdminComponent } from './eventos-admin/eventos-admin.component';
+import { ZonasAdminComponent } from './zonas-admin/zonas-admin.component';
+import { FormularioComponent } from './zonas-admin/formulario.component'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -34,6 +35,9 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
     VoluntariosAdminComponent,
     ImagenesAdminComponent,
     UsuariosAdminComponent,
+    EventosAdminComponent,
+    ZonasAdminComponent,
+    FormularioComponent,
 
   ],
   imports: [

@@ -28,15 +28,14 @@
   box-shadow: 10px 6px 10px 4px rgba(230, 113, 18, 0.822);
 }
 .active{
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration-style:solid;
   background: linear-gradient(45deg, hsla(0, 0%, 100%, 1) 0%, hsla(144, 100%, 47%, 1) 100%);
   // /background: linear-gradient(45deg, hsla(0, 0%, 100%, 1) 0%, hsla(144, 100%, 47%, 1) 100%);/
 }
 
 .titulo{
-  color:#112A46;
-  font-weight: bold;
+  color:#ffffff;
   font-size: 30px;
   padding-top: 40px;
 }

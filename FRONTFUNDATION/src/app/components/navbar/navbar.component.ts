@@ -1,11 +1,12 @@
 import { StorageService } from './../../services/storage.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
@@ -76,9 +77,11 @@ export class NavbarComponent implements OnInit {
     }
     
     onLogout(): void {
+        
     this.authService.logout();
     location.reload();
   }
+
 
   onCheckUser(): void {
     if (this.authService.isAuthenticated() === false) {

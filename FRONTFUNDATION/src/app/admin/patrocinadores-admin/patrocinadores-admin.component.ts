@@ -28,6 +28,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
 
   constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private restService: AlbumService,) {
     this.modifSponsor = this.formBuilder.group({
+      id:null,
       name: ['', [Validators.required, Validators.maxLength(20)]],
       image: [],//si es una validacicion tener un Validators
       description: [""]
@@ -52,7 +53,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
       return;
     }
 
-    this.restService.saveFileSponsor(this.files, this.registerSponsor.value, "/sponsor").subscribe(
+    this.restService.saveFileSponsor(this.files, this.registerSponsor.value, "/sponsor/create").subscribe(
       res => {
         this.toastr.success('sponsor creado Exitosamente');
         console.log("creado exitosamente", res)
@@ -91,8 +92,8 @@ export class PatrocinadoresAdminComponent implements OnInit {
     }
   this.modifSponsor.value.image = this.sponsorseleccionado.image;
     // console.log("objetoModificar: ", this.modifSponsor.value)
-    this.restService.updateData(this.modifSponsor.value, "/sponsor/" + this.sponsorseleccionado.id).subscribe(
-      res => {
+    this.restService.updateData(this.modifSponsor.value, "/sponsor/update").subscribe(
+      () => {
         this.toastr.success('Álbum modificado Exitosamente');
         // console.log("modificado: exitosamente", res);
         this.getSponsors();
@@ -108,7 +109,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
   // Obtener sponsor por Id
   getsponsor(id: number) {
     this.modalModificar();
-    this.restService.get("/sponsor/" + id).subscribe((data) => {
+    this.restService.get("/sponsor/findById/" + id).subscribe((data) => {
       this.sponsorseleccionado = data;
       // console.log("sponsor seleccionado: ", this.sponsorseleccionado);
     });
@@ -122,7 +123,7 @@ export class PatrocinadoresAdminComponent implements OnInit {
       header: 'Eliminar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.restService.delete("/sponsor/" + id).subscribe(
+        this.restService.delete("/sponsor/delete/" + id).subscribe(
           res => {
             this.toastr.success('Eliminado Exitosamente');
             this.getSponsors();

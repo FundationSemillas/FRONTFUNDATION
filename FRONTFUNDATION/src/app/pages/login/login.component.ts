@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginObject } from './login-object.model';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -62,12 +64,19 @@ export class LoginComponent implements OnInit {
 
   public submitLogin(): void {
     
+    
+    
     this.submitted = true;
     this.error = null;
+    
     if(this.loginForm){
-      // console.log("si llega");
-      // console.log(this.loginForm)
-      //     this.auth.logIn(this.loginForm).subscribe(
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Has iniciado sesión correctamente',
+        showConfirmButton: false,
+        timer: 1000
+      })
       this.auth.logIn(this.loginForm).subscribe(
         data => this.correctLogin(data),
         error => {
@@ -79,6 +88,7 @@ export class LoginComponent implements OnInit {
 
   private correctLogin(data: Session){
     this.storage.setCurrentSession(data);
+    console.log(data)
     this.router.navigate(['/ninosAdmin']);
   }
   

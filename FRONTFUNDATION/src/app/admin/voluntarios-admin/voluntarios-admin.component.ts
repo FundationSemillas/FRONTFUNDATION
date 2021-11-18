@@ -57,23 +57,22 @@ export class VoluntariosAdminComponent implements OnInit {
     }
     //Objeto json que se envia al back
     let objetoCrear = {
-      "volunteers": {
-        "name": this.registerClub.value.name,
-        "surname": this.registerClub.value.surname,
-        "CI": this.registerClub.value.CI,
-        "description": this.registerClub.value.description,
-        "address": this.registerClub.value.address,
-        "telefonNumber": this.registerClub.value.telefonNumber,
-        "availability": this.registerClub.value.availability,
-        "image": null,
-        "state": null
-      }
+      name: this.registerClub.value.name,
+      surname: this.registerClub.value.surname,
+      CI: this.registerClub.value.CI,
+      description: this.registerClub.value.description,
+      address: this.registerClub.value.address,
+      phoneNumber: this.registerClub.value.telefonNumber,
+      availability: this.registerClub.value.availability,
+      image: null,
+      state: null
+
       // "events": {
       //   "id": this.registerClub.value.event
       // }
     }
     console.log("valores crear: ", objetoCrear)
-    this.restService.add(objetoCrear, "/volunteer").subscribe(
+    this.restService.add(objetoCrear, "/volunteer/create").subscribe(
       res => {
         this.toastr.success('Club creado Exitosamente');
         console.log("creado exitosamente", res)
@@ -106,23 +105,22 @@ export class VoluntariosAdminComponent implements OnInit {
     }
     //Objeto json que se envia al back
     let objetoModificar = {
-      "volunteers": {
-        "name": this.modifClub.value.name,
-        "surname": this.modifClub.value.surname,
-        "CI": this.modifClub.value.CI,
-        "description": this.modifClub.value.description,
-        "address": this.modifClub.value.address,
-        "telefonNumber": this.modifClub.value.telefonNumber,
-        "availability": this.modifClub.value.availability,
-        "image": null,
-        "state": null
-      }
+      id: this.modifClub.value.id,
+      name: this.modifClub.value.name,
+      surname: this.modifClub.value.surname,
+      CI: this.modifClub.value.CI,
+      description: this.modifClub.value.description,
+      address: this.modifClub.value.address,
+      phoneNumber: this.modifClub.value.telefonNumber,
+      availability: this.modifClub.value.availability,
+      image: null,
+      state: null
       // "events": {
       //   "id": this.modifClub.value.event
       // }
     }
     // console.log("objetoModificar: ", objetoModificar)
-    this.restService.updateData(objetoModificar, "/volunteer/" + this.clubseleccionado.id).subscribe(
+    this.restService.updateData(objetoModificar, "/volunteer/update").subscribe(
       res => {
         this.toastr.success('Club modificado Exitosamente');
         console.log("modificado: exitosamente", res);
@@ -137,7 +135,7 @@ export class VoluntariosAdminComponent implements OnInit {
   // Obtener club por Id
   getClub(id: number) {
     this.modalModificar();
-    this.restService.get("/volunteer/" + id).subscribe((data) => {
+    this.restService.get("/volunteer/findById/" + id).subscribe((data) => {
       this.clubseleccionado = data;
       console.log("club seleccionado: ", this.clubseleccionado);
     });
@@ -151,7 +149,7 @@ export class VoluntariosAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteClub(id) {
     console.log("id a eliminar:")
-    this.restService.delete("/volunteer/" + id).subscribe(
+    this.restService.delete("/volunteer/delete/" + id).subscribe(
       res => {
         this.toastr.success('Eliminado Exitosamente');
 

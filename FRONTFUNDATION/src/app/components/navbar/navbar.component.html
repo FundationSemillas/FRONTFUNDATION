@@ -1,69 +1,85 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+<div class="navbar-brand sticky-top" *ngIf="isLogged">
+    <input type="checkbox" id="check">
+                    <label for="check">
+                        <i class="fas fa-bars" id="btn"></i>
+                        <i class="fas fa-times" id="cancel"></i>
+                        </label>
 
-    <!-- <div class="collapse navbar-collapse flex-column " id="navbar"> -->
-
-    <div class="container ">
-        <div class="navbar-translate">
-
-            <a class="navbar-brand" [routerLink]="['/home']" style="font-size: 20px;">
-                <img src="./../../../assets/img/Logo_fundacion.svg" alt="" width="70" height="44"
-                    class="d-inline-block align-text-top">
-                <p> FUNDACIÓN SEMILLAS DE ESPERANZA</p>
-            </a>
-            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
-                data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                aria-label="Toggle navigation" (click)="sidebarToggle()">
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a [routerLink]="['/galeria']" class="nav-link"><i class="nc-icon nc-image"></i>GALERÍA</a>
-                </li>
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a [routerLink]="['/blog']" class="nav-link"><i class="nc-icon nc-bold"></i> BLOG</a>
-                </li>
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a [routerLink]="['/clubAmigos']" class="nav-link"><i class="nc-icon nc-credit-card"></i> CLUB
-                        AMIGOS</a>
-                </li>
-                <!--<li class="nav-item" *ngIf="!isDocumentation()">
-                     <a class="nav-link" target="_blank"><i class="nc-icon nc-credit-card"></i> DONACIONES</a>
-                 </li>-- >
-
-            <!-- </ul>
-        </div>
-
-        <div class="navbar-collapse flex-column" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">-->
-                <li class="nav-item" *ngIf="isLogged">
-                    <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-bold"></i> Blog Admin</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a [routerLink]="['/ninosAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-satisfied"></i> Niños Admin</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a [routerLink]="['/albumAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-badge"></i> Álbum Admin</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-bank"></i> Club Amigos Admin</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a [routerLink]="['/patrocinadoresAdmin']" class="nav-link" data-placement="bottom"><i
-                            class="nc-icon nc-tag-content"></i> Sponsor Admin</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a class="nav-link" (click)="onLogout()"><i class="nc-icon nc-simple-remove"></i> Cerrar
-                        Sesión</a>
-                </li>
-            </ul>
+            <div class="sidebar" *ngIf="isLogged">
+              <th *ngIf="isLogged" >
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/blogAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-bold"></i>Blog Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/ninosAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-satisfied"></i> Niños Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/albumAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-badge"></i> Álbum Admin</a>
+                  </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/clubAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-bank"></i> Club Amigos Admin</a>
+                    </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a [routerLink]="['/patrocinadoresAdmin']" class="nav-link" data-placement="bottom">
+                        <i class="nc-icon nc-tag-content"></i> Sponsor Admin</a>
+                    </a>
+                        <a class="nav-item" *ngIf="isLogged">
+                            <a [routerLink]="['/zonas']" class="nav-link" data-placement="bottom">
+                                <i class="nc-icon nc-map-big"></i>Zonas</a>
+                            </a>
+                <a class="nav-item" *ngIf="isLogged">
+                    <a class="nav-link" (click)="onLogout()">
+                        <i class="nc-icon nc-simple-remove">
+                        </i>Cerrar Sesión</a>
+                    </a>
+                  </th>
         </div> 
     </div>
-</nav>
+
+  <div class="container">
+    <div class="text-center">
+        <div align="center"><img src="../../assets/img/a.png" width="777" height="111"></div>
+    </div>
+    </div>
+    
+    
+      
+      
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-brand">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+      </div>
+      
+      
+      <div class="collapse navbar-collapse flex-column " id="navbar">
+      
+        <ul class="navbar-nav  w-100 justify-content-center px-3">
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " aria-current="page"
+            style=" margin: 5px; border: none; " [routerLink]="['/home']">Inicio</button>
+          </li>
+    
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/galeria']">Galería</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/blog']">Blog</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/eventos']">Eventos</button>
+          </li>
+          <li class="nav-item active">
+            <button type="button" class="btn btn-outline-light  " style=" margin: 5px; border: none; "
+            [routerLink]="['/clubAmigos']">Club de Amigos</button>
+          </li>
+        </ul>
+      </div>
