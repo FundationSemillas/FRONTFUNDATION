@@ -9,7 +9,7 @@
   width: 240px;
   left: -240px;
   height: 74%;
-  background: #343A40;
+  background: #343A40; /*barra izquierda admin */
   transition: all .5s ease;
 }
 
@@ -17,7 +17,7 @@
   display: block;
   height: 100%;
   width: 100%;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); /* color fuente barra izquierda admin */
   line-height: 50px;
   padding-left: 0px;
   box-sizing: border-box;
@@ -25,7 +25,7 @@
   transition: all .5s ease;
 }
 a.active,a:hover{
-  border-left: 1.5px solid #ffffff;
+  border-left: 1.5px solid #ffffff; /*lineas de cada opcion barra izquierda admin */
   color: #ffffff;
 }
 .sidebar a i{
@@ -42,12 +42,12 @@ a.active,a:hover{
 label #btn,label #cancel{
   position: absolute;
   cursor: pointer;
-  color: white;
+  color: white; /*boton de 3 lineas y boton de cierre barra izquierda admin */
   border-radius: 5px;
-  border: 1px solid #343A40;
+  border: 1px solid #343A40; /*borde de boton de 3 lineas y boton de cierre barra izquierda admin */
   margin: 15px 30px;
   font-size: 29px;
-  background: #343A40;
+  background: #343A40; /*fondo de boton de 3 lineas y boton de cierre barra izquierda admin */
   height: 45px;
   width: 45px;
   text-align: center;
