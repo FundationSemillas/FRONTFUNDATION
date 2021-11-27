@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'home', component: ComponentsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent},
   { path: 'galeria', component: GaleriaComponent },
   { path: 'imagenes/:id/:album', component: ImagenesComponent },
   { path: 'clubAmigos', component: VoluntariosComponent },

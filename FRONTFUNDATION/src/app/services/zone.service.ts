@@ -9,22 +9,6 @@ import 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
 const API_URL_FORM = environment.baseUrl;
-let token:string = JSON.parse(localStorage.getItem("currentUser")).token
-const headersApi = {
-  headers: new HttpHeaders({
-    
-    "Content-Type":"application/json",
-    "Accept": "application/json",
-    "X-Requested-With": "XMLHttpRequest",
-    "Authorization": "Bearer " +token,
-  }),
-  /**
-   *  "enctype": "multipart/form-data",
-     "Content-Type":"application/json",
-     "Accept": "application/json",
-    "X-Requested-With": "XMLHttpRequest",
-   */
-};
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +29,17 @@ export class ZoneService{
 
 
   add(objeto:any, url: String):Observable<ZoneInterface[]>{
+
+    const headersApi = {
+      headers: new HttpHeaders({
+        
+        "Content-Type":"application/json",
+        "Accept": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "Authorization": "Bearer "+ JSON.parse(localStorage.getItem("currentUser")).token,
+      })
+    };
+
     return this.http.post<ZoneInterface[]>(API_URL_FORM + url, objeto ,headersApi);
     
   }
@@ -52,6 +47,17 @@ export class ZoneService{
 
 
   delete(url: String):Observable<ZoneInterface[]> {
+
+    const headersApi = {
+      headers: new HttpHeaders({
+        
+        "Content-Type":"application/json",
+        "Accept": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "Authorization": "Bearer "+ JSON.parse(localStorage.getItem("currentUser")).token,
+      })
+    };
+
     return this.http.delete<ZoneInterface[]>(API_URL_FORM + url,headersApi);
   }
 
