@@ -19,7 +19,7 @@ export class GaleriaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.directorioImagenes = environment.baseUrl+'/storage/';
+    this.directorioImagenes = environment.baseUrl+'/public/';
     this.getAlbums();
   }
 

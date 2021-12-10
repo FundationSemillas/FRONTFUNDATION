@@ -8,7 +8,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { GaleriaComponent } from './pages/galeria/galeria.component';
 import { ImagenesComponent } from './pages/galeria/imagenes/imagenes.component';
-import { VoluntariosComponent } from './pages/voluntarios/voluntarios.component';
+//import { VoluntariosComponent } from './pages/voluntarios/voluntarios.component';
 import { AlbumnesAdminComponent } from './admin/albumnes-admin/albumnes-admin.component';
 import { BlogAdminComponent } from './admin/blog-admin/blog-admin.component';
 import { NinosAdminComponent } from './admin/ninos-admin/ninos-admin.component';
@@ -29,10 +29,10 @@ const routes: Routes = [
   { path: 'home', component: ComponentsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent},
   { path: 'galeria', component: GaleriaComponent },
   { path: 'imagenes/:id/:album', component: ImagenesComponent },
-  { path: 'clubAmigos', component: VoluntariosComponent },
+  //{ path: 'clubAmigos', component: VoluntariosComponent },
   { path: 'albumAdmin', component: AlbumnesAdminComponent, canActivate: [AuthGuard]}, 
   { path: 'blogAdmin', component: BlogAdminComponent, canActivate: [AuthGuard] },
   { path: 'ninosAdmin', component: NinosAdminComponent, canActivate: [AuthGuard] },//

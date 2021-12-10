@@ -31,10 +31,10 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="design bullet-list-67"></i></span>
                 </div>
-                <input type="text" formControlName="last_name" class="form-control" placeholder="Apellido"
-                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.last_name.errors }" />
-                <div *ngIf="submitted &amp;&amp; registerForm.controls.last_name.errors" class="text-danger">
-                  <div *ngIf="registerForm.controls.last_name.errors.required">El Nombre es requerido</div>
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Apellido"
+                  [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.lastName.errors }" />
+                <div *ngIf="submitted &amp;&amp; registerForm.controls.lastName.errors" class="text-danger">
+                  <div *ngIf="registerForm.controls.lastName.errors.required">El Apellido es requerido</div>
                 </div>
               </div>
 
@@ -67,7 +67,7 @@
 
               <!-- <button class="btn btn-primary">Registrar</button> -->
               <div class="centro">
-                <input type="submit" value="Registrar Usuario" class="btn login_btn">
+                <input type="submit" (click)="registrarUsuario" value="Registrar Usuario" class="btn login_btn">
               </div>
             </form>
           </div>

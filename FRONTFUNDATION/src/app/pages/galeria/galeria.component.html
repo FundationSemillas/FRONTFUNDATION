@@ -1,7 +1,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2 class="text-white mt-0">Galería</h2>
+                <h2 class="text-black mt-0">Galería</h2>
                 <hr class="divider light my-4" />
                 <!-- <p class="text-white-50 mb-10">Revisa nuestro blog</p> -->
             </div>
@@ -14,7 +14,9 @@
 <!-- <p> Selected food: {{selectedValue}} </p> -->
 <div>
     <div class="container">
-        <div class="titulo">Seleccione el año de los eventos</div>
+        <div class="titulo" style="color: black;">
+            Seleccione el año de los albumes
+        </div>
         <mat-form-field appearance="fill">
             <mat-label>Años</mat-label>
             <mat-select (selectionChange)="filtrarEventoYear($event.value)">
@@ -44,7 +46,7 @@
             <br>
         </div>
         <div *ngIf="!(albums?.length > 0)">
-            <h3>No Existen Eventos en el Año Seleccionado</h3>
+            <h3>No existen albumes en el año seleccionado</h3>
         </div>
     </div>
 </div>

@@ -41,7 +41,7 @@ directorioImagenes: any;
   }
 
   ngOnInit(): void {
-    this.directorioImagenes = environment.baseUrl+'/storage/';
+    this.directorioImagenes = environment.baseUrl+'/public/';
     this.getBlogs() 
   }
 
