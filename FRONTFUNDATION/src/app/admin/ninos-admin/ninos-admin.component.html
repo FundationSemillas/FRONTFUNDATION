@@ -95,7 +95,7 @@ aria-hidden="true">
         <div class="form-row">
           <div class="form-group col-md-6 col-lg-6">
           <label for="dateBirth">Fecha de Nacimiento</label>
-          <input type="text" [(ngModel)]="childseleccionado.dateBirth" formControlName="dateBirth" class="form-control"
+          <input type="date" [(ngModel)]="childseleccionado.dateBirth" formControlName="dateBirth" class="form-control"
               [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.dateBirth.errors }" />
           <div *ngIf="submitted &amp;&amp; modifChild.controls.dateBirth.errors" class="text-danger">
               <div *ngIf="modifChild.controls.dateBirth.errors.required">La fecha es requerido</div>
@@ -119,14 +119,6 @@ aria-hidden="true">
             <div *ngIf="modifChild.controls.houseAddress.errors.required">La Direccion es requerido</div>
         </div>
         </div>
-        <div class="form-group col-md-6 col-lg-6">
-          <label for="age">Edad</label>
-          <input type="number" max="18" [(ngModel)]="childseleccionado.age" formControlName="age" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted &amp;&amp; modifChild.controls.age.errors }" />
-          <div *ngIf="submitted &amp;&amp; modifChild.controls.age.errors" class="text-danger">
-              <div *ngIf="modifChild.controls.age.errors.required">Edad es requerido</div>
-          </div>
-          </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6 col-lg-6">

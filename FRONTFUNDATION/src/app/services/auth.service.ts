@@ -48,7 +48,6 @@ export class AuthService {
   }
 
   logIn(form: any): Observable<any>{
-    console.log(JSON.stringify(form.value));
     return this.http.post(API_URL_FORM +'/login', JSON.stringify(form.value), {headers:{'Content-Type':'application/json'}});
     //return result;
   }

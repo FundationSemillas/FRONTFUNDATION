@@ -28,57 +28,26 @@ export class LoginComponent implements OnInit {
     });
   }
 
-//   get email(){ return this.loginForm.get('email'); }
-//   get password(){ return this.loginForm.get('password'); }
-
-//   login(){
-//     console.log(this.loginForm, "si llega ");
-//     this.auth.logIn(this.loginForm).subscribe(
-//       (response) => { 
-//         console.log(response.token, "si llega ");
-//         //localStorage.removeItem('token');
-//         localStorage.setItem('token', response.token);
-//         this.router.navigate(['/ninosAdmin']);
-//       },
-//       (error) => { 
-//         localStorage.removeItem('token');
-//         this.serverErrors = error.error;
-//         console.log(this.serverErrors);
-//       }
-//     );
-//   }
-
-
  public submitted: Boolean = false;
   public error: {code: number, message: string} = null;
-//   loginForm: FormGroup;
-//   constructor(
-//               private formBuilder: FormBuilder,
-//               public _authServices: AuthService,
-//               private storageService: StorageService,
-//               private router: Router
-//              ) { 
-//               this.buildFormArchive();
-//              }
-
 
   public submitLogin(): void {
-    
-    
-    
     this.submitted = true;
     this.error = null;
     
     if(this.loginForm){
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Has iniciado sesión correctamente',
-        showConfirmButton: false,
-        timer: 1000
-      })
+      
       this.auth.logIn(this.loginForm).subscribe(
-        data => this.correctLogin(data),
+        data => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Has iniciado sesión correctamente',
+            showConfirmButton: false,
+            timer: 1000
+          })
+          this.correctLogin(data)
+        },
         error => {
           this.error = error;
         }

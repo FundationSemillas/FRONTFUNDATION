@@ -125,19 +125,6 @@ export class NinosAdminComponent implements OnInit {
         console.log("error crear", err)
       }
     );
-    /*this.restService.add(objetoCrear, "/child").subscribe(
-      res => {
-        this.toastr.success('Niño creado Exitosamente');
-        console.log("creado exitosamente", res)
-        this.resetForm();
-        this.getChildren();
-      },
-      err => {
-        console.log("error crear", err)
-        this.toastr.error ('Error al crear el Registro');
-      }
-    );*/
-
   }
 
 
@@ -156,21 +143,6 @@ export class NinosAdminComponent implements OnInit {
     if (this.modifChild.invalid) {
       return;
     }
-    //Objeto json que se envia al back
-    /*let objetoModificar = {
-      "id": this.modifChild.value.id,
-      "name": this.modifChild.value.name,
-      "surname": this.modifChild.value.surname,
-      "image": this.modifChild.value.image,
-      "dateBirth": this.modifChild.value.dateBirth,
-      "CI": this.modifChild.value.CI,
-      "houseAddress": this.modifChild.value.houseAddress,
-      "mothersName": this.modifChild.value.mothersName,
-      "fathersName": this.modifChild.value.fathersName,
-      "study": this.modifChild.value.study,
-      "schoolName": this.modifChild.value.schoolName,
-      "age": this.modifChild.value.age,
-    }*/
 
     // console.log("objetoModificar: ", objetoModificar)
     if(this.modifChild.value.study == 'Sí'){
@@ -210,11 +182,6 @@ export class NinosAdminComponent implements OnInit {
   // Servicio para eliminar objeto
   deleteChild(id) {
     console.log("id a eliminar:")
-    /* this.confirmationService.confirm({
-      message: 'Desea Eliminar el Registro',
-      header: 'Eliminar',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {*/
         this.restService.delete("/child/delete/" + id).subscribe(
           res => {
             this.toastr.success('Eliminado Exitosamente');
@@ -224,21 +191,7 @@ export class NinosAdminComponent implements OnInit {
             console.log("error: eliminar", err)
           }
         );
-     /* },
-      reject: () => {
-        this.toastr.error('Operación Cancelada');
-      }
-    });*/
   }
-
-  //Obtengo todos los eventos
-  /* getEventos() {
-     this.restService.get("/event").subscribe((data) => {
-       this.eventos = data;
-       console.log("eventos: ", this.eventos);
-     });
-   }*/
-
 
   //Despliege de Modales
   modalModificar() {
@@ -264,88 +217,5 @@ export class NinosAdminComponent implements OnInit {
     console.log("album admin: ", id + "  || ", imaChild)
     //this.router.navigate(['/imageChild', id, imaChild], { skipLocationChange: true });
   }
-
-
-
-  /*selected = '';
-
-  constructor(
-    private formBuilder: FormBuilder,
-    public _kidServices: PersonService
-  ) {
-    this.buildFormArchive();
-    this.formKid.patchValue(this._kidServices.selectedField);
-  }
-
-  ngOnInit(): void {
-    this.logeado = localStorage.getItem('logeado');
-    console.log("logeado admin: ", this.logeado);
-  }
-  // resetForm(blogForm?: NgForm): void {
-  //   this.blogsService.selectedBlog = {
-  //     id: null,
-  //     title: '',
-  //     image: '',
-  //     description: '',
-  //     link: '',
-
-  //   };
-  // }
-
-
-  buildFormArchive() {
-    this.formKid = this.formBuilder.group({
-      id: [null],//valor por defecto, 
-      name: ['', [Validators.required, Validators.maxLength(20)]],
-      surname: ['', [Validators.required, Validators.maxLength(20)]],//pipe para fechas??
-      foto: [null],//si es una validacicion tener un Validators
-      dateBirth: [null],
-      ci: [null],
-      houseAddress: ['', [Validators.required, Validators.maxLength(70)]],
-      motherName: ['', [Validators.required, Validators.maxLength(70)]],
-      fatherName: ['', [Validators.required, Validators.maxLength(70)]],
-      study: [null],
-      schoolName: ['', [Validators.required, Validators.maxLength(70)]],
-      age: [null, [Validators.required]]
-
-    });
-
-
-
-    this.formKid.get('foto').valueChanges.subscribe((value) => {
-      if (value !== null && value !== '') {
-        this.imgToBase64((document.querySelector('input[type="file"]') as HTMLInputElement).files[0])
-      }
-      console.log(this.formKid.get('foto').value);
-    })
-  }
-
-  private imgToBase64(file: any) {
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = this.toBase64.bind(this);
-      reader.readAsBinaryString(file);
-    }
-  }
-  toBase64(e) {
-    console.log('data:image/png;base64,' + btoa(e.target.result));
-  }
-
-  onSaveArchive(): void {
-    console.log(this.formKid.value);
-    this.formKid.markAllAsTouched()
-
-    if (this.formKid.valid) {// is es valido da true
-      //nuevo
-      if (this.formKid.controls['id'].value == null) {
-        this._kidServices.agregarPerson(this.formKid.value);
-      }
-
-    } else {
-      //actualizar
-      //this._libraryServices.editField(formarchive.value.id, formarchive.value);
-      this.formKid.markAllAsTouched()//activar los errores que hay
-    }
-  }*/
 
 }

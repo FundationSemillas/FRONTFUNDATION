@@ -55,18 +55,10 @@ export class AlbumnesAdminComponent implements OnInit {
     if (this.registerAlbum.invalid) {
       return;
     }
-    // Objeto json que se envia al back
-    // let objetoCrear = {
-    //   "title": this.registerAlbum.value.title,
-    //   "description": this.registerAlbum.value.description,
-    //   "date": this.registerAlbum.value.date,
-    //   // "events_i": this.registerAlbum.value.event
-    // }
-    // console.log("valores crear: ", objetoCrear);
     console.log("objeto crear: ", this.registerAlbum.value);
     this.restService.saveFile(this.files, this.registerAlbum.value, "/album/create").subscribe(
       // this.restService.saveFile(this.files,objetoModificar,
-      res => {
+      (res) => {
         this.toastr.success('Album creado Exitosamente');
         this.resetForm();
         this.getAlbums();
@@ -100,18 +92,6 @@ export class AlbumnesAdminComponent implements OnInit {
     if (this.modifAlbum.invalid) {
       return;
     }
-    //Objeto json que se envia al back
-    // let objetoModificar = {
-    //   "albums": {
-    //     "title": this.modifAlbum.value.title,
-    //     "description": this.modifAlbum.value.description,
-    //     "date": this.modifAlbum.value.date
-    //   },
-    //   "events": {
-    //     "id": this.modifAlbum.value.event
-    //   }
-    // }
-    // console.log("objetoModificar: ", objetoModificar)
     console.log("objeto crear: ", this.modifAlbum.value);
     this.restService.updateData(this.modifAlbum.value, "/album/update").subscribe(
       res => {
@@ -133,16 +113,6 @@ export class AlbumnesAdminComponent implements OnInit {
       console.log("album seleccionado: ", this.albumseleccionado);
     });
   }
-
-  //Obtengo todos los eventos
-  // getEventos() {
-  //   this.restService.get("/event").subscribe((data) => {
-  //     this.eventos = data;
-  //     console.log("eventos: ", this.eventos);
-  //   });
-  // }
-
-
   //Despliege de Modales
   modalModificar() {
     this.displayResponsiveModificar = true;

@@ -15,34 +15,34 @@ export class ZonasAdminComponent implements OnInit {
 
   ngOnInit() {
     this.getAllZone();
-    console.log(this.Zones)
   }
-
-
 
   getAllZone() {
     this.service.get("/zone").subscribe((res) => {
       console.log(res)
-      return this.Zones = res
+      this.Zones = res
     })
   }
 
-
   createZone() {
-    this.service.add({ "name": this.newZone }, "/zone/create").subscribe((res) => console.log(res))
-    console.log(this.Zones)
-    this.ngOnInit();
-    this.getAllZone();
+    this.service.add({ "name": this.newZone }, "/zone/create").subscribe((res) => {
+      console.log(res)
+      this.getAllZone()
+    },
+    (err) =>{
+      console.log("Error", err)
+    })
     this.newZone = "";
   }
 
   deleteZone(id: string) {
     console.log(id);
-    this.service.delete('/zone/delete/' + id).subscribe((res) => console.log(res))
-    this.ngOnInit();
-    this.getAllZone();
+    this.service.delete('/zone/delete/' + id).subscribe((res) => {
+      console.log(res)
+      this.getAllZone()
+    },
+    (err) =>{
+      console.log("Error", err)
+    })
   }
-
-
-
 }

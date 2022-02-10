@@ -84,15 +84,7 @@ get(url: string): Observable<any> {
 
 
 guardarImagenes(formdata: FormData): Observable<any> {
-  // let formData1 = new FormData();
-  // for (let i = 0; i < file.length; i++) {
-  //   formData1.append('image', file[i])
-  // }
-  // formData1.append('image[]', file);
   console.log("formData1: ",formdata);
-  // console.log("formData: ",formData )
-
-  // formData.append('data', json);
   return this.http.post(API_URL_FORM+"/image/create", formdata, {headers:{'Authorization':`Bearer ${user.token}`}}).map((res) => res);
 }
 }

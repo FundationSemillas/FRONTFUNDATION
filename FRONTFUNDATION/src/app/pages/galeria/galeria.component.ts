@@ -12,7 +12,7 @@ export class GaleriaComponent implements OnInit {
   selectedAlbum: any;
   directorioImagenes: any
 
-  years = [2015, 2016, 2017, 2018, 2019, 2020, 2021]
+  years = []
 
   albums: any;
   constructor(private router: Router, private restService: AlbumService) {
@@ -21,24 +21,46 @@ export class GaleriaComponent implements OnInit {
   ngOnInit(): void {
     this.directorioImagenes = environment.baseUrl+'/public/';
     this.getAlbums();
+    //this.addYears();
   }
 
   getId(item) {
-    // console.log("item: ", item);
     let id = item.id;
     let album = item.title;
     this.router.navigate(['/imagenes', id, album], { skipLocationChange: true });
   }
 
   filtrarEventoYear(value) {
-      this.restService.get("/filterYear/"+value).subscribe((data) => {
+    console.log("Aguanta ya esta en proceso")
+    this.albums = []
+      this.restService.get("/filterYear/"+value+"%").subscribe((data) => {
+      console.log(data);
       this.albums = data;
+    }, 
+    (err) =>{
+      console.log("Error", err)
     });
   }
 
+  addYears(){
+    let añobase = 2000
+    let año = new Date().getFullYear()
+    console.log(año)
+    for(let i = 0; i<=(año - 2000); i++)
+    {
+      this.years[i] = añobase+i
+    }
+  }
+
   getAlbums() {
+    console.log("Ya mismo");
+    this.addYears();
     this.restService.get("/album").subscribe((data) => {
       this.albums = data;
+      console.log("galeria",this.albums)
+    }, 
+    (err) => {
+      console.log("Error", err)
     });
   }
 }

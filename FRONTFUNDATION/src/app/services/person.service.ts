@@ -63,7 +63,7 @@ export class PersonService {
   get(url: string): Observable<any> {
     let u = localStorage.getItem('currentUser')
     let user = JSON.parse(u)
-    return this.http.get(API_URL_FORM + url, { headers: { 'Authorization': `Bearer ${user.token}`}}).map((res) => res);
+    return this.http.get(API_URL_FORM + url, { headers: { 'Authorization': `Bearer ${user.token}`}});
   }
   saveFile(file: File, objeto, url: String): Observable<any> {
     let formData = new FormData();
@@ -80,44 +80,5 @@ export class PersonService {
     // formData.append('data', json);
     return this.http.post(API_URL_FORM + url, formData, { headers: { 'Authorization': `Bearer ${user.token}`}}).map((res) => res);
   }
-  /** 
-    public selectedField: Person = {
-      name: '',
-      id: null,
-      image: '', 
-      surname: '', 
-      dateBirth: '',
-      ci: '',
-      motherName:'',
-      fatherName: '',
-      study: '',
-      houseAddress: '',
-      schoolName: '',
-      age: null 
-      
-    };
   
-    constructor(private http: HttpService) { }
-  
-    public async eliminarPerson(idPerson) {
-      return await this.http.delete("/child?id=".concat(idPerson));
-    }
-  
-    public async agregarPerson(person: Person) {
-      return await this.http.post("/child", person);
-    }
-  
-    public async obtenerPerson() {
-      return await this.http.get("/child");
-    }
-  
-    public async obtenerPorId(idPerson){
-      return await this.http.get("/child/?id=".concat(idPerson));
-    }
-  
-    public async modificarPerson(person: Person) {
-      return await this.http.update("/child",person);
-    }*/
-  //TODO
-  //AGREGAR  EL UPDATE
 }

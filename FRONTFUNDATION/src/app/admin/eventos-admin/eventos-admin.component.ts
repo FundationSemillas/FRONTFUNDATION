@@ -28,6 +28,7 @@ export class EventosAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllEvents()
   }
 
   getAllEvents() {
