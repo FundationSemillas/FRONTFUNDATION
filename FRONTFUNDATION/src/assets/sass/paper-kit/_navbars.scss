@@ -1,19 +1,10 @@
-.nav {
-    .nav-item{
-        .nav-link:hover,
-        .nav-link:focus{
-            background-color: transparent;
-        }
-    }
-}
-
 .navbar{
     border: $none;
     font-size: $font-size-base;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     padding: 0;
-    background: $white-color;
+    background: #F09F4B;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 
     .navbar-brand{
@@ -161,13 +152,6 @@
     .navbar-brand{
         color: $white-color;
         @include opacity(.9);
-
-        &:focus,
-        &:hover{
-            background-color: transparent;
-            @include opacity(1);
-            color: $white-color;
-        }
     }
 
     .navbar-nav{
@@ -478,7 +462,6 @@
     }
 }
 .navbar-transparent{
-    background: transparent !important;
     border-bottom: 1px solid transparent;
     box-shadow: none;
 
