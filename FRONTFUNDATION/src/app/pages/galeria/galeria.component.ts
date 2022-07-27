@@ -39,6 +39,6 @@ export class GaleriaComponent implements OnInit {
   getAlbums() {
     this.restService.get("/album").subscribe((data) => {
       this.albums = data;
-    });
-  }
-}
+    });  
+  }   
+}  
