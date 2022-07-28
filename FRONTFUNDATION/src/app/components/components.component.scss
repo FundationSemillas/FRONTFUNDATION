@@ -7,7 +7,6 @@
       text-align: center;
       padding: 2rem 0;
   }
-
   .product-image {
       width: 50%;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -25,7 +24,52 @@
   padding: 20px 10px;
 
 }
+.vission-title{
+  margin-bottom: 20px;
+}
+.mission-text{
+  font-size: 18px
+}
+.vission-text{
+  font-size: 18px
+}
+.app-container{
+  margin: 10px 20%;
+}
+.logo-container{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: #bebebe;
+}
+.logo-section{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.back-container{
+  background-color: rgb(134, 113, 157);
+  color: white;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.sections{
+  display:flex;
+  flex-direction: column;
 
+}
+.mission{
+  display: flex;
+  flex-direction: row;
+}
+.vission{
+  display: flex;
+  flex-direction: row;
+}
 .polaroid {
   width: 100%;
   background-color: white;
