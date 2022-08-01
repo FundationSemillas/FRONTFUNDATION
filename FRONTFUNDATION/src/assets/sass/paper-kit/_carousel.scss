@@ -41,14 +41,14 @@
     top: 48%;
     width: 30px;
     left: 20px;
-    opacity: 0;
+
 }
 .carousel-control-next{
     height: 30px;
     right: 20px;
     top: 48%;
     width: 30px;
-    opacity: 0;
+
 }
 .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .fa, .carousel-control .fa {
     display: inline-block;
@@ -74,13 +74,14 @@
 }
 
 .carousel-inner{
+    height: 700px;
     .carousel-item{
         img{
             border-radius: $border-radius-extreme;
-            box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
-            height: 400px;
+            height: 100vh;
             width: 100%;
         }
+        
     }
 }
 
