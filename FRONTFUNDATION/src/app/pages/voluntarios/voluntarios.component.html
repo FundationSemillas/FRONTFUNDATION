@@ -1,5 +1,5 @@
 <section class="page-section bg"
-    style="padding:5rem; background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);">
+    style="padding:5rem; background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);">
     <div class="container">
         <br><br>
         <div class="row justify-content-center">
@@ -10,62 +10,68 @@
     </div>
 </section>
 
-<div style="background: linear-gradient(45deg,  hsla(0, 0%, 100%, 1) 20%, rgba(128, 241, 193, 0.548) 100%);">
+<div style="background: linear-gradient(45deg,  hsla(0, 0%, 100%, 1) 20%, rgba(255, 255, 255, 0.548) 100%);">
     <!-- <div class="margen"> -->
     <br>
     <br>
-    <br>
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-5">
-            <div class="titulo">
-                <strong> Forma Parte de Nuestro Club</strong>
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="./assets/img/voluntarios.jpg" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">Forma parte de nuestro club!</h1>
+                <p>Estas a punto de unirte a una comunidad, la cual esta enfocada en la ayuda a los niños, niñas
+                 y adolescentes que lo necesiten, al unirte a la comunidad de Semillas de esperanza mejoras la 
+                 calidad de vida y aportas con un granito de arena a brindar un futuro mejor a las personas que más lo necesitan.</p>
             </div>
-            <div class="parrafo">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias voluptates amet autem
-                    repudiandae architecto optio. Unde porro eveniet, magni quod sit dolore nulla laboriosam velit
-                    tempora
-                    distinctio voluptate vero.</p>
+        </div>
+        <!-- Call to Action-->
+        <div class="card bg-success my-5 py-4 text-center" style="font-size: 960px; font-weight: bolder;">
+            <div class="card-body"><p class="card-text" style="font-size: 20px; font-weight: bolder;">Para unirte a nuestro club solo tienes que cumplir estos requisitos:</p></div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Ser participativo</h2>
+                        <p class="card-text">Al unirte a Semillas de esperanza deseamos de todo corazón que en las actividades 
+                            que realice la fundación, tu seas un miembro importante y cada ayuda nos beneficia a crecer y brindar
+                             un mejor futuro a nuestros niños.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Ganas de ayudar</h2>
+                        <p class="card-text">En Semillas de esperanza necesitamos personas dispuestas a colaborar, a que brinden su 
+                            ayuda, que demuestren que tengan esa chispa que alumbra a las personas, si tu eres una de esas personas 
+                            nos serás de gran ayuda dentro de la fundación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Buena voluntad</h2>
+                        <p class="card-text">Con el solo hecho de querer participar en el club de amigos de nuestra fundación ya 
+                            demuestras un gran corazón, el cual hace que dentro de semillas de esperanza nos emocione poder brindar 
+                            un mejor futuro a nuestros niños.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><p class="text-white m-0">Si estas dispuesto a unirte, solo da clic en el botón y se parte de esta maravillosa familia.</p>
                 <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias voluptates amet autem
-                    repudiandae architecto optio. Unde porro eveniet, magni quod sit dolore nulla laboriosam velit
-                    tempora
-                    distinctio voluptate vero.</p>
+                <button pTooltip="Aquí puedes formar parte de nuestro Club de Amigos" tooltipPosition="right" pButton pRipple
+                type="button" (click)="modalCrear()" label="Inscribete" class="p-button-rounded p-button-help"></button>
             </div>
-        </div>
-        <div class="col-md-5 caja">
-            <img class="img-fluid" src="./assets/img/voluntarios.jpg" alt="s">
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-5 caja">
-            <img class="img-fluid" src="./assets/img/r5.png" alt="s1">
-        </div>
-        <div class="col-md-5">
-            <div class="titulo">
-                Requisitos para unirte a nuestro Club
-            </div>
-            <h3>
-                <ul class="requisitos">
-                    <li>requisito 1</li>
-                    <li>requisito 2</li>
-                    <li>requisito 3</li>
-                    <li>requisito 4</li>
-                    <li>requisito 5</li>
-                </ul>
-            </h3>
-        </div>
-        <div class="col-md-1">
         </div>
     </div>
     <br>
-    <div class="col-md-12 butoncenter">
-        <button pTooltip="Aquí puedes formar parte de nuestro Club de Amigos" tooltipPosition="right" pButton pRipple
-            type="button" (click)="modalCrear()" label="Inscribete" class="p-button-rounded p-button-help"></button>
-    </div>
+    <br>
 </div>
 
 <!-- Modal Crear Club -->
