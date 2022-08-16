@@ -1,0 +1,25 @@
+[2022-08-16 05:22:27.633] [exthost] [info] Extension host with pid 1878 started
+[2022-08-16 05:22:27.637] [exthost] [error] Error: EEXIST: file already exists, open '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock'
+[2022-08-16 05:22:27.642] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': Could not acquire lock, checking if the file is stale.
+[2022-08-16 05:22:27.642] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': The lock looks stale, waiting for 2s.
+[2022-08-16 05:22:27.793] [exthost] [info] ExtensionService#_doActivateExtension gitpod.gitpod-web, startup: false, activationEvent: 'onAuthenticationRequest:gitpod'
+[2022-08-16 05:22:27.935] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-08-16 05:22:27.940] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-08-16 05:22:27.947] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-08-16 05:22:27.967] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: true, activationEvent: '*', root cause: GitHub.vscode-pull-request-github
+[2022-08-16 05:22:27.970] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+[2022-08-16 05:22:29.643] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': The lock looks stale even after waiting for 2s.
+[2022-08-16 05:22:29.645] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': Deleting a stale lock.
+[2022-08-16 05:22:29.649] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': Lock acquired.
+[2022-08-16 05:22:29.949] [exthost] [info] ExtensionService#_doActivateExtension GitHub.vscode-pull-request-github, startup: true, activationEvent: '*'
+[2022-08-16 05:22:30.047] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-08-16 05:22:30.133] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-08-16 05:22:31.493] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 05:22:31.501] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 05:22:31.589] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 05:22:32.185] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-16 05:22:32.205] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-16 05:22:32.210] [exthost] [info] Eager extensions activated
+[2022-08-16 05:23:09.496] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-08-16 05:23:09.496] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+[2022-08-16 05:23:09.514] [exthost] [info] Extension host with pid 1878 exiting with code 0
