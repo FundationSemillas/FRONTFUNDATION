@@ -1,0 +1,20 @@
+[2022-08-08T03:25:26.118Z] Log level: Info
+[2022-08-08T03:25:26.121Z] [info] Validating found git in: git
+[2022-08-08T03:25:26.147Z] [info] Using git 2.37.1 from git
+[2022-08-08T03:25:26.179Z] > git rev-parse --show-toplevel [11ms]
+[2022-08-08T03:25:26.197Z] > git rev-parse --git-dir --git-common-dir [5ms]
+[2022-08-08T03:25:26.205Z] [info] Open repository: /workspace/FRONTFUNDATION
+[2022-08-08T03:25:26.268Z] > git status -z -uall [52ms]
+[2022-08-08T03:25:26.280Z] > git symbolic-ref --short HEAD [3ms]
+[2022-08-08T03:25:26.290Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+[2022-08-08T03:25:26.309Z] > git remote --verbose [2ms]
+[2022-08-08T03:25:26.310Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+[2022-08-08T03:25:26.325Z] > git config --get commit.template [3ms]
+[2022-08-08T03:25:26.396Z] > git status -z -uall [61ms]
+[2022-08-08T03:25:26.405Z] > git symbolic-ref --short HEAD [2ms]
+[2022-08-08T03:25:26.413Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+[2022-08-08T03:25:26.425Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+[2022-08-08T03:25:26.426Z] > git remote --verbose [3ms]
+[2022-08-08T03:25:26.436Z] > git config --get commit.template [2ms]
+[2022-08-08T03:25:26.884Z] > git check-ignore -v -z --stdin [2ms]
+[2022-08-08T03:25:28.509Z] > git config --local branch.main.github-pr-owner-number [60ms]

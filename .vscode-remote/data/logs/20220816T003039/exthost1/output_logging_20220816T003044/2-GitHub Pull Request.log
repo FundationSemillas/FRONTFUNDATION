@@ -1,0 +1,49 @@
+[Info] /home/gitpod/.ssh/config: ENOENT: no such file or directory, open '/home/gitpod/.ssh/config'
+[Info] Registering git provider
+[Info] Looking for git repository
+[Info] Found 1 repositories during activation
+[Info] Git repository found, initializing review manager and pr tree view.
+[Info] Review> Validate state in progress
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch feature/images-home
+[Info] Review> no matching pull request metadata found on GitHub for current branch feature/images-home
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch feature/images-home
+[Info] Review> no matching pull request metadata found on GitHub for current branch feature/images-home
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] CreatePullRequestViewProvider> Initializing "create" view: {"availableBaseRemotes":[{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"}],"availableCompareRemotes":[{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"}],"defaultBaseRemote":{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"},"defaultBaseBranch":"main","defaultCompareRemote":{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"},"defaultCompareBranch":"feature/images-home","branchesForRemote":["main"],"branchesForCompare":["feature/images-home"],"defaultTitle":"imagesHome","defaultDescription":"","isDraft":false,"defaultMergeMethod":"merge","allowAutoMerge":false,"mergeMethodsAvailability":{"merge":true,"squash":true,"rebase":true},"createError":""}
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] CreatePullRequestViewProvider> Initializing "create" view: {"availableBaseRemotes":[{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"}],"availableCompareRemotes":[{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"}],"defaultBaseRemote":{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"},"defaultBaseBranch":"main","defaultCompareRemote":{"owner":"FundationSemillas","repositoryName":"FRONTFUNDATION"},"defaultCompareBranch":"main","branchesForRemote":["main"],"branchesForCompare":["main"],"defaultTitle":"Main","defaultDescription":"","isDraft":false,"defaultMergeMethod":"merge","allowAutoMerge":false,"mergeMethodsAvailability":{"merge":true,"squash":true,"rebase":true},"createError":""}
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree

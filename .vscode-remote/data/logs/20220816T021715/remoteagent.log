@@ -1,0 +1,15 @@
+[2022-08-16 02:17:15.798] [remoteagent] [info] 
+
+
+
+
+[2022-08-16 02:17:15.824] [remoteagent] [info] Extension host agent started.
+[2022-08-16 02:17:16.024] [remoteagent] [info] Deleted from disk github.vscode-pull-request-github /workspace/.vscode-remote/extensions/github.vscode-pull-request-github-0.48.0
+[2022-08-16 02:17:16.873] [remoteagent] [info] Getting Manifest... gitpod.gitpod-theme
+[2022-08-16 02:17:16.981] [remoteagent] [info] [10.20.27.16][0e622ad5][ManagementConnection] New connection established.
+[2022-08-16 02:17:17.488] [remoteagent] [info] [10.20.26.6][75830da8][ExtensionHostConnection] New connection established.
+[2022-08-16 02:17:17.497] [remoteagent] [info] [10.20.26.6][75830da8][ExtensionHostConnection] <826> Launched Extension Host Process.
+[2022-08-16 02:17:17.505] [remoteagent] [info] Installing extension: gitpod.gitpod-theme
+[2022-08-16 02:17:17.709] [remoteagent] [info] Extension installed successfully: gitpod.gitpod-theme
+[2022-08-16 02:40:35.219] [remoteagent] [info] [10.20.27.16][0e622ad5][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-08-16 02:40:35.259] [remoteagent] [info] [10.20.26.6][75830da8][ExtensionHostConnection] <826> Extension Host Process exited with code: 0, signal: null.

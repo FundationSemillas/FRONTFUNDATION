@@ -1,0 +1,6 @@
+{
+    "workbench.colorTheme": "Gitpod Dark",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 15,
+    "git.autofetch": true
+}

@@ -1,0 +1,21 @@
+[2022-08-08 03:25:25.179] [exthost] [info] Extension host with pid 845 started
+[2022-08-08 03:25:25.189] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/4790439b/vscode.lock': Lock acquired.
+[2022-08-08 03:25:25.360] [exthost] [info] ExtensionService#_doActivateExtension gitpod.gitpod-web, startup: false, activationEvent: 'onAuthenticationRequest:gitpod'
+[2022-08-08 03:25:25.515] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-08-08 03:25:25.518] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-08-08 03:25:25.523] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-08-08 03:25:25.541] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: true, activationEvent: '*', root cause: GitHub.vscode-pull-request-github
+[2022-08-08 03:25:25.714] [exthost] [info] ExtensionService#_doActivateExtension GitHub.vscode-pull-request-github, startup: true, activationEvent: '*'
+[2022-08-08 03:25:25.827] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-08-08 03:25:25.928] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-08-08 03:25:26.769] [exthost] [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onCommand:markdown.api.render'
+[2022-08-08 03:25:27.356] [exthost] [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: vscode.markdown-language-features
+[2022-08-08 03:25:27.461] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-08 03:25:27.469] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-08 03:25:27.551] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-08 03:25:28.339] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-08 03:25:28.356] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-08 03:25:28.360] [exthost] [info] Eager extensions activated
+[2022-08-08 03:25:43.657] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-08-08 03:25:43.657] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/4790439b/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+[2022-08-08 03:25:43.680] [exthost] [info] Extension host with pid 845 exiting with code 0

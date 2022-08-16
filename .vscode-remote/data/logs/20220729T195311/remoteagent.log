@@ -1,0 +1,17 @@
+[2022-07-29 19:53:11.405] [remoteagent] [info] 
+
+
+
+
+[2022-07-29 19:53:11.429] [remoteagent] [info] Extension host agent started.
+[2022-07-29 19:53:12.570] [remoteagent] [info] [10.20.246.9][a8fe1f7e][ManagementConnection] New connection established.
+[2022-07-29 19:53:12.642] [remoteagent] [info] Getting Manifest... gitpod.gitpod-theme
+[2022-07-29 19:53:12.968] [remoteagent] [info] [10.20.246.9][ef4792d9][ExtensionHostConnection] New connection established.
+[2022-07-29 19:53:12.975] [remoteagent] [info] [10.20.246.9][ef4792d9][ExtensionHostConnection] <830> Launched Extension Host Process.
+[2022-07-29 19:53:13.361] [remoteagent] [info] Installing extension: gitpod.gitpod-theme
+[2022-07-29 19:53:13.549] [remoteagent] [info] Extension installed successfully: gitpod.gitpod-theme
+[2022-07-29 19:54:15.048] [remoteagent] [info] [10.20.246.9][a8fe1f7e][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-07-29 19:54:15.063] [remoteagent] [info] [10.20.246.9][ef4792d9][ExtensionHostConnection] <830> Extension Host Process exited with code: 0, signal: null.
+[2022-07-29 19:54:16.994] [remoteagent] [info] [10.20.191.65][188c97fd][ManagementConnection] New connection established.
+[2022-07-29 19:54:17.505] [remoteagent] [info] [10.20.142.72][e25f6b45][ExtensionHostConnection] New connection established.
+[2022-07-29 19:54:17.513] [remoteagent] [info] [10.20.142.72][e25f6b45][ExtensionHostConnection] <909> Launched Extension Host Process.

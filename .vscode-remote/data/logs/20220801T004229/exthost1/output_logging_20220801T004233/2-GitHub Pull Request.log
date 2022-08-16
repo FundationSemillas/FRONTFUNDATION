@@ -1,0 +1,78 @@
+[Info] /home/gitpod/.ssh/config: ENOENT: no such file or directory, open '/home/gitpod/.ssh/config'
+[Info] Registering git provider
+[Info] Looking for git repository
+[Info] Found 1 repositories during activation
+[Info] Git repository found, initializing review manager and pr tree view.
+[Info] Review> Validate state in progress
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch undefined
+[Info] Review> no matching pull request metadata found on GitHub for current branch undefined
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch feature/navbar-changes
+[Info] PullRequestGitHelper> associate feature/navbar-changes with Pull Request #2
+[Info] Review> current branch feature/navbar-changes is associated with pull request #2
+[Info] Review> Resolving pull request
+[Info] Review> Fetching pull request data
+[Info] PullRequestTree> Adding PR #2 to tree
+[Info] Review> register comments provider
+[Info] Review> display pull request status bar indicator and refresh pull request tree view.
+[Info] Review> using focus mode = true.
+[Info] Review> state validation silent = true.
+[Info] Review> PR show should show = false.
+[Info] Review> Validate state in progress
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Trying to use globalState for mentionable users.
+[Info] No globalState for mentionable users.
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #2 from tree
+[Info] Review> Queuing additional validate state
+[Info] Review> Validating state...
+[Info] Found GitHub remote
+[Info] Review> no matching pull request metadata found for current branch main
+[Info] Review> no matching pull request metadata found on GitHub for current branch main
+[Info] PullRequestTree> Removing PR #undefined from tree

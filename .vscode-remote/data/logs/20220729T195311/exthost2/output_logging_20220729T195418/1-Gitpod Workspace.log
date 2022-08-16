@@ -1,0 +1,74 @@
+[Info  - 19:54:19.193] VSCODE_MACHINE_ID: 455edf14-e62d-4298-8f66-b312aa6adaa4
+[Info  - 19:54:19.193] VSCODE_SESSION_ID: e7ecf4ba-a2d8-40e3-969e-cd690efeb0fb1659124456428
+[Info  - 19:54:19.193] VSCODE_VERSION: 1.69.2
+[Info  - 19:54:19.193] VSCODE_APP_NAME: Gitpod Code
+[Info  - 19:54:19.193] VSCODE_APP_HOST: Gitpod
+[Info  - 19:54:19.193] VSCODE_UI_KIND: web
+[Info  - 19:54:19.193] GITPOD_WORKSPACE_CONTEXT_URL: https://github.com/FundationSemillas/FRONTFUNDATION
+[Info  - 19:54:19.193] GITPOD_INSTANCE_ID: ec40af48-046c-4799-9fcb-1346d0e6fae8
+[Info  - 19:54:19.193] GITPOD_WORKSPACE_URL: https://fundationse-frontfundat-amukzt32q0h.ws-us54.gitpod.io
+[Trace  - 19:54:19.211] Task status:
+	c0ae4587-02ea-4dfa-a2b2-e3bb309251fd => RUNNING
+[Error  - 20:39:50.37] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:51.39] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:52.40] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:53.41] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:54.43] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:55.45] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:56.47] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:57.49] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[Error  - 20:39:58.51] cannot maintain connection to supervisor
+Error: 13 INTERNAL: closed
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1133287)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)

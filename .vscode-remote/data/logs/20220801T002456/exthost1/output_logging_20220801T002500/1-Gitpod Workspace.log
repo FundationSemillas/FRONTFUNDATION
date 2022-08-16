@@ -1,0 +1,19 @@
+[Info  - 00:25:02.50] VSCODE_MACHINE_ID: 8fe27e2a-5f98-46be-ac82-3ef90a06cabf
+[Info  - 00:25:02.50] VSCODE_SESSION_ID: 82869851-bc13-4628-a07f-20efedb0a4bc1659313497663
+[Info  - 00:25:02.50] VSCODE_VERSION: 1.69.2
+[Info  - 00:25:02.50] VSCODE_APP_NAME: Gitpod Code
+[Info  - 00:25:02.50] VSCODE_APP_HOST: Gitpod
+[Info  - 00:25:02.50] VSCODE_UI_KIND: web
+[Info  - 00:25:02.50] GITPOD_WORKSPACE_CONTEXT_URL: https://github.com/FundationSemillas/FRONTFUNDATION
+[Info  - 00:25:02.50] GITPOD_INSTANCE_ID: 67beb7c7-149a-47ff-bf5e-2591639ff42f
+[Info  - 00:25:02.50] GITPOD_WORKSPACE_URL: https://fundationse-frontfundat-amukzt32q0h.ws-us58.gitpod.io
+[Trace  - 00:25:02.116] Task status:
+	ed489b25-f6f3-4b90-ac5a-92e24b322a52 => RUNNING
+[Error  - 00:35:29.821] ed489b25-f6f3-4b90-ac5a-92e24b322a52 terminal: shutdown failed:
+Error: 4 DEADLINE_EXCEEDED: Deadline exceeded
+	at Object.t.callErrorFromStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1095885)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1130973)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126943)
+	at Object.onReceiveStatus (/ide/extensions/gitpod-web/dist/extension.js:2:1126388)
+	at /ide/extensions/gitpod-web/dist/extension.js:2:1086246
+	at processTicksAndRejections (node:internal/process/task_queues:78:11)

@@ -1,0 +1,12 @@
+[2022-08-01 00:24:56.045] [remoteagent] [info] 
+
+
+
+
+[2022-08-01 00:24:56.102] [remoteagent] [info] Extension host agent started.
+[2022-08-01 00:24:57.292] [remoteagent] [info] [10.20.49.202][0db70389][ManagementConnection] New connection established.
+[2022-08-01 00:24:57.454] [remoteagent] [info] Getting Manifest... gitpod.gitpod-theme
+[2022-08-01 00:24:58.138] [remoteagent] [info] Installing extension: gitpod.gitpod-theme
+[2022-08-01 00:24:59.182] [remoteagent] [info] Extension installed successfully: gitpod.gitpod-theme
+[2022-08-01 00:25:00.114] [remoteagent] [info] [10.20.20.135][8cf3c4f9][ExtensionHostConnection] New connection established.
+[2022-08-01 00:25:00.136] [remoteagent] [info] [10.20.20.135][8cf3c4f9][ExtensionHostConnection] <842> Launched Extension Host Process.

@@ -1,0 +1,19 @@
+[2022-08-16 04:23:24.902] [exthost] [info] Extension host with pid 832 started
+[2022-08-16 04:23:24.909] [exthost] [info] Lock '/workspace/.vscode-remote/data/User/workspaceStorage/-46c1abdc/vscode.lock': Lock acquired.
+[2022-08-16 04:23:25.065] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+[2022-08-16 04:23:25.137] [exthost] [info] ExtensionService#_doActivateExtension gitpod.gitpod-web, startup: false, activationEvent: 'onAuthenticationRequest:gitpod'
+[2022-08-16 04:23:25.262] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-08-16 04:23:25.265] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-08-16 04:23:25.269] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-08-16 04:23:25.285] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: true, activationEvent: '*', root cause: GitHub.vscode-pull-request-github
+[2022-08-16 04:23:25.447] [exthost] [info] ExtensionService#_doActivateExtension GitHub.vscode-pull-request-github, startup: true, activationEvent: '*'
+[2022-08-16 04:23:25.540] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-08-16 04:23:25.625] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-08-16 04:23:27.120] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 04:23:27.126] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 04:23:27.195] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-08-16 04:23:27.781] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-16 04:23:27.799] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-16 04:23:27.802] [exthost] [info] Eager extensions activated
+[2022-08-16 04:29:51.314] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 456
+[2022-08-16 04:29:56.369] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 456

@@ -1,0 +1,26 @@
+[2022-08-08 03:24:56.059] [remoteagent] [info] 
+
+
+
+
+[2022-08-08 03:24:56.083] [remoteagent] [info] Extension host agent started.
+[2022-08-08 03:24:57.129] [remoteagent] [info] Getting Manifest... gitpod.gitpod-theme
+[2022-08-08 03:24:57.725] [remoteagent] [info] Installing extension: gitpod.gitpod-theme
+[2022-08-08 03:24:57.947] [remoteagent] [info] Extension installed successfully: gitpod.gitpod-theme
+[2022-08-08 03:25:21.109] [remoteagent] [info] [10.20.77.78][0831fa96][ManagementConnection] New connection established.
+[2022-08-08 03:25:24.214] [remoteagent] [info] [10.20.239.71][546ddb53][ExtensionHostConnection] New connection established.
+[2022-08-08 03:25:24.223] [remoteagent] [info] [10.20.239.71][546ddb53][ExtensionHostConnection] <845> Launched Extension Host Process.
+[2022-08-08 03:25:25.651] [remoteagent] [info] Getting Manifest... github.vscode-pull-request-github
+[2022-08-08 03:25:26.458] [remoteagent] [info] Installing extension: github.vscode-pull-request-github
+[2022-08-08 03:25:29.140] [remoteagent] [info] Downloaded extension: github.vscode-pull-request-github /workspace/.vscode-remote/data/CachedExtensionVSIXs/github.vscode-pull-request-github-0.48.0
+[2022-08-08 03:25:29.242] [remoteagent] [info] Extracted extension to /workspace/.vscode-remote/extensions/.37d566aa-dceb-4b34-902a-208a15854504: github.vscode-pull-request-github
+[2022-08-08 03:25:29.245] [remoteagent] [info] Renamed to /workspace/.vscode-remote/extensions/github.vscode-pull-request-github-0.48.0
+[2022-08-08 03:25:29.247] [remoteagent] [info] Extracting completed. github.vscode-pull-request-github
+[2022-08-08 03:25:29.250] [remoteagent] [info] Extension installed successfully: github.vscode-pull-request-github
+[2022-08-08 03:25:43.660] [remoteagent] [info] [10.20.77.78][0831fa96][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-08-08 03:25:43.691] [remoteagent] [info] [10.20.239.71][546ddb53][ExtensionHostConnection] <845> Extension Host Process exited with code: 0, signal: null.
+[2022-08-08 03:25:45.701] [remoteagent] [info] [10.20.239.71][7c8ca23d][ManagementConnection] New connection established.
+[2022-08-08 03:25:46.122] [remoteagent] [info] [10.20.239.71][12a1554b][ExtensionHostConnection] New connection established.
+[2022-08-08 03:25:46.128] [remoteagent] [info] [10.20.239.71][12a1554b][ExtensionHostConnection] <888> Launched Extension Host Process.
+[2022-08-08 03:36:20.128] [remoteagent] [info] [10.20.239.71][7c8ca23d][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-08-08 03:36:20.166] [remoteagent] [info] [10.20.239.71][12a1554b][ExtensionHostConnection] <888> Extension Host Process exited with code: 0, signal: null.

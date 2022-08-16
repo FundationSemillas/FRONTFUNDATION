@@ -1,0 +1,21 @@
+[2022-08-16 00:30:39.494] [remoteagent] [info] 
+
+
+
+
+[2022-08-16 00:30:39.524] [remoteagent] [info] Extension host agent started.
+[2022-08-16 00:30:40.729] [remoteagent] [info] Getting Manifest... gitpod.gitpod-theme
+[2022-08-16 00:30:40.754] [remoteagent] [info] [10.20.27.16][f215ff59][ManagementConnection] New connection established.
+[2022-08-16 00:30:41.367] [remoteagent] [info] Installing extension: gitpod.gitpod-theme
+[2022-08-16 00:30:42.497] [remoteagent] [info] Extension installed successfully: gitpod.gitpod-theme
+[2022-08-16 00:30:43.773] [remoteagent] [info] [10.20.27.16][5a1a2673][ExtensionHostConnection] New connection established.
+[2022-08-16 00:30:43.782] [remoteagent] [info] [10.20.27.16][5a1a2673][ExtensionHostConnection] <843> Launched Extension Host Process.
+[2022-08-16 00:30:45.139] [remoteagent] [info] Getting Manifest... github.vscode-pull-request-github
+[2022-08-16 00:30:46.032] [remoteagent] [info] Installing extension: github.vscode-pull-request-github
+[2022-08-16 00:30:48.531] [remoteagent] [info] Downloaded extension: github.vscode-pull-request-github /workspace/.vscode-remote/data/CachedExtensionVSIXs/github.vscode-pull-request-github-0.48.1
+[2022-08-16 00:30:48.689] [remoteagent] [info] Extracted extension to /workspace/.vscode-remote/extensions/.39eb728b-4d97-4952-b2bb-063ca0b60b98: github.vscode-pull-request-github
+[2022-08-16 00:30:48.694] [remoteagent] [info] Renamed to /workspace/.vscode-remote/extensions/github.vscode-pull-request-github-0.48.1
+[2022-08-16 00:30:48.696] [remoteagent] [info] Extracting completed. github.vscode-pull-request-github
+[2022-08-16 00:30:48.700] [remoteagent] [info] Extension installed successfully: github.vscode-pull-request-github
+[2022-08-16 00:57:16.105] [remoteagent] [info] [10.20.27.16][f215ff59][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[2022-08-16 00:57:16.124] [remoteagent] [info] [10.20.27.16][5a1a2673][ExtensionHostConnection] <843> Extension Host Process exited with code: 0, signal: null.
