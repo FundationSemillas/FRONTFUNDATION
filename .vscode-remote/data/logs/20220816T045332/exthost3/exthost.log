@@ -19,3 +19,4 @@
 [2022-08-16 05:26:47.840] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
 [2022-08-16 05:26:54.852] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
 [2022-08-16 05:29:54.741] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 10095
+[2022-08-16 05:33:45.901] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
