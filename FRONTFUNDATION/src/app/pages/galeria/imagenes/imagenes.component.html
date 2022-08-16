@@ -21,11 +21,19 @@
                 <img *ngFor="let img of imaganesAlbum; let i = index" [src]="img.image"
                     (click)="showLightbox(i)" />
             </div>
+
             <ng-image-fullscreen-view class="contenedor" [images]="imaganesAlbum" [imageIndex]="currentIndex"
                 [show]="showFlag" (close)="closeEventHandler()"></ng-image-fullscreen-view>
         </div>
     </div>
+
 </div>
+<center>
+<img src="../../../assets/img/galeria/gal1.jpeg"alt="galeria" width="640" height="300"><br><br>
+<img src="../../../assets/img/galeria/gal2.jpeg"alt="galeria" width="640" height="450"><br><br>
+<img src="../../../assets/img/galeria/gal3.jpeg"alt="galeria" width="640" height="450"><br><br>
+<img src="../../../assets/img/galeria/gal4.jpeg"alt="galeria" width="740" height="450"><br><br>
+</center>
 <br><br>
 <br><br>
 
