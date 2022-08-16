@@ -111,18 +111,36 @@ footer p {
 }
 
 #social_footer_ul a {
-  width: 80%;
+  text-align: center;
+  width: 90%;
   height: 20%;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 4%;
+  font-size: 15px;
 }
 
 #social_footer_ul i {
-  text-align: left;
-  width: 15%;
-  height: 50%;
-  margin-top: 2.5%;
+  border-radius: 5px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  margin-top: 1.5%;
   margin-left: 5%;
+}
+
+#facebook {
+  background-color: #3b5998;
+}
+
+#instagram {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 30% 107%, #feda77 0%, #feda77 5%, #f58529 35%,#dd2a7b 50%,#8134af 80%, #515bd4 107%);
+}
+
+#whatsapp {
+  background-color: #00bb2d;
 }
 
 /* Credit to https://bootsnipp.com/snippets/bxDBA */
