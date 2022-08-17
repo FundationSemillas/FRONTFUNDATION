@@ -1,10 +1,7 @@
 /*          Changes for small display      */
 
 @media (max-width: 767px){
-    .navbar-transparent{
-        // padding-top: 15px;
-        background-color: rgba(0, 0, 0, 0.45);
-    }
+  
     body {
          position: relative;
          font-size: $font-size-small;
